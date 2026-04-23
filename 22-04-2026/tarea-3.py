@@ -5,6 +5,7 @@ def conectar():
         host="localhost",
         database="terrasoft_2026",
         user="admin",
+        port=5431,
         password="admin123"
     )
 
