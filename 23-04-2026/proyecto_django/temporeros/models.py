@@ -9,7 +9,6 @@ class Temporero(models.Model):
 	nombre = models.CharField(max_length=100)
 	rut = models.CharField(max_length=12, unique=True)
 	telefono = models.CharField(max_length=20, null=True, blank=True)
-	telefono =  models.CharField(max_length=20, null=True, blank=True)
 	contacto_emergencia = models.CharField(max_length=100, null=True, blank=True)
 	fecha_ingreso = models.DateField()
 	supervisor = models.BooleanField(default=False)

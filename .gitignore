@@ -1,5 +1,8 @@
 #Christopher
-
+__pycache__/
+*.pyc
+.vscode/
+.idea/
 venv/
 22-04-2026/venv/
 
