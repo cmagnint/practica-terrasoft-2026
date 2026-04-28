@@ -10,13 +10,17 @@ django.setup()
 from temporeros.models import Temporero, Cuartel, Labor
 from django.db.models import Count, Sum, Avg, Q
 
-#Consulta 1: Labores de un temporero por RUT
+# ============================================================
+# Consulta 1: Labores del temporero por RUT
+# ============================================================
 labores = Labor.objects.filter(temporero__rut='11111111-1')
 
 for l in labores:
     print(l.temporero.nombre, l.tipo, l.fecha)
 
-#Consulta 2: Labores usando relacion inversa
+# ============================================================
+# Consulta 2: Labores usando relacion inversa
+# ============================================================
 temporero = Temporero.objects.get(rut='11111111-1')
 
 labores = temporero.labores.all()
@@ -24,15 +28,17 @@ labores = temporero.labores.all()
 for l in labores:
     print(l.tipo, l.cuartel.nombre, l.fecha)
 
-#Consulta 3: Labores en cuarteles de variedad Duke
-
+# ============================================================
+# Consulta 3: Labores en cuarteles de variedad Duke
+# ============================================================
 labores = Labor.objects.filter(cuartel__variedad='Duke')
 
 for l in labores:
     print(l.temporero.nombre, l.cuartel.nombre, l.tipo, l.fecha)
 
-#Consulta 4: Total de horas por temporero
-
+# ============================================================
+# Consulta 4: Total de horas por temporero
+# ============================================================
 resultado = Temporero.objects.filter(activo=True).annotate(
     total_horas=Sum('labores__horas_trabajadas')
 ).order_by('-total_horas')
@@ -40,17 +46,23 @@ resultado = Temporero.objects.filter(activo=True).annotate(
 for t in resultado:
     print(t.nombre, t.rut, t.total_horas)
 
-#Consulta 5: Cuartel más productivo
-
+# ============================================================
+# Consulta 5: Cuartel mas productivo
+# ============================================================
 resultado = Cuartel.objects.annotate(
     total_kilos=Sum('labores__kilos_cosechados')
+).filter(
+    total_kilos__isnull=False
 ).order_by('-total_kilos').first()
 
-print("Cuartel más productivo:")
-print(resultado.nombre, resultado.total_kilos)
-
-#Consulta 6: Ranking de tipos de labor
-
+if resultado:
+    print("Cuartel más productivo:")
+    print(resultado.nombre, round(resultado.total_kilos, 2))
+else:
+    print("No hay datos de cosecha")
+# ============================================================
+# Consulta 6: Ranking de tipos de labor
+# ============================================================
 resultado = Labor.objects.values('tipo').annotate(
     cantidad=Count('id')
 ).order_by('-cantidad')
@@ -60,20 +72,25 @@ for r in resultado:
     porcentaje = (r['cantidad'] / total_labores) * 100
     print(r['tipo'], r['cantidad'], f"{porcentaje:.2f}%")
 
-#Consulta 7: Promedio de kilos por cuartel
-
+# ============================================================
+# Consulta 7: Promedio kilos de cosecha por cuartel
+# ============================================================
 resultado = Cuartel.objects.annotate(
-    promedio_kilos=Avg('labores__kilos_cosechados', filter=Q(labores__tipo='Cosecha'))
+    promedio_kilos=Avg(
+        'labores__kilos_cosechados',
+        filter=Q(labores__tipo='Cosecha')
+    )
+).filter(
+    promedio_kilos__isnull=False
 ).order_by('-promedio_kilos')
 
 for c in resultado:
-    print(c.nombre, round(c.promedio_kilos, 2))
+    print(c.nombre, f"{c.promedio_kilos:.2f}")
 
-
+# ============================================================
+# Consulta 8: Temporeros sin labores e la ultima semana
+# ============================================================
 from datetime import datetime, timedelta
-
-#Consulta 8: Temporeros sin labores en la última semana
-
 hace_7_dias = datetime.now().date() - timedelta(days=7)
 
 resultado = Temporero.objects.filter(activo=True).annotate(
@@ -86,8 +103,9 @@ resultado = Temporero.objects.filter(activo=True).annotate(
 for t in resultado:
     print(t.nombre, t.rut)
 
-#Consulta 9: 3 Temporeros cosecheros del mes
-
+# ============================================================
+# Consulta 9: 3 Temporeros cosecheros del mes
+# ============================================================
 hace_30_dias = datetime.now().date() - timedelta(days=30)
 
 resultado = Temporero.objects.annotate(
@@ -112,7 +130,9 @@ resultado = Temporero.objects.annotate(
 for t in resultado:
     print(t.nombre, round(t.total_kilos, 2), t.cantidad_labores)
 
-#Consulta 10: Reporte cruzado y tipo de labor
+# ============================================================
+# Consulta 10: Reporte cruzado
+# ============================================================
 resultado = Labor.objects.values('cuartel__nombre', 'tipo').annotate(
 	cantidad=Count('id')
 )
