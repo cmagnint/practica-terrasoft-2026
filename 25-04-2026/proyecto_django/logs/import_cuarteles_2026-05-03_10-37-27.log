@@ -1,0 +1,55 @@
+[FILA 005] ACTUALIZADO    : A-1 (hectareas)
+[FILA 006] ACTUALIZADO    : A-2 (hectareas)
+[FILA 007] ACTUALIZADO    : B-1 (hectareas)
+[FILA 008] ACTUALIZADO    : B-2 (activo)
+[FILA 009] SIN CAMBIOS    : C-1
+[FILA 010] ACTUALIZADO    : C-2 (hectareas)
+[FILA 011] DUPLICADO      : A-1 ya apareció en el archivo
+[FILA 012] OK creado      : G-2
+[FILA 013] RECHAZADO VAR  : variedad inválida para K-4: Duk
+[FILA 014] RECHAZADO VAR  : variedad inválida para F-5: Starr
+[FILA 015] OK creado      : M-5
+[FILA 016] OK creado      : O-1
+[FILA 017] RECHAZADO VAR  : variedad inválida para K-3: Duk
+[FILA 018] OK creado      : O-4
+[FILA 019] RECHAZADO VAR  : variedad inválida para D-3: Starr
+[FILA 020] OK creado      : I-2
+[FILA 021] OK creado      : N-4
+[FILA 022] OK creado      : D-5
+[FILA 023] OK creado      : L-3
+[FILA 024] OK creado      : E-2
+[FILA 025] RECHAZADO VAR  : variedad inválida para G-5: Starr
+[FILA 026] OK creado      : M-3
+[FILA 027] OK creado      : I-1
+[FILA 028] RECHAZADO VAR  : variedad inválida para K-1: Starr
+[FILA 029] OK creado      : I-3
+[FILA 030] OK creado      : I-5
+[FILA 031] RECHAZADO VAR  : variedad inválida para E-3: Sar
+[FILA 032] OK creado      : N-2
+[FILA 033] OK creado      : F-3
+[FILA 034] OK creado      : M-2
+[FILA 035] OK creado      : J-5
+[FILA 036] OK creado      : H-4
+[FILA 037] RECHAZADO VAR  : variedad inválida para E-1: Sar
+[FILA 038] OK creado      : K-5
+[FILA 039] OK creado      : G-4
+[FILA 040] OK creado      : N-5
+[FILA 041] OK creado      : H-3
+[FILA 042] RECHAZADO VAR  : variedad inválida para M-4: Sar
+[FILA 043] OK creado      : D-4
+[FILA 044] OK creado      : J-2
+[FILA 045] RECHAZADO VAR  : variedad inválida para J-3: Starr
+[FILA 046] RECHAZADO HECT : hectáreas inválidas para X-1: -5,0
+[FILA 047] RECHAZADO HECT : hectáreas inválidas para X-2: cinco punto cinco
+[FILA 048] RECHAZADO VAR  : variedad inválida para X-3: Desconocida
+[FILA 049] RECHAZADO VAR  : variedad inválida para X-4: 123
+[FILA 050] RECHAZADO CODIGO: código vacío
+[FILA 051] RECHAZADO HECT : hectáreas inválidas para X-5: 0
+[FILA 052] IGNORADO        : fila vacía
+[FILA 053] IGNORADO        : fila vacía
+[FILA 054] OK creado      : H-1
+[FILA 055] OK creado      : H-5
+[FILA 056] OK creado      : L-1
+[FILA 057] OK creado      : E-5
+[FILA 058] OK creado      : J-4
+[FILA 059] OK creado      : E-4
