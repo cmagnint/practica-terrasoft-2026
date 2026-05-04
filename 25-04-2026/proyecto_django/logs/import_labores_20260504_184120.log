@@ -1,0 +1,1844 @@
+[FILA 005] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 006] RECHAZADO       : Horas fuera de rango: 0
+[FILA 007] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 008] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 009] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 010] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 011] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 012] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 013] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 014] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 015] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 016] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 017] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 018] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 019] RECHAZADO       : RUT inválido: 27366963-0
+[FILA 020] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 021] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 022] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 023] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 024] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 025] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 026] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 027] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 028] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 029] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 030] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 031] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 032] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 033] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 034] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 035] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 036] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 037] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 038] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 039] RECHAZADO       : RUT inválido: 40000008-3
+[FILA 040] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 041] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 042] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 043] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 044] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 045] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 046] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 047] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 048] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 049] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 050] RECHAZADO       : RUT inválido: 21344269-5
+[FILA 051] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 052] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 053] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 054] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 055] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 056] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 057] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 058] RECHAZADO       : RUT inválido: 13302355-1
+[FILA 059] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 060] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 061] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 062] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 063] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 064] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 065] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 066] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 067] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 068] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 069] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 070] IGNORADO        : fila vacía
+[FILA 071] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 072] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 073] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 074] RECHAZADO       : Horas fuera de rango: 14.8
+[FILA 075] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 076] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 077] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 078] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 079] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 080] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 081] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 082] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 083] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 084] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 085] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 086] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 087] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 088] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 089] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 090] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 091] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 092] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 093] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 094] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 095] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 096] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 097] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 098] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 099] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 100] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 101] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 102] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 103] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 104] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 105] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 106] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 107] RECHAZADO       : RUT inválido: 29434065-4
+[FILA 108] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 109] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 110] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 111] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 112] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 113] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 114] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 115] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 116] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 117] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 118] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 119] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 120] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 121] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 122] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 123] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 124] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 125] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 126] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 127] RECHAZADO       : Horas fuera de rango: -4.8
+[FILA 128] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 129] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 130] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 131] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 132] RECHAZADO       : RUT inválido: 18382113-1
+[FILA 133] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 134] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 135] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 136] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 137] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 138] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 139] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 140] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 141] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 142] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 143] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 144] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 145] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 146] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 147] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 148] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 149] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 150] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 151] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 152] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 153] RECHAZADO       : RUT inválido: 29031404-7
+[FILA 154] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 155] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 156] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 157] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 158] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 159] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 160] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 161] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 162] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 163] RECHAZADO       : Horas fuera de rango: 23.7
+[FILA 164] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 165] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 166] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 167] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 168] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 169] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 170] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 171] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 172] RECHAZADO       : RUT inválido: 24700199-0
+[FILA 173] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 174] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 175] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 176] RECHAZADO FK    : Temporero no existe: 32137564-2
+[FILA 177] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 178] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 179] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 180] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 181] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 182] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 183] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 184] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 185] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 186] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 187] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 188] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 189] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 190] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 191] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 192] RECHAZADO       : Horas fuera de rango: -2.1
+[FILA 193] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 194] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 195] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 196] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 197] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 198] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 199] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 200] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 201] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 202] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 203] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 204] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 205] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 206] RECHAZADO       : Horas fuera de rango: -2.7
+[FILA 207] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 208] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 209] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 210] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 211] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 212] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 213] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 214] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 215] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 216] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 217] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 218] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 219] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 220] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 221] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 222] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 223] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 224] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 225] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 226] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 227] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 228] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 229] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 230] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 231] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 232] RECHAZADO       : RUT inválido: 32111791-1
+[FILA 233] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 234] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 235] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 236] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 237] RECHAZADO       : Horas fuera de rango: 0
+[FILA 238] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 239] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 240] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 241] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 242] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 243] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 244] RECHAZADO FK    : Temporero no existe: 16371915-0
+[FILA 245] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 246] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 247] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 248] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 249] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 250] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 251] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 252] IGNORADO        : fila vacía
+[FILA 253] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 254] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 255] RECHAZADO       : Horas fuera de rango: -3.1
+[FILA 256] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 257] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 258] RECHAZADO FK    : Temporero no existe: 13843718-3
+[FILA 259] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 260] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 261] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 262] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 263] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 264] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 265] IGNORADO        : fila vacía
+[FILA 266] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 267] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 268] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 269] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 270] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 271] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 272] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 273] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 274] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 275] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 276] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 277] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 278] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 279] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 280] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 281] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 282] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 283] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 284] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 285] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 286] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 287] IGNORADO        : fila vacía
+[FILA 288] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 289] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 290] RECHAZADO       : RUT inválido: 31176301-7
+[FILA 291] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 292] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 293] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 294] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 295] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 296] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 297] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 298] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 299] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 300] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 301] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 302] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 303] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 304] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 305] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 306] RECHAZADO       : RUT inválido: 13753657-0
+[FILA 307] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 308] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 309] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 310] RECHAZADO       : Horas fuera de rango: -3.8
+[FILA 311] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 312] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 313] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 314] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 315] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 316] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 317] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 318] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 319] RECHAZADO       : Horas fuera de rango: 18.9
+[FILA 320] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 321] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 322] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 323] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 324] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 325] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 326] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 327] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 328] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 329] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 330] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 331] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 332] RECHAZADO FK    : Temporero no existe: 32137564-2
+[FILA 333] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 334] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 335] IGNORADO        : fila vacía
+[FILA 336] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 337] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 005] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 006] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 007] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 008] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 009] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 010] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 011] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 012] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 013] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 014] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 015] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 016] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 017] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 018] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 019] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 020] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 021] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 022] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 023] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 024] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 025] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 026] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 027] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 028] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 029] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 030] RECHAZADO       : RUT inválido: 29740364-9
+[FILA 031] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 032] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 033] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 034] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 035] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 036] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 037] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 038] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 039] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 040] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 041] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 042] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 043] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 044] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 045] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 046] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 047] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 048] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 049] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 050] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 051] RECHAZADO FK    : Temporero no existe: 29584792-1
+[FILA 052] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 053] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 054] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 055] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 056] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 057] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 058] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 059] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 060] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 061] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 062] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 063] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 064] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 065] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 066] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 067] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 068] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 069] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 070] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 071] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 072] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 073] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 074] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 075] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 076] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 077] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 078] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 079] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 080] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 081] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 082] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 083] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 084] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 085] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 086] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 087] RECHAZADO       : RUT inválido: 21087340-7
+[FILA 088] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 089] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 090] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 091] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 092] RECHAZADO FK    : Temporero no existe: 29584792-1
+[FILA 093] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 094] RECHAZADO FK    : Temporero no existe: 28139121-6
+[FILA 095] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 096] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 097] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 098] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 099] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 100] RECHAZADO       : RUT inválido: 15940891-5
+[FILA 101] RECHAZADO       : Horas fuera de rango: 0
+[FILA 102] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 103] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 104] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 105] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 106] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 107] IGNORADO        : fila vacía
+[FILA 108] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 109] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 110] IGNORADO        : fila vacía
+[FILA 111] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 112] IGNORADO        : fila vacía
+[FILA 113] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 114] RECHAZADO       : Horas fuera de rango: 19.4
+[FILA 115] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 116] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 117] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 118] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 119] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 120] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 121] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 122] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 123] RECHAZADO FK    : Temporero no existe: 16371915-0
+[FILA 124] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 125] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 126] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 127] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 128] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 129] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 130] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 131] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 132] RECHAZADO       : Horas fuera de rango: 0
+[FILA 133] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 134] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 135] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 136] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 137] RECHAZADO       : Horas fuera de rango: 17.3
+[FILA 138] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 139] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 140] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 141] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 142] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 143] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 144] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 145] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 146] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 147] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 148] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 149] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 150] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 151] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 152] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 153] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 154] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 155] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 156] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 157] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 158] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 159] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 160] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 161] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 162] IGNORADO        : fila vacía
+[FILA 163] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 164] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 165] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 166] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 167] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 168] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 169] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 170] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 171] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 172] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 173] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 174] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 175] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 176] RECHAZADO       : Horas fuera de rango: 0
+[FILA 177] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 178] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 179] RECHAZADO       : Horas fuera de rango: 0
+[FILA 180] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 181] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 182] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 183] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 184] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 185] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 186] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 187] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 188] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 189] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 190] RECHAZADO       : RUT inválido: 12382132-8
+[FILA 191] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 192] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 193] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 194] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 195] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 196] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 197] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 198] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 199] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 200] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 201] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 202] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 203] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 204] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 205] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 206] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 207] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 208] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 209] IGNORADO        : fila vacía
+[FILA 210] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 211] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 212] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 213] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 214] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 215] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 216] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 217] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 218] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 219] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 220] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 221] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 222] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 223] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 224] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 225] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 226] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 227] RECHAZADO       : RUT inválido: 32538074-9
+[FILA 228] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 229] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 230] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 231] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 232] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 233] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 234] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 235] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 236] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 237] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 238] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 239] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 240] RECHAZADO       : Horas fuera de rango: -4.9
+[FILA 241] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 242] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 243] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 244] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 245] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 246] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 247] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 248] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 249] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 250] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 251] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 252] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 253] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 254] IGNORADO        : fila vacía
+[FILA 255] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 256] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 257] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 258] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 259] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 260] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 261] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 262] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 263] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 264] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 265] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 266] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 267] RECHAZADO FK    : Temporero no existe: 28093688-K
+[FILA 268] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 269] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 270] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 271] RECHAZADO       : RUT inválido: 28586522-1
+[FILA 272] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 273] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 274] RECHAZADO       : RUT inválido: 30012166-8
+[FILA 275] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 276] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 277] RECHAZADO       : Horas fuera de rango: 15.5
+[FILA 278] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 279] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 280] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 281] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 282] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 283] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 284] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 285] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 286] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 287] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 288] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 289] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 290] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 291] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 292] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 293] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 294] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 295] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 296] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 297] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 298] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 299] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 300] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 301] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 302] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 303] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 304] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 305] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 306] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 307] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 308] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 309] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 310] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 311] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 312] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 313] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 314] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 315] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 316] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 317] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 318] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 319] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 320] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 321] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 322] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 323] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 324] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 325] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 326] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 327] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 005] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 006] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 007] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 008] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 009] RECHAZADO       : RUT inválido: 40000001-K
+[FILA 010] RECHAZADO       : RUT inválido: 40000001-K
+[FILA 011] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 012] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 013] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 014] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 015] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 016] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 017] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 018] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 019] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 020] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 021] RECHAZADO       : RUT inválido: 25870338-4
+[FILA 022] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 023] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 024] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 025] RECHAZADO       : RUT inválido: 34148476-7
+[FILA 026] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 027] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 028] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 029] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 030] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 031] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 032] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 033] RECHAZADO       : Horas fuera de rango: 19.9
+[FILA 034] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 035] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 036] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 037] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 038] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 039] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 040] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 041] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 042] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 043] RECHAZADO FK    : Temporero no existe: 28139121-6
+[FILA 044] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 045] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 046] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 047] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 048] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 049] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 050] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 051] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 052] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 053] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 054] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 055] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 056] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 057] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 058] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 059] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 060] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 061] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 062] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 063] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 064] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 065] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 066] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 067] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 068] IGNORADO        : fila vacía
+[FILA 069] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 070] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 071] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 072] RECHAZADO FK    : Temporero no existe: 18008971-3
+[FILA 073] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 074] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 075] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 076] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 077] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 078] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 079] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 080] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 081] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 082] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 083] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 084] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 085] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 086] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 087] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 088] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 089] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 090] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 091] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 092] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 093] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 094] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 095] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 096] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 097] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 098] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 099] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 100] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 101] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 102] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 103] RECHAZADO       : Fecha anterior al ingreso: 1926-04-01
+[FILA 104] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 105] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 106] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 107] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 108] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 109] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 110] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 111] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 112] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 113] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 114] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 115] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 116] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 117] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 118] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 119] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 120] RECHAZADO FK    : Temporero no existe: 20459463-5
+[FILA 121] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 122] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 123] RECHAZADO       : RUT inválido: 19848230-8
+[FILA 124] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 125] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 126] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 127] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 128] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 129] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 130] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 131] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 132] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 133] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 134] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 135] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 136] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 137] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 138] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 139] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 140] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 141] RECHAZADO       : Horas fuera de rango: 0
+[FILA 142] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 143] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 144] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 145] RECHAZADO       : Fecha anterior al ingreso: 1926-04-01
+[FILA 146] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 147] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 148] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 149] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 150] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 151] RECHAZADO       : RUT inválido: 29966065-7
+[FILA 152] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 153] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 154] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 155] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 156] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 157] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 158] IGNORADO        : fila vacía
+[FILA 159] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 160] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 161] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 162] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 163] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 164] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 165] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 166] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 167] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 168] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 169] RECHAZADO       : Fecha anterior al ingreso: 1926-04-01
+[FILA 170] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 171] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 172] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 173] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 174] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 175] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 176] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 177] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 178] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 179] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 180] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 181] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 182] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 183] RECHAZADO       : RUT inválido: 17029889-7
+[FILA 184] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 185] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 186] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 187] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 188] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 189] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 190] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 191] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 192] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 193] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 194] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 195] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 196] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 197] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 198] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 199] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 200] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 201] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 202] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 203] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 204] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 205] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 206] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 207] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 208] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 209] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 210] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 211] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 212] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 213] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 214] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 215] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 216] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 217] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 218] RECHAZADO       : Horas fuera de rango: 15.8
+[FILA 219] RECHAZADO FK    : Temporero no existe: 20459463-5
+[FILA 220] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 221] RECHAZADO       : RUT inválido: 40000001-K
+[FILA 222] RECHAZADO FK    : Temporero no existe: 13843718-3
+[FILA 223] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 224] RECHAZADO       : Fecha anterior al ingreso: 1926-04-01
+[FILA 225] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 226] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 227] RECHAZADO FK    : Temporero no existe: 13165048-5
+[FILA 228] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 229] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 230] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 231] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 232] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 233] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 234] RECHAZADO       : RUT inválido: 37204984-8
+[FILA 235] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 236] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 237] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 238] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 239] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 240] RECHAZADO       : RUT inválido: 38880386-1
+[FILA 241] RECHAZADO       : Horas fuera de rango: -4
+[FILA 242] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 243] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 244] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 245] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 246] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 247] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 248] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 249] RECHAZADO FK    : Temporero no existe: 17892133-9
+[FILA 250] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 251] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 252] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 253] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 254] IGNORADO        : fila vacía
+[FILA 255] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 256] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 257] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 258] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 259] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 260] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 261] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 262] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 263] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 264] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 265] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 266] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 267] RECHAZADO       : Horas fuera de rango: 14
+[FILA 268] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 269] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 270] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 271] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 272] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 273] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 274] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 275] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 276] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 277] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 278] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 279] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 280] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 281] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 282] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 283] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 284] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 285] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 286] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 287] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 288] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 289] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 290] RECHAZADO       : RUT inválido: 15524305-9
+[FILA 291] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 292] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 293] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 294] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 295] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 296] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 297] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 298] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 299] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 300] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 301] IGNORADO        : fila vacía
+[FILA 302] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 303] RECHAZADO       : RUT inválido: 19848230-8
+[FILA 304] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 305] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 306] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 307] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 308] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 309] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 310] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 311] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 312] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 313] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 314] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 315] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 004] RECHAZADO       : Tipo vacío
+[FILA 005] RECHAZADO       : Tipo vacío
+[FILA 006] RECHAZADO       : Tipo vacío
+[FILA 007] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 008] RECHAZADO       : Tipo vacío
+[FILA 009] RECHAZADO       : Tipo vacío
+[FILA 010] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 011] RECHAZADO       : Tipo vacío
+[FILA 012] RECHAZADO       : Tipo vacío
+[FILA 013] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 014] RECHAZADO       : Tipo vacío
+[FILA 015] RECHAZADO       : Tipo vacío
+[FILA 016] RECHAZADO       : Tipo vacío
+[FILA 017] RECHAZADO       : Tipo vacío
+[FILA 018] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 019] RECHAZADO       : Tipo vacío
+[FILA 020] RECHAZADO       : Tipo vacío
+[FILA 021] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 022] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 023] RECHAZADO       : Tipo vacío
+[FILA 024] RECHAZADO       : Tipo vacío
+[FILA 025] RECHAZADO       : Tipo vacío
+[FILA 026] RECHAZADO       : Tipo vacío
+[FILA 027] RECHAZADO       : Tipo vacío
+[FILA 028] RECHAZADO       : Tipo vacío
+[FILA 029] RECHAZADO       : Tipo vacío
+[FILA 030] RECHAZADO       : Tipo vacío
+[FILA 031] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 032] RECHAZADO       : Tipo vacío
+[FILA 033] RECHAZADO       : Tipo vacío
+[FILA 034] RECHAZADO       : Tipo vacío
+[FILA 035] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 036] RECHAZADO       : RUT inválido: 39350488-0
+[FILA 037] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 038] RECHAZADO       : Tipo vacío
+[FILA 039] RECHAZADO       : Tipo vacío
+[FILA 040] RECHAZADO       : Tipo vacío
+[FILA 041] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 042] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 043] RECHAZADO       : Tipo vacío
+[FILA 044] RECHAZADO       : Tipo vacío
+[FILA 045] RECHAZADO       : Tipo vacío
+[FILA 046] RECHAZADO       : Tipo vacío
+[FILA 047] RECHAZADO       : Tipo vacío
+[FILA 048] RECHAZADO       : Tipo vacío
+[FILA 049] RECHAZADO       : Tipo vacío
+[FILA 050] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 051] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 052] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 053] RECHAZADO       : Tipo vacío
+[FILA 054] RECHAZADO       : Tipo vacío
+[FILA 055] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 056] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 057] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 058] RECHAZADO       : Tipo vacío
+[FILA 059] RECHAZADO       : Tipo vacío
+[FILA 060] RECHAZADO       : Tipo vacío
+[FILA 061] RECHAZADO       : Tipo vacío
+[FILA 062] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 063] RECHAZADO       : Tipo vacío
+[FILA 064] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 065] RECHAZADO       : Tipo vacío
+[FILA 066] RECHAZADO       : RUT inválido: 25052972-5
+[FILA 067] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 068] RECHAZADO       : Tipo vacío
+[FILA 069] RECHAZADO       : Tipo vacío
+[FILA 070] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 071] RECHAZADO       : Tipo vacío
+[FILA 072] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 073] RECHAZADO       : Tipo vacío
+[FILA 074] RECHAZADO       : Tipo vacío
+[FILA 075] RECHAZADO       : Tipo vacío
+[FILA 076] RECHAZADO       : Tipo vacío
+[FILA 077] RECHAZADO       : Tipo vacío
+[FILA 078] RECHAZADO       : Tipo vacío
+[FILA 079] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 080] RECHAZADO       : Tipo vacío
+[FILA 081] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 082] RECHAZADO       : Tipo vacío
+[FILA 083] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 084] RECHAZADO       : Tipo vacío
+[FILA 085] RECHAZADO FK    : Temporero no existe: 13165048-5
+[FILA 086] RECHAZADO       : Tipo vacío
+[FILA 087] RECHAZADO       : Tipo vacío
+[FILA 088] RECHAZADO       : Tipo vacío
+[FILA 089] RECHAZADO       : Tipo vacío
+[FILA 090] RECHAZADO       : Tipo vacío
+[FILA 091] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 092] RECHAZADO       : Tipo vacío
+[FILA 093] RECHAZADO       : Tipo vacío
+[FILA 094] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 095] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 096] RECHAZADO       : Tipo vacío
+[FILA 097] RECHAZADO       : Tipo vacío
+[FILA 098] RECHAZADO       : Tipo vacío
+[FILA 099] RECHAZADO       : Tipo vacío
+[FILA 100] RECHAZADO       : Tipo vacío
+[FILA 101] RECHAZADO       : Tipo vacío
+[FILA 102] RECHAZADO       : Tipo vacío
+[FILA 103] RECHAZADO       : Tipo vacío
+[FILA 104] RECHAZADO       : Tipo vacío
+[FILA 105] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 106] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 107] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 108] RECHAZADO       : Tipo vacío
+[FILA 109] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 110] RECHAZADO       : Tipo vacío
+[FILA 111] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 112] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 113] RECHAZADO       : Tipo vacío
+[FILA 114] RECHAZADO       : Tipo vacío
+[FILA 115] RECHAZADO       : Tipo vacío
+[FILA 116] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 117] RECHAZADO       : Tipo vacío
+[FILA 118] RECHAZADO       : Tipo vacío
+[FILA 119] RECHAZADO       : Tipo vacío
+[FILA 120] RECHAZADO FK    : Temporero no existe: 13843718-3
+[FILA 121] RECHAZADO       : Tipo vacío
+[FILA 122] RECHAZADO       : Tipo vacío
+[FILA 123] RECHAZADO       : Tipo vacío
+[FILA 124] RECHAZADO       : Tipo vacío
+[FILA 125] RECHAZADO       : Tipo vacío
+[FILA 126] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 127] RECHAZADO       : Tipo vacío
+[FILA 128] RECHAZADO       : Tipo vacío
+[FILA 129] RECHAZADO       : Tipo vacío
+[FILA 130] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 131] RECHAZADO       : Tipo vacío
+[FILA 132] RECHAZADO       : Tipo vacío
+[FILA 133] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 134] RECHAZADO       : Tipo vacío
+[FILA 135] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 136] RECHAZADO       : Tipo vacío
+[FILA 137] RECHAZADO       : Tipo vacío
+[FILA 138] RECHAZADO       : Tipo vacío
+[FILA 139] RECHAZADO       : Tipo vacío
+[FILA 140] RECHAZADO       : Tipo vacío
+[FILA 141] RECHAZADO       : Tipo vacío
+[FILA 142] RECHAZADO       : Tipo vacío
+[FILA 143] RECHAZADO       : Tipo vacío
+[FILA 144] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 145] RECHAZADO       : Tipo vacío
+[FILA 146] RECHAZADO       : Tipo vacío
+[FILA 147] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 148] RECHAZADO       : Tipo vacío
+[FILA 149] RECHAZADO       : Tipo vacío
+[FILA 150] RECHAZADO       : Tipo vacío
+[FILA 151] RECHAZADO       : Tipo vacío
+[FILA 152] RECHAZADO       : Tipo vacío
+[FILA 153] RECHAZADO       : Tipo vacío
+[FILA 154] RECHAZADO       : Tipo vacío
+[FILA 155] RECHAZADO       : Tipo vacío
+[FILA 156] RECHAZADO       : Tipo vacío
+[FILA 157] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 158] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 159] RECHAZADO       : Tipo vacío
+[FILA 160] RECHAZADO       : Tipo vacío
+[FILA 161] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 162] RECHAZADO       : Tipo vacío
+[FILA 163] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 164] RECHAZADO       : Tipo vacío
+[FILA 165] RECHAZADO       : Tipo vacío
+[FILA 166] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 167] RECHAZADO       : Tipo vacío
+[FILA 168] RECHAZADO       : RUT inválido: 40000001-K
+[FILA 169] RECHAZADO       : Tipo vacío
+[FILA 170] RECHAZADO       : Tipo vacío
+[FILA 171] RECHAZADO       : Tipo vacío
+[FILA 172] RECHAZADO       : Tipo vacío
+[FILA 173] RECHAZADO       : Tipo vacío
+[FILA 174] RECHAZADO       : Tipo vacío
+[FILA 175] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 176] RECHAZADO       : Tipo vacío
+[FILA 177] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 178] RECHAZADO       : Tipo vacío
+[FILA 179] RECHAZADO       : Tipo vacío
+[FILA 180] RECHAZADO       : Tipo vacío
+[FILA 181] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 182] RECHAZADO       : Tipo vacío
+[FILA 183] RECHAZADO       : Tipo vacío
+[FILA 184] RECHAZADO       : Tipo vacío
+[FILA 185] RECHAZADO       : Tipo vacío
+[FILA 186] RECHAZADO       : Tipo vacío
+[FILA 187] RECHAZADO       : Tipo vacío
+[FILA 188] RECHAZADO       : Tipo vacío
+[FILA 189] RECHAZADO       : Tipo vacío
+[FILA 190] RECHAZADO       : Tipo vacío
+[FILA 191] RECHAZADO       : Tipo vacío
+[FILA 192] RECHAZADO       : Tipo vacío
+[FILA 193] RECHAZADO       : Tipo vacío
+[FILA 194] RECHAZADO       : Tipo vacío
+[FILA 195] RECHAZADO       : Tipo vacío
+[FILA 196] RECHAZADO       : Tipo vacío
+[FILA 197] RECHAZADO       : Tipo vacío
+[FILA 198] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 199] RECHAZADO       : Tipo vacío
+[FILA 200] RECHAZADO       : Tipo vacío
+[FILA 201] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 202] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 203] RECHAZADO       : Tipo vacío
+[FILA 204] IGNORADO        : fila vacía
+[FILA 205] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 206] RECHAZADO       : Tipo vacío
+[FILA 207] RECHAZADO       : Tipo vacío
+[FILA 208] RECHAZADO       : Tipo vacío
+[FILA 209] RECHAZADO       : Tipo vacío
+[FILA 210] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 211] RECHAZADO       : Tipo vacío
+[FILA 212] RECHAZADO       : Tipo vacío
+[FILA 213] RECHAZADO       : Tipo vacío
+[FILA 214] RECHAZADO       : Tipo vacío
+[FILA 215] IGNORADO        : fila vacía
+[FILA 216] RECHAZADO       : Tipo vacío
+[FILA 217] RECHAZADO       : Tipo vacío
+[FILA 218] RECHAZADO       : Tipo vacío
+[FILA 219] RECHAZADO       : Tipo vacío
+[FILA 220] RECHAZADO       : Tipo vacío
+[FILA 221] RECHAZADO       : Tipo vacío
+[FILA 222] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 223] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 224] RECHAZADO       : Tipo vacío
+[FILA 225] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 226] RECHAZADO       : Tipo vacío
+[FILA 227] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 228] RECHAZADO       : Tipo vacío
+[FILA 229] RECHAZADO       : Tipo vacío
+[FILA 230] RECHAZADO       : Tipo vacío
+[FILA 231] RECHAZADO FK    : Temporero no existe: 18008971-3
+[FILA 232] RECHAZADO       : Tipo vacío
+[FILA 233] RECHAZADO       : Tipo vacío
+[FILA 234] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 235] RECHAZADO       : Tipo vacío
+[FILA 236] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 237] RECHAZADO       : Tipo vacío
+[FILA 238] RECHAZADO       : RUT inválido: 16389096-9
+[FILA 239] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 240] RECHAZADO       : Tipo vacío
+[FILA 241] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 242] RECHAZADO       : Tipo vacío
+[FILA 243] RECHAZADO FK    : Temporero no existe: 19454171-6
+[FILA 244] RECHAZADO       : Tipo vacío
+[FILA 245] RECHAZADO       : Tipo vacío
+[FILA 246] RECHAZADO       : Tipo vacío
+[FILA 247] RECHAZADO       : Tipo vacío
+[FILA 248] RECHAZADO       : Tipo vacío
+[FILA 249] RECHAZADO       : Tipo vacío
+[FILA 250] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 251] RECHAZADO       : Tipo vacío
+[FILA 252] RECHAZADO       : Tipo vacío
+[FILA 253] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 254] RECHAZADO       : Tipo vacío
+[FILA 255] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 256] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 257] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 258] RECHAZADO       : Tipo vacío
+[FILA 259] RECHAZADO       : RUT inválido: 35097895-1
+[FILA 260] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 261] RECHAZADO       : Tipo vacío
+[FILA 262] RECHAZADO       : Tipo vacío
+[FILA 263] RECHAZADO       : Tipo vacío
+[FILA 264] RECHAZADO       : Tipo vacío
+[FILA 265] RECHAZADO       : Tipo vacío
+[FILA 266] RECHAZADO       : Tipo vacío
+[FILA 267] RECHAZADO FK    : Temporero no existe: 28139121-6
+[FILA 268] RECHAZADO       : Tipo vacío
+[FILA 269] RECHAZADO       : Tipo vacío
+[FILA 270] RECHAZADO       : Tipo vacío
+[FILA 271] RECHAZADO       : Tipo vacío
+[FILA 272] RECHAZADO       : RUT inválido: 40000001-K
+[FILA 273] RECHAZADO       : Tipo vacío
+[FILA 274] RECHAZADO       : Tipo vacío
+[FILA 275] RECHAZADO       : Tipo vacío
+[FILA 276] RECHAZADO       : Tipo vacío
+[FILA 277] RECHAZADO       : Tipo vacío
+[FILA 278] RECHAZADO       : Tipo vacío
+[FILA 279] RECHAZADO       : Tipo vacío
+[FILA 280] RECHAZADO       : Tipo vacío
+[FILA 281] RECHAZADO       : Tipo vacío
+[FILA 282] RECHAZADO       : Tipo vacío
+[FILA 283] RECHAZADO       : Tipo vacío
+[FILA 284] RECHAZADO       : Tipo vacío
+[FILA 285] RECHAZADO       : Tipo vacío
+[FILA 286] IGNORADO        : fila vacía
+[FILA 287] RECHAZADO       : Tipo vacío
+[FILA 288] RECHAZADO       : Tipo vacío
+[FILA 289] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 290] RECHAZADO       : Tipo vacío
+[FILA 291] RECHAZADO       : Tipo vacío
+[FILA 292] RECHAZADO       : Tipo vacío
+[FILA 293] RECHAZADO       : Tipo vacío
+[FILA 294] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 295] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 296] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 297] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 298] RECHAZADO       : RUT inválido: 23275203-4
+[FILA 299] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 300] RECHAZADO       : Tipo vacío
+[FILA 301] RECHAZADO       : Tipo vacío
+[FILA 302] RECHAZADO       : Tipo vacío
+[FILA 303] RECHAZADO       : Tipo vacío
+[FILA 004] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 005] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 006] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 007] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 008] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 009] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 010] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 011] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 012] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 013] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 014] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 015] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 016] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 017] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 018] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 019] RECHAZADO       : Horas fuera de rango: 21.4
+[FILA 020] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 021] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 022] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 023] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 024] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 025] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 026] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 027] RECHAZADO       : RUT inválido: 21414394-2
+[FILA 028] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 029] RECHAZADO       : RUT inválido: 31882351-1
+[FILA 030] RECHAZADO FK    : Temporero no existe: 28093688-K
+[FILA 031] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 032] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 033] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 034] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 035] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 036] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 037] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 038] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 039] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 040] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 041] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 042] RECHAZADO FK    : Temporero no existe: 17892133-9
+[FILA 043] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 044] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 045] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 046] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 047] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 048] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 049] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 050] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 051] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 052] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 053] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 054] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 055] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 056] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 057] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 058] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 059] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 060] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 061] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 062] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 063] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 064] IGNORADO        : fila vacía
+[FILA 065] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 066] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 067] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 068] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 069] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 070] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 071] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 072] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 073] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 074] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 075] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 076] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 077] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 078] RECHAZADO       : RUT inválido: 35195278-5
+[FILA 079] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 080] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 081] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 082] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 083] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 084] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 085] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 086] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 087] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 088] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 089] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 090] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 091] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 092] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 093] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 094] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 095] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 096] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 097] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 098] RECHAZADO FK    : Temporero no existe: 28093688-K
+[FILA 099] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 100] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 101] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 102] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 103] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 104] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 105] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 106] IGNORADO        : fila vacía
+[FILA 107] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 108] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 109] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 110] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 111] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 112] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 113] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 114] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 115] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 116] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 117] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 118] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 119] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 120] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 121] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 122] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 123] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 124] RECHAZADO       : Fecha anterior al ingreso: 1926-04-03
+[FILA 125] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 126] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 127] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 128] RECHAZADO       : Horas fuera de rango: 0
+[FILA 129] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 130] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 131] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 132] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 133] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 134] IGNORADO        : fila vacía
+[FILA 135] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 136] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 137] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 138] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 139] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 140] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 141] RECHAZADO       : RUT inválido: 40000008-3
+[FILA 142] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 143] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 144] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 145] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 146] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 147] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 148] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 149] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 150] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 151] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 152] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 153] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 154] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 155] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 156] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 157] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 158] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 159] RECHAZADO       : Fecha anterior al ingreso: 1926-04-03
+[FILA 160] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 161] RECHAZADO       : Horas fuera de rango: 16.6
+[FILA 162] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 163] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 164] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 165] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 166] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 167] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 168] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 169] RECHAZADO       : Horas fuera de rango: 0
+[FILA 170] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 171] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 172] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 173] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 174] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 175] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 176] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 177] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 178] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 179] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 180] RECHAZADO       : Horas fuera de rango: -1.2
+[FILA 181] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 182] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 183] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 184] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 185] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 186] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 187] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 188] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 189] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 190] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 191] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 192] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 193] RECHAZADO       : RUT inválido: 24375853-1
+[FILA 194] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 195] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 196] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 197] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 198] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 199] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 200] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 201] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 202] RECHAZADO       : Horas fuera de rango: 0
+[FILA 203] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 204] RECHAZADO       : RUT inválido: 35789893-6
+[FILA 205] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 206] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 207] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 208] RECHAZADO FK    : Temporero no existe: 28093688-K
+[FILA 209] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 210] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 211] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 212] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 213] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 214] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 215] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 216] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 217] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 218] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 219] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 220] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 221] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 222] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 223] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 224] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 225] RECHAZADO       : Fecha anterior al ingreso: 1926-04-03
+[FILA 226] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 227] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 228] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 229] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 230] RECHAZADO       : RUT inválido: 40000008-3
+[FILA 231] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 232] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 233] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 234] RECHAZADO FK    : Temporero no existe: 28139121-6
+[FILA 235] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 236] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 237] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 238] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 239] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 240] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 241] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 242] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 243] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 244] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 245] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 246] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 247] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 248] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 249] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 250] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 251] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 252] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 253] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 254] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 255] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 256] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 257] RECHAZADO       : RUT inválido: 40000001-K
+[FILA 258] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 259] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 260] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 261] RECHAZADO       : Horas fuera de rango: 0
+[FILA 262] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 263] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 264] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 265] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 266] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 267] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 268] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 269] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 270] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 271] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 272] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 273] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 274] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 275] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 276] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 277] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 278] RECHAZADO       : Fecha anterior al ingreso: 2026-04-03
+[FILA 279] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 280] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 281] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 282] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 283] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 284] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 285] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 286] RECHAZADO       : Horas fuera de rango: 0
+[FILA 287] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 288] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 289] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 290] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 291] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 292] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 293] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 004] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 005] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 006] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 007] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 008] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 009] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 010] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 011] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 012] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 013] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 014] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 015] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 016] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 017] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 018] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 019] RECHAZADO FK    : Temporero no existe: 17892133-9
+[FILA 020] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 021] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 022] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 023] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 024] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 025] RECHAZADO       : Horas fuera de rango: 0
+[FILA 026] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 027] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 028] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 029] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 030] RECHAZADO       : Fecha anterior al ingreso: 1926-04-04
+[FILA 031] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 032] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 033] IGNORADO        : fila vacía
+[FILA 034] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 035] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 036] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 037] RECHAZADO       : Horas fuera de rango: -3.4
+[FILA 038] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 039] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 040] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 041] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 042] RECHAZADO       : RUT inválido: 11054043-5
+[FILA 043] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 044] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 045] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 046] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 047] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 048] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 049] RECHAZADO FK    : Temporero no existe: 20459463-5
+[FILA 050] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 051] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 052] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 053] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 054] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 055] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 056] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 057] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 058] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 059] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 060] RECHAZADO       : Horas fuera de rango: 16.3
+[FILA 061] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 062] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 063] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 064] RECHAZADO       : Horas fuera de rango: 22.5
+[FILA 065] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 066] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 067] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 068] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 069] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 070] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 071] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 072] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 073] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 074] RECHAZADO       : RUT inválido: 23280369-1
+[FILA 075] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 076] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 077] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 078] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 079] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 080] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 081] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 082] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 083] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 084] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 085] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 086] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 087] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 088] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 089] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 090] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 091] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 092] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 093] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 094] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 095] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 096] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 097] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 098] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 099] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 100] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 101] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 102] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 103] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 104] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 105] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 106] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 107] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 108] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 109] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 110] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 111] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 112] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 113] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 114] RECHAZADO       : Horas fuera de rango: 0
+[FILA 115] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 116] RECHAZADO FK    : Temporero no existe: 19454171-6
+[FILA 117] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 118] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 119] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 120] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 121] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 122] IGNORADO        : fila vacía
+[FILA 123] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 124] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 125] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 126] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 127] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 128] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 129] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 130] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 131] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 132] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 133] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 134] RECHAZADO       : RUT inválido: 25998367-4
+[FILA 135] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 136] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 137] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 138] RECHAZADO       : Horas fuera de rango: -3.8
+[FILA 139] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 140] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 141] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 142] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 143] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 144] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 145] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 146] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 147] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 148] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 149] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 150] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 151] IGNORADO        : fila vacía
+[FILA 152] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 153] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 154] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 155] RECHAZADO FK    : Temporero no existe: 29584792-1
+[FILA 156] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 157] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 158] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 159] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 160] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 161] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 162] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 163] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 164] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 165] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 166] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 167] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 168] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 169] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 170] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 171] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 172] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 173] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 174] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 175] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 176] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 177] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 178] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 179] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 180] RECHAZADO       : Fecha futura: 2030-01-01
+[FILA 181] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 182] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 183] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 184] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 185] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 186] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 187] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 188] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 189] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 190] IGNORADO        : fila vacía
+[FILA 191] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 192] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 004] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 005] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 006] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 007] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 008] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 009] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 010] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 011] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 012] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 013] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 014] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 015] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 016] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 017] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 018] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 019] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 020] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 021] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 022] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 023] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 024] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 025] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 026] IGNORADO        : fila vacía
+[FILA 027] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 028] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 029] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 030] RECHAZADO       : Horas fuera de rango: 0
+[FILA 031] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 032] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 033] RECHAZADO       : Horas fuera de rango: -2
+[FILA 034] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 035] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 036] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 037] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 038] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 039] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 040] RECHAZADO       : RUT inválido: 27034339-3
+[FILA 041] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 042] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 043] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 044] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 045] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 046] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 047] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 048] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 049] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 050] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 051] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 052] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 053] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 054] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 055] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 056] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 057] RECHAZADO       : RUT inválido: 18153634-0
+[FILA 058] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 059] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 060] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 061] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 062] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 063] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 064] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 065] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 066] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 067] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 068] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 069] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 070] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 071] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 072] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 073] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 074] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 075] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 076] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 077] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 078] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 079] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 080] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 081] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 082] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 083] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 084] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 085] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 086] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 087] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 088] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 089] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 090] IGNORADO        : fila vacía
+[FILA 091] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 092] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 093] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 094] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 095] IGNORADO        : fila vacía
+[FILA 096] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 097] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 098] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 099] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 100] RECHAZADO VAL  : {'tipo': ['This field cannot be null.']}
+[FILA 101] RECHAZADO FK    : Temporero no existe: 13165048-5

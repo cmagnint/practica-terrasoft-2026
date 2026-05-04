@@ -1,0 +1,333 @@
+[FILA 005] OK creado       : 24588301-3 A-1 Cosecha 2026-03-30
+[FILA 006] RECHAZADO       : Horas fuera de rango: 0
+[FILA 007] OK creado       : 25670747-0 H-3 Poda 2026-03-30
+[FILA 008] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 009] OK creado       : 33751200-3 E-4 Poda 2026-03-30
+[FILA 010] OK creado       : 17721369-1 N-5 Pesticida 2026-03-30
+[FILA 011] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 012] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 013] OK creado       : 10262499-8 C-2 Pesticida 2026-03-30
+[FILA 014] OK creado       : 17359183-7 M-3 Pesticida 2026-03-30
+[FILA 015] OK creado       : 39688573-5 N-2 Poda 2026-03-30
+[FILA 016] OK creado       : 38917853-5 D-4 Riego 2026-03-30
+[FILA 017] OK creado       : 12529497-9 E-5 Riego 2026-03-30
+[FILA 018] OK creado       : 23456679-2 E-5 Cosecha 2026-03-30
+[FILA 019] RECHAZADO       : RUT inválido: 27366963-0
+[FILA 020] OK creado       : 38566315-3 N-2 Cosecha 2026-03-30
+[FILA 021] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 022] OK creado       : 31283054-K J-4 Riego 2026-03-30
+[FILA 023] OK creado       : 33922597-4 L-3 Riego 2026-03-30
+[FILA 024] OK creado       : 23280369-K E-5 Riego 2026-03-30
+[FILA 025] OK creado       : 28890931-8 I-1 Riego 2026-03-30
+[FILA 026] OK creado       : 12688094-4 N-2 Pesticida 2026-03-30
+[FILA 027] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 028] RECHAZADO       : RUT inválido: 40000002-9
+[FILA 029] OK creado       : 38882973-7 K-5 Cosecha 2026-03-30
+[FILA 030] OK creado       : 17067558-4 I-3 Poda 2026-03-30
+[FILA 031] OK creado       : 33186770-5 O-1 Poda 2026-03-30
+[FILA 032] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 033] OK creado       : 27252216-2 J-5 Limpieza 2026-03-30
+[FILA 034] OK creado       : 12874052-K J-5 Limpieza 2026-03-30
+[FILA 035] OK creado       : 29031404-6 M-5 Limpieza 2026-03-30
+[FILA 036] OK creado       : 24212940-7 J-2 Riego 2026-03-30
+[FILA 037] OK creado       : 28085076-4 J-5 Pesticida 2026-03-30
+[FILA 038] OK creado       : 12750906-9 O-4 Riego 2026-03-30
+[FILA 039] RECHAZADO       : RUT inválido: 40000008-3
+[FILA 040] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 041] OK creado       : 12529497-9 A-2 Limpieza 2026-03-30
+[FILA 042] OK creado       : 37417465-7 L-1 Riego 2026-03-30
+[FILA 043] OK creado       : 12045396-3 J-5 Riego 2026-03-30
+[FILA 044] OK creado       : 15368105-8 L-3 Limpieza 2026-03-30
+[FILA 045] OK creado       : 18214491-6 I-5 Limpieza 2026-03-30
+[FILA 046] OK creado       : 19057945-K E-4 Cosecha 2026-03-30
+[FILA 047] OK creado       : 21867485-2 L-3 Poda 2026-03-30
+[FILA 048] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 049] RECHAZADO       : Número vacío
+[FILA 050] RECHAZADO       : RUT inválido: 21344269-5
+[FILA 051] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 052] OK creado       : 10312574-K I-1 Riego 2026-03-30
+[FILA 053] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 054] OK creado       : 35697139-6 D-4 Limpieza 2026-03-30
+[FILA 055] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 056] OK creado       : 10019189-K A-2 Limpieza 2026-03-30
+[FILA 057] OK creado       : 18912544-5 N-4 Poda 2026-03-30
+[FILA 058] RECHAZADO       : RUT inválido: 13302355-1
+[FILA 059] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 060] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 061] OK creado       : 19955862-5 H-5 Riego 2026-03-30
+[FILA 062] OK creado       : 24700199-9 A-2 Poda 2026-03-30
+[FILA 063] OK creado       : 15421791-6 I-1 Pesticida 2026-03-30
+[FILA 064] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 065] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 066] OK creado       : 17721369-1 D-5 Poda 2026-03-30
+[FILA 067] OK creado       : 14060227-2 A-2 Pesticida 2026-03-30
+[FILA 068] OK creado       : 29615450-4 M-3 Riego 2026-03-30
+[FILA 069] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 070] IGNORADO        : fila vacía
+[FILA 071] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 072] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 073] OK creado       : 38281417-7 G-4 Limpieza 2026-03-30
+[FILA 074] RECHAZADO       : Horas fuera de rango: 14.8
+[FILA 075] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 076] OK creado       : 23658665-0 K-5 Poda 2026-03-30
+[FILA 077] OK creado       : 32057783-7 D-4 Cosecha 2026-03-30
+[FILA 078] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 079] OK creado       : 12529497-9 E-2 Pesticida 2026-03-30
+[FILA 080] OK creado       : 16831592-9 I-2 Limpieza 2026-03-30
+[FILA 081] OK creado       : 12261579-0 D-5 Riego 2026-03-30
+[FILA 082] OK creado       : 28836388-9 M-2 Pesticida 2026-03-30
+[FILA 083] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 084] OK creado       : 24588301-3 K-5 Pesticida 2026-03-30
+[FILA 085] RECHAZADO       : RUT inválido: 40000004-7
+[FILA 086] OK creado       : 11876966-K A-2 Riego 2026-03-30
+[FILA 087] OK creado       : 24869000-3 I-1 Pesticida 2026-03-30
+[FILA 088] OK creado       : 28193052-4 J-2 Cosecha 2026-03-30
+[FILA 089] RECHAZADO       : Tipo inválido: corte
+[FILA 090] OK creado       : 26958713-K E-2 Cosecha 2026-03-30
+[FILA 091] OK creado       : 38893819-6 H-1 Cosecha 2026-03-30
+[FILA 092] RECHAZADO FK    : Temporero no existe: 34558743-8
+[FILA 093] OK creado       : 18816145-6 I-3 Cosecha 2026-03-30
+[FILA 094] OK creado       : 18893824-8 H-4 Cosecha 2026-03-30
+[FILA 095] OK creado       : 29744773-4 N-5 Limpieza 2026-03-30
+[FILA 096] OK creado       : 27366963-9 H-4 Poda 2026-03-30
+[FILA 097] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 098] OK creado       : 10653531-0 C-1 Riego 2026-03-30
+[FILA 099] OK creado       : 12220921-0 G-2 Cosecha 2026-03-30
+[FILA 100] OK creado       : 11943646-K M-2 Riego 2026-03-30
+[FILA 101] OK creado       : 35065624-3 K-5 Riego 2026-03-30
+[FILA 102] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 103] OK creado       : 13449181-7 I-2 Pesticida 2026-03-30
+[FILA 104] OK creado       : 31992872-3 H-4 Riego 2026-03-30
+[FILA 105] OK creado       : 14060227-2 L-3 Riego 2026-03-30
+[FILA 106] OK creado       : 27821635-7 J-2 Limpieza 2026-03-30
+[FILA 107] RECHAZADO       : RUT inválido: 29434065-4
+[FILA 108] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 109] OK creado       : 38882973-7 D-4 Cosecha 2026-03-30
+[FILA 110] OK creado       : 23548459-5 B-1 Pesticida 2026-03-30
+[FILA 111] OK creado       : 10385239-0 G-2 Pesticida 2026-03-30
+[FILA 112] OK creado       : 32472274-2 H-5 Cosecha 2026-03-30
+[FILA 113] OK creado       : 18983893-K H-1 Pesticida 2026-03-30
+[FILA 114] OK creado       : 15994562-6 M-5 Limpieza 2026-03-30
+[FILA 115] OK creado       : 20318461-1 N-2 Cosecha 2026-03-30
+[FILA 116] OK creado       : 14391546-8 H-3 Poda 2026-03-30
+[FILA 117] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 118] OK creado       : 28688132-7 I-3 Poda 2026-03-30
+[FILA 119] OK creado       : 31882351-0 A-2 Pesticida 2026-03-30
+[FILA 120] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 121] OK creado       : 18082309-3 C-2 Pesticida 2026-03-30
+[FILA 122] RECHAZADO VAL  : {'__all__': ['Labor with this Temporero, Cuartel, Tipo and Fecha already exists.']}
+[FILA 123] RECHAZADO FK    : Temporero no existe: 27039896-0
+[FILA 124] OK creado       : 30825944-7 A-1 Riego 2026-03-30
+[FILA 125] OK creado       : 28688132-7 B-1 Pesticida 2026-03-30
+[FILA 126] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 127] RECHAZADO       : Horas fuera de rango: -4.8
+[FILA 128] OK creado       : 31176301-6 N-5 Riego 2026-03-30
+[FILA 129] OK creado       : 35228385-1 M-2 Pesticida 2026-03-30
+[FILA 130] OK creado       : 35585616-K A-2 Pesticida 2026-03-30
+[FILA 131] OK creado       : 30524499-6 H-4 Cosecha 2026-03-30
+[FILA 132] RECHAZADO       : RUT inválido: 18382113-1
+[FILA 133] RECHAZADO       : No es número: ND
+[FILA 134] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 135] OK creado       : 16235251-2 E-4 Riego 2026-03-30
+[FILA 136] OK creado       : 12045396-3 I-2 Pesticida 2026-03-30
+[FILA 137] OK creado       : 35521573-3 N-2 Limpieza 2026-03-30
+[FILA 138] OK creado       : 34463726-1 H-3 Riego 2026-03-30
+[FILA 139] OK creado       : 24193775-5 E-5 Riego 2026-03-30
+[FILA 140] OK creado       : 22805018-0 N-5 Cosecha 2026-03-30
+[FILA 141] OK creado       : 32656373-0 B-1 Poda 2026-03-30
+[FILA 142] RECHAZADO VAL  : {'__all__': ['Labor with this Temporero, Cuartel, Tipo and Fecha already exists.']}
+[FILA 143] RECHAZADO       : Número vacío
+[FILA 144] OK creado       : 27252216-2 K-5 Cosecha 2026-03-30
+[FILA 145] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 146] OK creado       : 17931579-3 I-1 Cosecha 2026-03-30
+[FILA 147] OK creado       : 37906064-1 I-2 Riego 2026-03-30
+[FILA 148] OK creado       : 12458221-0 G-4 Limpieza 2026-03-30
+[FILA 149] OK creado       : 34511690-7 E-4 Pesticida 2026-03-30
+[FILA 150] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 151] OK creado       : 33922597-4 D-4 Cosecha 2026-03-30
+[FILA 152] OK creado       : 39012852-5 L-1 Cosecha 2026-03-30
+[FILA 153] RECHAZADO       : RUT inválido: 29031404-7
+[FILA 154] OK creado       : 38619005-4 B-1 Pesticida 2026-03-30
+[FILA 155] OK creado       : 14685216-5 C-1 Poda 2026-03-30
+[FILA 156] OK creado       : 26559643-6 J-4 Poda 2026-03-30
+[FILA 157] OK creado       : 18382113-K C-1 Pesticida 2026-03-30
+[FILA 158] OK creado       : 29994697-5 M-2 Riego 2026-03-30
+[FILA 159] OK creado       : 13679214-8 F-3 Pesticida 2026-03-30
+[FILA 160] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 161] OK creado       : 24700199-9 I-2 Poda 2026-03-30
+[FILA 162] RECHAZADO       : Número vacío
+[FILA 163] RECHAZADO       : Horas fuera de rango: 23.7
+[FILA 164] OK creado       : 18893824-8 E-4 Limpieza 2026-03-30
+[FILA 165] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 166] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 167] OK creado       : 32971842-5 G-4 Riego 2026-03-30
+[FILA 168] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 169] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 170] OK creado       : 16235251-2 I-1 Poda 2026-03-30
+[FILA 171] OK creado       : 22222222-2 E-4 Riego 2026-03-30
+[FILA 172] RECHAZADO       : RUT inválido: 24700199-0
+[FILA 173] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 174] OK creado       : 19344146-7 E-2 Limpieza 2026-03-30
+[FILA 175] OK creado       : 38390529-K H-5 Cosecha 2026-03-30
+[FILA 176] RECHAZADO FK    : Temporero no existe: 32137564-2
+[FILA 177] OK creado       : 12458221-0 N-2 Limpieza 2026-03-30
+[FILA 178] OK creado       : 33186770-5 E-4 Poda 2026-03-30
+[FILA 179] RECHAZADO       : RUT inválido: 40000010-1
+[FILA 180] OK creado       : 12377578-3 N-5 Cosecha 2026-03-30
+[FILA 181] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 182] OK creado       : 29948752-0 A-2 Poda 2026-03-30
+[FILA 183] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 184] OK creado       : 17369062-2 N-5 Pesticida 2026-03-30
+[FILA 185] OK creado       : 11817683-9 H-4 Limpieza 2026-03-30
+[FILA 186] RECHAZADO FK    : Cuartel no existe: K-4
+[FILA 187] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 188] OK creado       : 10241284-2 C-1 Riego 2026-03-30
+[FILA 189] OK creado       : 21867485-2 N-2 Poda 2026-03-30
+[FILA 190] OK creado       : 37828304-3 E-4 Pesticida 2026-03-30
+[FILA 191] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 192] RECHAZADO       : Horas fuera de rango: -2.1
+[FILA 193] OK creado       : 13873143-K B-1 Cosecha 2026-03-30
+[FILA 194] OK creado       : 30981592-0 H-1 Limpieza 2026-03-30
+[FILA 195] RECHAZADO       : RUT inválido: 40000009-2
+[FILA 196] OK creado       : 18343522-1 L-3 Limpieza 2026-03-30
+[FILA 197] RECHAZADO FK    : Temporero no existe: 10072322-0
+[FILA 198] OK creado       : 24703034-4 E-5 Cosecha 2026-03-30
+[FILA 199] OK creado       : 34997682-K N-5 Pesticida 2026-03-30
+[FILA 200] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 201] OK creado       : 22399271-4 D-4 Limpieza 2026-03-30
+[FILA 202] RECHAZADO       : Número vacío
+[FILA 203] OK creado       : 31053595-8 E-5 Limpieza 2026-03-30
+[FILA 204] OK creado       : 36713431-3 M-2 Limpieza 2026-03-30
+[FILA 205] OK creado       : 11580963-6 A-1 Pesticida 2026-03-30
+[FILA 206] RECHAZADO       : Horas fuera de rango: -2.7
+[FILA 207] RECHAZADO       : Número vacío
+[FILA 208] OK creado       : 20343433-2 O-1 Poda 2026-03-30
+[FILA 209] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 210] OK creado       : 28017734-2 E-4 Poda 2026-03-30
+[FILA 211] OK creado       : 28688132-7 J-2 Cosecha 2026-03-30
+[FILA 212] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 213] OK creado       : 22006085-3 N-5 Poda 2026-03-30
+[FILA 214] OK creado       : 35567208-5 I-3 Limpieza 2026-03-30
+[FILA 215] RECHAZADO       : RUT inválido: 40000003-8
+[FILA 216] OK creado       : 13753864-4 H-3 Poda 2026-03-30
+[FILA 217] OK creado       : 29115134-5 E-2 Riego 2026-03-30
+[FILA 218] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 219] OK creado       : 30439044-1 E-2 Pesticida 2026-03-30
+[FILA 220] OK creado       : 32447169-3 M-5 Poda 2026-03-30
+[FILA 221] OK creado       : 33606882-7 D-5 Limpieza 2026-03-30
+[FILA 222] OK creado       : 26974673-4 D-5 Riego 2026-03-30
+[FILA 223] OK creado       : 16382351-9 B-2 Pesticida 2026-03-30
+[FILA 224] OK creado       : 20542261-7 E-2 Pesticida 2026-03-30
+[FILA 225] RECHAZADO       : RUT inválido: 40000006-5
+[FILA 226] OK creado       : 30981592-0 C-2 Poda 2026-03-30
+[FILA 227] RECHAZADO FK    : Cuartel no existe: Z-99
+[FILA 228] OK creado       : 26295412-9 E-5 Poda 2026-03-30
+[FILA 229] OK creado       : 11817683-9 M-5 Riego 2026-03-30
+[FILA 230] OK creado       : 37012854-5 G-2 Limpieza 2026-03-30
+[FILA 231] OK creado       : 27821635-7 A-1 Pesticida 2026-03-30
+[FILA 232] RECHAZADO       : RUT inválido: 32111791-1
+[FILA 233] OK creado       : 32057783-7 E-2 Poda 2026-03-30
+[FILA 234] OK creado       : 34434793-K D-4 Poda 2026-03-30
+[FILA 235] RECHAZADO VAL  : {'__all__': ['Labor with this Temporero, Cuartel, Tipo and Fecha already exists.']}
+[FILA 236] OK creado       : 17369062-2 L-1 Riego 2026-03-30
+[FILA 237] RECHAZADO       : Horas fuera de rango: 0
+[FILA 238] RECHAZADO FK    : Cuartel no existe: E-1
+[FILA 239] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 240] OK creado       : 11403543-2 F-3 Limpieza 2026-03-30
+[FILA 241] OK creado       : 28539665-4 B-1 Pesticida 2026-03-30
+[FILA 242] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 243] OK creado       : 16853801-4 A-2 Riego 2026-03-30
+[FILA 244] RECHAZADO FK    : Temporero no existe: 16371915-0
+[FILA 245] OK creado       : 37381196-3 L-1 Cosecha 2026-03-30
+[FILA 246] OK creado       : 28085076-4 C-1 Riego 2026-03-30
+[FILA 247] OK creado       : 28965868-8 O-1 Riego 2026-03-30
+[FILA 248] OK creado       : 27034339-2 J-5 Pesticida 2026-03-30
+[FILA 249] OK creado       : 28095773-9 M-2 Riego 2026-03-30
+[FILA 250] OK creado       : 31281494-3 G-4 Pesticida 2026-03-30
+[FILA 251] OK creado       : 23635762-7 N-5 Riego 2026-03-30
+[FILA 252] IGNORADO        : fila vacía
+[FILA 253] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 254] OK creado       : 11580963-6 D-4 Limpieza 2026-03-30
+[FILA 255] RECHAZADO       : Horas fuera de rango: -3.1
+[FILA 256] OK creado       : 36126369-3 C-2 Limpieza 2026-03-30
+[FILA 257] OK creado       : 31570529-0 D-5 Cosecha 2026-03-30
+[FILA 258] RECHAZADO FK    : Temporero no existe: 13843718-3
+[FILA 259] OK creado       : 29601747-7 H-1 Pesticida 2026-03-30
+[FILA 260] OK creado       : 34079069-3 O-4 Pesticida 2026-03-30
+[FILA 261] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 262] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 263] RECHAZADO VAL  : {'__all__': ['Labor with this Temporero, Cuartel, Tipo and Fecha already exists.']}
+[FILA 264] OK creado       : 25052972-4 F-3 Pesticida 2026-03-30
+[FILA 265] IGNORADO        : fila vacía
+[FILA 266] OK creado       : 20584847-9 C-1 Riego 2026-03-30
+[FILA 267] OK creado       : 29425300-9 K-5 Poda 2026-03-30
+[FILA 268] RECHAZADO       : RUT inválido: 40000007-4
+[FILA 269] RECHAZADO       : RUT inválido: 40000005-6
+[FILA 270] OK creado       : 29615450-4 G-4 Limpieza 2026-03-30
+[FILA 271] OK creado       : 18153634-9 I-5 Riego 2026-03-30
+[FILA 272] OK creado       : 27795716-7 B-2 Riego 2026-03-30
+[FILA 273] OK creado       : 18874003-0 A-2 Poda 2026-03-30
+[FILA 274] OK creado       : 24463677-2 I-2 Limpieza 2026-03-30
+[FILA 275] OK creado       : 29615450-4 J-4 Limpieza 2026-03-30
+[FILA 276] RECHAZADO VAL  : {'__all__': ['Labor with this Temporero, Cuartel, Tipo and Fecha already exists.']}
+[FILA 277] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 278] OK creado       : 31744459-1 J-5 Cosecha 2026-03-30
+[FILA 279] OK creado       : 24165337-4 M-2 Pesticida 2026-03-30
+[FILA 280] OK creado       : 28448347-2 C-1 Pesticida 2026-03-30
+[FILA 281] OK creado       : 17359183-7 H-4 Pesticida 2026-03-30
+[FILA 282] OK creado       : 18436057-8 H-4 Riego 2026-03-30
+[FILA 283] OK creado       : 38281417-7 H-3 Cosecha 2026-03-30
+[FILA 284] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 285] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 286] OK creado       : 28448347-2 M-3 Limpieza 2026-03-30
+[FILA 287] IGNORADO        : fila vacía
+[FILA 288] OK creado       : 24588301-3 J-5 Pesticida 2026-03-30
+[FILA 289] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 290] RECHAZADO       : RUT inválido: 31176301-7
+[FILA 291] RECHAZADO       : Tipo inválido: corte
+[FILA 292] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 293] RECHAZADO FK    : Cuartel no existe: E-3
+[FILA 294] OK creado       : 13570554-3 N-4 Limpieza 2026-03-30
+[FILA 295] RECHAZADO FK    : Temporero no existe: 14308102-8
+[FILA 296] RECHAZADO FK    : Cuartel no existe: D-3
+[FILA 297] OK creado       : 25341910-5 L-3 Pesticida 2026-03-30
+[FILA 298] OK creado       : 37906064-1 O-1 Riego 2026-03-30
+[FILA 299] OK creado       : 21888253-6 H-3 Limpieza 2026-03-30
+[FILA 300] RECHAZADO VAL  : {'__all__': ['Labor with this Temporero, Cuartel, Tipo and Fecha already exists.']}
+[FILA 301] OK creado       : 37906064-1 I-5 Cosecha 2026-03-30
+[FILA 302] OK creado       : 11704528-5 H-4 Poda 2026-03-30
+[FILA 303] OK creado       : 38241736-4 H-4 Cosecha 2026-03-30
+[FILA 304] RECHAZADO       : Número vacío
+[FILA 305] OK creado       : 32886360-K I-1 Poda 2026-03-30
+[FILA 306] RECHAZADO       : RUT inválido: 13753657-0
+[FILA 307] OK creado       : 36577773-K H-4 Riego 2026-03-30
+[FILA 308] OK creado       : 24825539-0 N-2 Pesticida 2026-03-30
+[FILA 309] OK creado       : 26958713-K E-2 Riego 2026-03-30
+[FILA 310] RECHAZADO       : Horas fuera de rango: -3.8
+[FILA 311] RECHAZADO FK    : Cuartel no existe: K-1
+[FILA 312] RECHAZADO FK    : Cuartel no existe: J-3
+[FILA 313] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 314] OK creado       : 39465051-K O-4 Pesticida 2026-03-30
+[FILA 315] OK creado       : 12524764-4 G-2 Poda 2026-03-30
+[FILA 316] OK creado       : 32886360-K E-4 Pesticida 2026-03-30
+[FILA 317] OK creado       : 12524764-4 D-4 Riego 2026-03-30
+[FILA 318] OK creado       : 39873085-2 L-1 Riego 2026-03-30
+[FILA 319] RECHAZADO       : Horas fuera de rango: 18.9
+[FILA 320] OK creado       : 33186770-5 H-5 Poda 2026-03-30
+[FILA 321] RECHAZADO FK    : Cuartel no existe: F-5
+[FILA 322] OK creado       : 38477503-9 I-3 Cosecha 2026-03-30
+[FILA 323] OK creado       : 25377510-6 I-1 Poda 2026-03-30
+[FILA 324] RECHAZADO       : Tipo inválido: corte
+[FILA 325] OK creado       : 12261579-0 N-4 Poda 2026-03-30
+[FILA 326] OK creado       : 37081780-4 L-1 Limpieza 2026-03-30
+[FILA 327] OK creado       : 37081780-4 G-2 Pesticida 2026-03-30
+[FILA 328] RECHAZADO FK    : Cuartel no existe: K-3
+[FILA 329] OK creado       : 25523222-3 C-1 Cosecha 2026-03-30
+[FILA 330] RECHAZADO FK    : Cuartel no existe: M-4
+[FILA 331] OK creado       : 39273995-5 B-1 Cosecha 2026-03-30
+[FILA 332] RECHAZADO FK    : Temporero no existe: 32137564-2
+[FILA 333] RECHAZADO FK    : Cuartel no existe: G-5
+[FILA 334] OK creado       : 38721482-8 L-3 Cosecha 2026-03-30
+[FILA 335] IGNORADO        : fila vacía
+[FILA 336] OK creado       : 19344146-7 I-1 Poda 2026-03-30
+[FILA 337] RECHAZADO FK    : Cuartel no existe: Z-99

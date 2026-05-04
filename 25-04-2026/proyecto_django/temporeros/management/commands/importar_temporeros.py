@@ -1,6 +1,7 @@
 import os
 import sys
 from datetime import datetime
+from decimal import Decimal
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -23,23 +24,17 @@ class Command(BaseCommand):
     help = "Importa temporeros desde un archivo Excel"
 
     def add_arguments(self, parser):
+        #ruta del archivo excel
         parser.add_argument("archivo", type=str)
 
-        # dry-run para simular
-        parser.add_argument(
-            "--dry-run",
-            action="store_true",
-            help="Simula la importación sin guardar datos"
-        )
+        #simula la importacion sin guardar en bd
+        parser.add_argument("--dry-run", action="store_true")
 
-        # aca si el rut ya existe, esto permite actualizarlo
-        parser.add_argument(
-            "--update",
-            action="store_true",
-            help="Actualiza temporeros existentes"
-        )
+        #permite actualizar temporeros existentes
+        parser.add_argument("--update", action="store_true")
 
     def parsear_fecha(self, valor):
+        #convierte fechas en distintos formatos a date
         if valor is None or str(valor).strip() == "":
             raise ValueError("Fecha vacía")
 
@@ -48,12 +43,7 @@ class Command(BaseCommand):
 
         texto = str(valor).strip()
 
-        formatos = [
-            "%d/%m/%Y",
-            "%d-%m-%Y",
-            "%Y-%m-%d",
-            "%d.%m.%Y",
-        ]
+        formatos = ["%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d.%m.%Y"]
 
         for formato in formatos:
             try:
@@ -63,24 +53,52 @@ class Command(BaseCommand):
 
         raise ValueError(f"Fecha inválida: {valor}")
 
+    def normalizar_bool(self, valor, default=True):
+        #convierte valores del excel a booleanos y rechaza valores desconocidos
+        if valor is None or str(valor).strip() == "":
+            return default
+
+        if valor in VALORES_VERDADEROS:
+            return True
+
+        if valor in VALORES_FALSOS:
+            return False
+
+        texto = str(valor).strip()
+
+        if texto in VALORES_VERDADEROS:
+            return True
+
+        if texto in VALORES_FALSOS:
+            return False
+
+        raise ValueError(f"valor no reconocido: {valor}")
+
     def handle(self, *args, **options):
         archivo = options["archivo"]
         dry_run = options["dry_run"]
         update = options["update"]
 
+        #verifica que el archivo exista
         if not os.path.exists(archivo):
             self.stdout.write(self.style.ERROR("Archivo no encontrado"))
             return
 
         wb = load_workbook(archivo)
 
+        #crea carpeta de logs
+        os.makedirs("logs", exist_ok=True)
+
+        #crea archivo log con fecha y hora
+        log_path = f"logs/import_temporeros_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        log = open(log_path, "w", encoding="utf-8")
+
         print(SEPARADOR)
-        print(f"Importacion de temporeros — {os.path.basename(archivo)}")
+        print(f"IMPORTACIÓN DE TEMPOREROS — {os.path.basename(archivo)}")
         print(SEPARADOR)
 
-        # detecta hoja correcta
-
-        hoja_correcta = None
+        #busca la hoja correcta detectando una fila con rut
+        hoja = None
         nombre_hoja = None
 
         for nombre in wb.sheetnames:
@@ -90,24 +108,22 @@ class Command(BaseCommand):
                 valores = [str(c.value).strip() if c.value else "" for c in fila]
 
                 if any("RUT" in v.upper() for v in valores):
-                    hoja_correcta = ws
+                    hoja = ws
                     nombre_hoja = nombre
                     break
 
-            if hoja_correcta:
+            if hoja:
                 break
 
-        if not hoja_correcta:
-            self.stdout.write(self.style.ERROR("No se encontró hoja válida"))
+        if not hoja:
+            print("No se encontró hoja válida")
+            log.close()
             return
 
-        print(f"Hoja utilizada: {nombre_hoja}")
-
-        # detecta fila de encabezados
-
+        #busca la fila real de encabezados
         header_row = None
 
-        for idx, fila in enumerate(hoja_correcta.iter_rows(), start=1):
+        for idx, fila in enumerate(hoja.iter_rows(), start=1):
             valores = [str(c.value).strip() if c.value else "" for c in fila]
 
             if any("RUT" in v.upper() for v in valores):
@@ -115,162 +131,175 @@ class Command(BaseCommand):
                 break
 
         if not header_row:
-            self.stdout.write(self.style.ERROR("No se encontró fila de encabezados"))
+            print("No se encontró fila de encabezados")
+            log.close()
             return
 
-        print(f"Fila de encabezados: {header_row}")
-
-        # crea diccionario de encabezados
-
+        #crea diccionario columna -> indice
         headers = {}
 
-        for cell in hoja_correcta[header_row]:
+        for cell in hoja[header_row]:
             if cell.value:
                 headers[str(cell.value).strip()] = cell.column - 1
+
+        #obtiene un valor aceptando varios nombres posibles de columna
+        def obtener(valores, *nombres):
+            for nombre in nombres:
+                if nombre in headers:
+                    indice = headers[nombre]
+
+                    if indice < len(valores):
+                        return valores[indice]
+
+            return None
 
         total_leidas = 0
         ignoradas = 0
         procesadas = 0
-        rut_invalido = 0
-        fecha_invalida = 0
-        talla_invalida = 0
         creados = 0
         actualizados = 0
         saltados = 0
+        rechazados = 0
 
-        # funcion para obtener columnas por nombre
-
-        def obtener(valores, *nombres):
-            for nombre in nombres:
-                if nombre in headers:
-                    idx = headers[nombre]
-
-                    if idx < len(valores):
-                        return valores[idx]
-
-            return None
-
-        # booleanos
-
-        def normalizar_bool(valor):
-            if valor is None or str(valor).strip() == "":
-                return True
-
-            if valor in VALORES_VERDADEROS:
-                return True
-
-            if valor in VALORES_FALSOS:
-                return False
-
-            return True
+        rut_invalidos = 0
+        fechas_invalidas = 0
+        tallas_invalidas = 0
+        booleanos_invalidos = 0
 
         with transaction.atomic():
-            # recorre filas de datos
-
-            for fila in hoja_correcta.iter_rows(min_row=header_row + 1):
+            #recorre filas desde despues del encabezado
+            for fila in hoja.iter_rows(min_row=header_row + 1):
                 total_leidas += 1
 
                 valores = [c.value for c in fila]
+                fila_excel = fila[0].row
 
-                # esto ignora filas vacías
+                #ignora filas vacias o con solo espacios
                 if all(v is None or str(v).strip() == "" for v in valores):
                     ignoradas += 1
+                    log.write(f"[FILA {fila_excel:03}] IGNORADO        : fila vacía\n")
                     continue
 
-                rut = obtener(valores, "RUT", "Rut", "RUT Trabajador")
-                nombre = obtener(valores, "Nombre", "Nombre Completo")
-                fecha_nacimiento = obtener(valores, "Fecha Nacimiento", "Nacimiento")
-                fecha_ingreso = obtener(valores, "Fecha Ingreso", "Ingreso")
-                talla = obtener(valores, "Talla", "Talla Polera")
-                telefono = obtener(valores, "Teléfono", "Telefono")
-                activo = obtener(valores, "Activo", "Estado")
-                supervisor = obtener(valores, "Supervisor")
+                nombre_raw = obtener(valores, "Nombre", "Nombre Completo", "Trabajador")
+                nombre = str(nombre_raw).strip().title() if nombre_raw else ""
 
-                # aca se hace validacion de RUT
-
-                try:
-                    rut_limpio = limpiar_rut(rut)
-
-                    if not validar_rut(rut_limpio):
-                        raise ValueError("RUT inválido")
-
-                except ValueError:
-                    rut_invalido += 1
-                    continue
-
-                # normalización de datos
-
-                nombre_limpio = str(nombre).strip().title() if nombre else ""
-
-                if not nombre_limpio:
+                if not nombre or nombre.upper().startswith(("TOTAL", "VERSIÓN", "APROBADO")):
                     ignoradas += 1
+                    log.write(f"[FILA {fila_excel:03}] IGNORADO        : fila basura\n")
                     continue
 
-                # talla
-                talla_limpia = str(talla).strip().upper() if talla else ""
-                if talla_limpia not in TALLAS_VALIDAS:
-                    talla_invalida += 1
-                    continue
-
-                activo_limpio = normalizar_bool(activo)
-                supervisor_limpio = normalizar_bool(supervisor)
-
-                # fechas de nacimiento y ingreso
                 try:
-                    fecha_nacimiento_limpia = self.parsear_fecha(fecha_nacimiento)
-                    fecha_ingreso_limpia = self.parsear_fecha(fecha_ingreso)
-                except ValueError:
-                    fecha_invalida += 1
-                    continue
+                    # limpia y valida rut
+                    rut_raw = obtener(valores, "RUT", "Rut", "RUT Trabajador")
+                    rut = limpiar_rut(rut_raw)
 
-                telefono_limpio = str(telefono).strip() if telefono else None
+                    if not validar_rut(rut):
+                        rut_invalidos += 1
+                        raise ValueError(f"RUT inválido: {rut_raw}")
+
+                    #parsea fechas
+                    try:
+                        fecha_nacimiento = self.parsear_fecha(
+                            obtener(valores, "Fecha Nacimiento", "Nacimiento", "Fecha de Nacimiento")
+                        )
+                        fecha_ingreso = self.parsear_fecha(
+                            obtener(valores, "Fecha Ingreso", "Ingreso", "Fecha de Ingreso")
+                        )
+                    except ValueError as e:
+                        fechas_invalidas += 1
+                        raise ValueError(e)
+
+                    #valida las tallas
+                    talla = obtener(valores, "Talla", "Talla Polera", "Talla polera")
+                    talla = str(talla).strip().upper() if talla else ""
+
+                    if talla not in TALLAS_VALIDAS:
+                        tallas_invalidas += 1
+                        raise ValueError(f"Talla inválida: {talla}")
+
+                    #limpia telefono
+                    telefono = obtener(valores, "Teléfono", "Telefono")
+                    telefono = str(telefono).replace("+", "").replace(" ", "").replace("(", "").replace(")", "").strip() if telefono else None
+                    telefono = telefono if telefono else None
+
+                    #limpia contacto de emergencia
+                    contacto = obtener(valores, "Contacto Emergencia", "Contacto emergencia", "Contacto")
+                    contacto = str(contacto).strip() if contacto else None
+                    contacto = contacto if contacto else None
+
+                    #normaliza activo y supervisor
+                    try:
+                        activo = self.normalizar_bool(obtener(valores, "Activo", "Estado"), default=True)
+                        supervisor = self.normalizar_bool(obtener(valores, "Supervisor"), default=False)
+                    except ValueError as e:
+                        booleanos_invalidos += 1
+                        raise ValueError(e)
+
+                except ValueError as e:
+                    rechazados += 1
+                    log.write(f"[FILA {fila_excel:03}] RECHAZADO       : {e} → {nombre}\n")
+                    continue
 
                 procesadas += 1
 
-                # crear o actualizar
+                existente = Temporero.objects.filter(rut=rut).first()
 
-                temporero = Temporero.objects.filter(rut=rut_limpio).first()
-
-                if temporero:
+                if existente:
                     if update:
-                        temporero.nombre = nombre_limpio
-                        temporero.fecha_nacimiento = fecha_nacimiento_limpia
-                        temporero.fecha_ingreso = fecha_ingreso_limpia
-                        temporero.talla_polera = talla_limpia
-                        temporero.telefono = telefono_limpio
-                        temporero.activo = activo_limpio
-                        temporero.supervisor = supervisor_limpio
+                        #actualiza registro existente
+                        existente.nombre = nombre
+                        existente.fecha_nacimiento = fecha_nacimiento
+                        existente.fecha_ingreso = fecha_ingreso
+                        existente.talla_polera = talla
+                        existente.telefono = telefono
+                        existente.contacto_emergencia = contacto
+                        existente.activo = activo
+                        existente.supervisor = supervisor
+                        existente.save()
 
-                        temporero.save()
                         actualizados += 1
+                        log.write(f"[FILA {fila_excel:03}] ACTUALIZADO     : {nombre} ({rut})\n")
                     else:
+                        #salta existentes si no se usa --update
                         saltados += 1
-                else:
-                    Temporero.objects.create(
-                        rut=rut_limpio,
-                        nombre=nombre_limpio,
-                        fecha_nacimiento=fecha_nacimiento_limpia,
-                        fecha_ingreso=fecha_ingreso_limpia,
-                        talla_polera=talla_limpia,
-                        telefono=telefono_limpio,
-                        activo=activo_limpio,
-                        supervisor=supervisor_limpio
-                    )
-                    creados += 1
+                        log.write(f"[FILA {fila_excel:03}] SALTADO         : ya existe {rut} → {nombre}\n")
 
+                else:
+                    #crea nuevo temporero
+                    Temporero.objects.create(
+                        rut=rut,
+                        nombre=nombre,
+                        fecha_nacimiento=fecha_nacimiento,
+                        fecha_ingreso=fecha_ingreso,
+                        talla_polera=talla,
+                        telefono=telefono,
+                        contacto_emergencia=contacto,
+                        activo=activo,
+                        supervisor=supervisor,
+                    )
+
+                    creados += 1
+                    log.write(f"[FILA {fila_excel:03}] OK creado       : {nombre} ({rut})\n")
+
+            #si es un dryrun se revierten los cambios
             if dry_run:
                 transaction.set_rollback(True)
 
+        log.close()
+
+        print(f"Hoja utilizada:               {nombre_hoja}")
+        print(f"Fila de encabezados:          {header_row}")
+        print(f"Filas totales leídas:         {total_leidas}")
+        print(f"Filas vacías/basura ignoradas:{ignoradas}")
+        print(f"Filas procesadas:             {procesadas}")
+        print(f"  ├─ Creados:                 {creados}")
+        print(f"  ├─ Actualizados:            {actualizados}")
+        print(f"  └─ Saltados:                {saltados}")
+        print(f"Filas rechazadas:             {rechazados}")
+        print(f"  ├─ RUT inválido:            {rut_invalidos}")
+        print(f"  ├─ Fecha inválida:          {fechas_invalidas}")
+        print(f"  ├─ Talla inválida:          {tallas_invalidas}")
+        print(f"  └─ Booleano inválido:       {booleanos_invalidos}")
+        print(f"Modo:                         {'DRY-RUN (no se escribió nada)' if dry_run else 'ESCRITURA EN BD'}")
         print(SEPARADOR)
-        print(f"Filas totales leídas:          {total_leidas}")
-        print(f"Filas vacías/basura ignoradas: {ignoradas}")
-        print(f"Filas procesadas:              {procesadas}")
-        print(f"  ├─ Creados:                  {creados}")
-        print(f"  ├─ Actualizados:             {actualizados}")
-        print(f"  └─ Saltados:                 {saltados}")
-        print(f"Filas rechazadas:")
-        print(f"  ├─ RUT inválido:             {rut_invalido}")
-        print(f"  ├─ Fecha inválida:           {fecha_invalida}")
-        print(f"  └─ Talla inválida:           {talla_invalida}")
-        print(f"Modo: {'DRY-RUN (no se escribió nada)' if dry_run else 'ESCRITURA EN BD'}")
-        print(SEPARADOR)
+        print(f"Log: {log_path}")
