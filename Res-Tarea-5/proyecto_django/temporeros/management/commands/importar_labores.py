@@ -9,7 +9,7 @@ from django.db import transaction, IntegrityError
 from django.core.exceptions import ValidationError
 from openpyxl import load_workbook
 
-# permite importar utils/rut.py desde la carpeta 25-04-2026
+#permite importar utils/rut.py desde la carpeta 25-04-2026
 sys.path.append(os.path.join(os.path.dirname(__file__), "../../../../"))
 
 from temporeros.models import Temporero, Cuartel, Labor
@@ -24,17 +24,17 @@ class Command(BaseCommand):
     help = "Importa labores desde un archivo Excel"
 
     def add_arguments(self, parser):
-        # ruta del archivo excel
+        #ruta del archivo excel
         parser.add_argument("archivo", type=str)
 
-        # simula sin guardar cambios
+        #simula sin guardar cambios
         parser.add_argument("--dry-run", action="store_true")
 
-        # procesa una sola hoja si se indica
+        #procesa una sola hoja si se indica
         parser.add_argument("--hoja", type=str, default=None)
 
     def normalizar_texto(self, texto):
-        # normaliza encabezados para comparar sin depender de mayusculas, tildes o simbolos
+        #normaliza encabezados para comparar sin depender de mayusculas, tildes o simbolos
         texto = str(texto).strip().lower()
         texto = texto.replace("á", "a").replace("é", "e").replace("í", "i")
         texto = texto.replace("ó", "o").replace("ú", "u").replace("°", "")
@@ -43,7 +43,7 @@ class Command(BaseCommand):
         return texto
 
     def fecha_desde_nombre_hoja(self, nombre_hoja):
-        # extrae fecha desde nombres como "Lunes 30-03"
+        #extrae fecha desde nombres como "Lunes 30-03"
         match = re.search(r"(\d{2})-(\d{2})", nombre_hoja)
 
         if not match:
@@ -55,7 +55,7 @@ class Command(BaseCommand):
         return date(2026, mes, dia)
 
     def parsear_fecha(self, valor):
-        # convierte fechas en distintos formatos a date
+        #convierte fechas en distintos formatos a date
         if valor is None or str(valor).strip() == "":
             raise ValueError("Fecha vacía")
 
@@ -80,13 +80,13 @@ class Command(BaseCommand):
         raise ValueError(f"Fecha inválida: {valor}")
 
     def parsear_numero(self, valor):
-        # convierte valores como "7,5", "8 hrs" o "120 kg" a decimal
+        #convierte valores como "7,5", "8 hrs" o "120 kg" a decimal
         if valor is None or str(valor).strip() == "":
             raise ValueError("Número vacío")
 
         texto = str(valor).strip().replace(",", ".")
 
-        # deja solo numeros, punto decimal y signo negativo
+        #deja solo numeros, punto decimal y signo negativo
         texto = re.sub(r"[^0-9.\-]", "", texto)
 
         if texto in {"", "-", ".", "-."}:
@@ -98,7 +98,7 @@ class Command(BaseCommand):
             raise ValueError(f"Número inválido: {valor}")
 
     def normalizar_cuartel(self, valor):
-        # normaliza cuarteles: "Cuartel A-1", "SECTOR A2" o "A1" -> "A-1"
+        #normaliza cuarteles: "Cuartel A-1", "SECTOR A2" o "A1" -> "A-1"
         if valor is None or str(valor).strip() == "":
             raise ValueError("Cuartel vacío")
 
@@ -125,7 +125,7 @@ class Command(BaseCommand):
         return texto
 
     def normalizar_tipo(self, valor):
-        # normaliza tipo de labor y traduce valores conocidos
+        #normaliza tipo de labor y traduce valores conocidos
         if valor is None or str(valor).strip() == "":
             raise ValueError("Tipo vacío")
 
@@ -149,7 +149,7 @@ class Command(BaseCommand):
         return tipo
 
     def mapear_columnas(self, header_row):
-        # asocia columnas del excel con campos internos usando variantes flexibles
+        #asocia columnas del excel con campos internos usando variantes flexibles
         resultado = {}
 
         variantes_normalizadas = {
@@ -181,17 +181,17 @@ class Command(BaseCommand):
         dry_run = options["dry_run"]
         hoja_unica = options["hoja"]
 
-        # valida existencia del archivo
+        #valida existencia del archivo
         if not os.path.exists(archivo):
             self.stdout.write(self.style.ERROR("Archivo no encontrado"))
             return
 
         wb = load_workbook(archivo)
 
-        # crea carpeta de logs
+        #crea carpeta de logs
         os.makedirs("logs", exist_ok=True)
 
-        # crea log con fecha y hora
+        #crea log con fecha y hora
         log_path = f"logs/import_labores_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         log = open(log_path, "w", encoding="utf-8")
 
@@ -205,7 +205,7 @@ class Command(BaseCommand):
         total_duplicadas = 0
         total_vacias = 0
 
-        # define si se procesan todas las hojas o solo una
+        #define si se procesan todas las hojas o solo una
         if hoja_unica:
             if hoja_unica not in wb.sheetnames:
                 self.stdout.write(self.style.ERROR(f"No existe la hoja: {hoja_unica}"))
@@ -217,9 +217,11 @@ class Command(BaseCommand):
             hojas_a_procesar = wb.sheetnames
 
         with transaction.atomic():
-
             for nombre_hoja in hojas_a_procesar:
                 ws = wb[nombre_hoja]
+
+                #separador por hoja en log
+                log.write(f"\n--- Hoja: {nombre_hoja} ---\n")
 
                 leidas = 0
                 importadas = 0
@@ -227,13 +229,13 @@ class Command(BaseCommand):
                 duplicadas = 0
                 vacias = 0
 
-                # intenta obtener fecha desde el nombre de la hoja
+                #intenta obtener fecha desde el nombre de la hoja
                 try:
                     fecha_hoja = self.fecha_desde_nombre_hoja(nombre_hoja)
                 except ValueError:
                     fecha_hoja = None
 
-                # detecta fila de encabezados
+                #detecta fila de encabezados
                 header_row = None
 
                 for idx, fila in enumerate(ws.iter_rows(), start=1):
@@ -248,13 +250,13 @@ class Command(BaseCommand):
                     log.write(f"[HOJA {nombre_hoja}] OMITIDA: sin encabezado válido\n")
                     continue
 
-                # mapea columnas de forma flexible
+                #mapea columnas de forma flexible
                 columnas = self.mapear_columnas(ws[header_row])
                 tiene_col_fecha = "fecha" in columnas
 
                 print(f"\nHoja: {nombre_hoja}")
 
-                # recorre filas de datos
+                #recorre filas de datos
                 for fila in ws.iter_rows(min_row=header_row + 1):
                     leidas += 1
                     total_leidas += 1
@@ -262,14 +264,14 @@ class Command(BaseCommand):
                     valores = [c.value for c in fila]
                     fila_excel = fila[0].row
 
-                    # ignora filas vacias
+                    #ignora filas vacias
                     if all(v is None or str(v).strip() == "" for v in valores):
                         vacias += 1
                         total_vacias += 1
                         log.write(f"[FILA {fila_excel:03}] IGNORADO        : fila vacía\n")
                         continue
 
-                    # obtiene valor segun campo ya mapeado
+                    #obtiene valor segun campo ya mapeado
                     def get(campo):
                         if campo not in columnas:
                             return None
@@ -282,29 +284,29 @@ class Command(BaseCommand):
                         return valores[indice]
 
                     try:
-                        # valida rut
+                        #valida rut
                         rut = limpiar_rut(get("rut"))
 
                         if not validar_rut(rut):
                             raise ValueError(f"RUT inválido: {rut}")
 
-                        # valida existencia de temporero
+                        #valida existencia de temporero
                         temporero = Temporero.objects.filter(rut=rut).first()
 
                         if not temporero:
                             raise LookupError(f"Temporero no existe: {rut}")
 
-                        # valida existencia de cuartel
+                        #valida existencia de cuartel
                         nombre_cuartel = self.normalizar_cuartel(get("cuartel"))
                         cuartel = Cuartel.objects.filter(nombre=nombre_cuartel).first()
 
                         if not cuartel:
                             raise LookupError(f"Cuartel no existe: {nombre_cuartel}")
 
-                        # normaliza tipo
+                        #normaliza tipo
                         tipo = self.normalizar_tipo(get("tipo"))
 
-                        # obtiene fecha desde columna o desde nombre de hoja
+                        #obtiene fecha desde columna o desde nombre de hoja
                         valor_fecha = get("fecha")
 
                         if tiene_col_fecha and valor_fecha not in [None, ""]:
@@ -315,20 +317,20 @@ class Command(BaseCommand):
 
                             fecha = fecha_hoja
 
-                        # valida fechas de negocio
+                        #valida fechas de negocio
                         if fecha > date.today():
                             raise ValueError(f"Fecha futura: {fecha}")
 
                         if fecha < temporero.fecha_ingreso:
                             raise ValueError(f"Fecha anterior al ingreso: {fecha}")
 
-                        # valida horas
+                        #valida horas
                         horas = self.parsear_numero(get("horas"))
 
                         if horas <= 0 or horas > 12:
                             raise ValueError(f"Horas fuera de rango: {horas}")
 
-                        # valida kilos segun tipo
+                        #valida kilos segun tipo
                         valor_kilos = get("kilos")
 
                         if tipo == "Cosecha":
@@ -339,7 +341,7 @@ class Command(BaseCommand):
                         else:
                             kilos = None
 
-                        # observaciones opcionales
+                        #observaciones opcionales
                         obs = get("obs")
                         observaciones = str(obs).strip() if obs else ""
 
@@ -356,7 +358,7 @@ class Command(BaseCommand):
                         continue
 
                     try:
-                        # crea labor y aplica validaciones del modelo
+                        #crea labor y aplica validaciones del modelo
                         labor = Labor(
                             temporero=temporero,
                             cuartel=cuartel,
@@ -392,7 +394,7 @@ class Command(BaseCommand):
                     f"Rechazadas: {rechazadas} | Duplicadas: {duplicadas} | Vacías: {vacias}"
                 )
 
-            # revierte cambios si es dry-run
+            #revierte cambios si es dry-run
             if dry_run:
                 transaction.set_rollback(True)
 
