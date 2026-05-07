@@ -122,7 +122,7 @@ class LaborCreateSerializer(serializers.ModelSerializer): #este serializer crea 
             'observaciones',
         ]
 
-        extra_kwards = {
+        extra_kwargs = {
             'horas_trabajadas': {'coerce_to_string': False},
             'kilos_cosechados': {'coerce_to_string': False},
         }

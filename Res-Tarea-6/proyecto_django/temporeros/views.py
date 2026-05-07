@@ -56,27 +56,40 @@ class TemporeroListView(APIView):
 
 
 class TemporeroDetailView(APIView):
-    """GET /api/temporeros/<rut>/ - Devuelve detalle de un temporero."""
+    """GET /api/temporeros/<rut>/ - Devuelve detalle completo de un temporero."""
 
     def get(self, request, rut):
         logger.debug(f"GET {request.path}")
 
         try:
-            #busca el temporero por RUT
             temporero = Temporero.objects.get(rut=rut)
         except Temporero.DoesNotExist:
-            #si no existe, responde error 404 en JSON
             return Response({
                 "error": f"Temporero con RUT '{rut}' no encontrado"
             }, status=status.HTTP_404_NOT_FOUND)
 
-        #serializa un solo objeto
-        serializer = TemporeroSerializer(temporero)
+        labores_recientes = temporero.labores.order_by('-fecha')[:10]
+
+        stats_qs = temporero.labores.aggregate(
+            total_labores=Count('id'),
+            total_horas=Sum('horas_trabajadas'),
+            total_kilos=Sum('kilos_cosechados'),
+        )
+
+        tipos_realizados = list(
+            temporero.labores.values_list('tipo', flat=True).distinct()
+        )
 
         return Response({
-            "temporero": serializer.data
+            "temporero": TemporeroSerializer(temporero).data,
+            "labores_recientes": LaborSerializer(labores_recientes, many=True).data,
+            "stats": {
+                "total_labores": stats_qs["total_labores"] or 0,
+                "total_horas": stats_qs["total_horas"] or 0,
+                "total_kilos_cosechados": stats_qs["total_kilos"] or 0,
+                "tipos_realizados": tipos_realizados,
+            }
         }, status=status.HTTP_200_OK)
-
 
 class CuartelListView(APIView):
     """GET /api/cuarteles/ - Lista cuarteles con filtros opcionales."""

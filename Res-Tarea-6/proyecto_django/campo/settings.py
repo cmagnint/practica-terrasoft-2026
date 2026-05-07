@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-lcw5x1=i@@ba*le7k+(ow1@1hew1o7ljx3p%62fs6(damy_7@*'
+SECRET_KEY = config('SECRET_KEY')
+
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,14 +80,13 @@ WSGI_APPLICATION = 'campo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'temporada_django',
-	'USER': 'admin',
-	'PASSWORD': 'admin123',
-	'HOST': 'localhost',
-	'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
