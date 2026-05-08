@@ -1,1 +1,0 @@
-# practica-terrasoft-2026
