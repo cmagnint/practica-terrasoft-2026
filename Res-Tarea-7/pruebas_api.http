@@ -1,0 +1,98 @@
+### 1. Lista todos los mecánicos
+GET http://localhost:8000/api/mecanicos/
+
+###
+
+### 2. Solo mecánicos de Motor
+GET http://localhost:8000/api/mecanicos/?especialidad=Motor
+
+###
+
+### 3. Detalle de mecánico con stats
+GET http://localhost:8000/api/mecanicos/11111111-1/
+
+###
+
+### 4. Crear mecánico válido → 201
+POST http://localhost:8000/api/mecanicos/
+Content-Type: application/json
+
+{"nombre": "Ana López", "rut": "...", "especialidad": "Electricidad"}
+
+###
+
+### 5. Crear mecanico con rut duplicado → 400
+
+POST http://localhost:8000/api/mecanicos/
+Content-Type: application/json
+
+{
+    "nombre": "Otro",
+    "rut": "11111111-1",
+    "especialidad": "General",
+    "activo": true
+}
+
+###
+
+### 6. Lista clientes con vehículos anidados
+GET http://localhost:8000/api/clientes/
+
+###
+
+### 7. Solo clientes con vehículos
+GET http://localhost:8000/api/clientes/?con_vehiculos=true
+
+###
+
+### 8. Detalle de cliente con stats
+GET http://localhost:8000/api/clientes/10111111-1/
+
+###
+
+### 9. Vehículos marca Toyota
+GET http://localhost:8000/api/vehiculos/?marca=Toyota
+
+###
+
+### 10. Detalle de vehículo con cliente y órdenes anidados
+GET http://localhost:8000/api/vehiculos/ABCD00/
+
+###
+
+### 11. Órdenes pendientes
+GET http://localhost:8000/api/ordenes/?estado=Pendiente
+
+###
+
+### 12. Órdenes vencidas
+GET http://localhost:8000/api/ordenes/?vencidas=true
+
+###
+
+### 13. Crear orden válida → 201
+POST http://localhost:8000/api/ordenes/
+Content-Type: application/json
+
+{
+    "vehiculo": 46,
+    "mecanico": 14,
+    "descripcion": "Cambio aceite",
+    "fecha_entrega_estimada": "2026-05-15",
+    "observaciones": "Prueba desde REST Client"
+}
+###
+
+### 14. Completar orden con monto → 200
+PATCH http://localhost:8000/api/ordenes/81/
+Content-Type: application/json
+
+{"estado": "Completada", "fecha_entrega_real": "2026-05-09", "monto": 85000}
+
+###
+
+### 15. Completar orden sin monto → 400
+PATCH http://localhost:8000/api/ordenes/85/
+Content-Type: application/json
+
+{"estado": "Completada"}
