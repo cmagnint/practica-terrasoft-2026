@@ -114,8 +114,8 @@ class OrdenTrabajo(models.Model):
         default='Pendiente'
     )
 
-    #fecha automática cuando se crea la orden
-    fecha_ingreso = models.DateField(auto_now_add=True)
+    #cambio: ahora la fecha em que ingresa un vehiculo se puede ingresar manualmente para tener historial
+    fecha_ingreso = models.DateField()
 
     fecha_entrega_estimada = models.DateField()
 

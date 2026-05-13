@@ -33,9 +33,6 @@ class ClienteResumenSerializer(serializers.ModelSerializer):
 
 class VehiculoResumenSerializer(serializers.ModelSerializer):
 
-    #aca, llama a usar el campo "anio" del modelo, pero para que json lo mostrara como "año"
-    año = serializers.IntegerField(source='anio')
-
     #serializer reducido para vehiculos
     class Meta:
         model = Vehiculo
@@ -46,7 +43,7 @@ class VehiculoResumenSerializer(serializers.ModelSerializer):
             'patente',
             'marca',
             'modelo',
-            'año',
+            'anio',
             'color'
         ]
 
@@ -106,6 +103,24 @@ class VehiculoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vehiculo
         fields = '__all__'
+
+
+class VehiculoCreateSerializer(serializers.ModelSerializer):
+    """serializer para crear vehiculos usando id de cliente"""
+
+    class Meta:
+        model = Vehiculo
+
+        #aqui cliente recibe un id, no un objeto anidado
+        fields = [
+            'patente',
+            'marca',
+            'modelo',
+            'anio',
+            'color',
+            'kilometraje',
+            'cliente'
+        ]
 
 
 class OrdenTrabajoSerializer(serializers.ModelSerializer):

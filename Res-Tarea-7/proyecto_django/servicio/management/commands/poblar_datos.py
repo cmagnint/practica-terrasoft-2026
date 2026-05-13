@@ -2,7 +2,6 @@ import random
 from datetime import timedelta
 
 from django.core.management.base import BaseCommand
-
 from django.utils import timezone
 
 from servicio.models import (
@@ -13,350 +12,192 @@ from servicio.models import (
 )
 
 
-#clase principal del comando django
 class Command(BaseCommand):
-
-    #descripcion visible al ejecutar help
     help = 'puebla la base de datos con informacion de prueba'
 
-    #metodo principal del comando
     def handle(self, *args, **kwargs):
+        #fecha actual segun django
+        hoy = timezone.now().date()
 
-        #elimina datos antiguos para evitar duplicados
-        #el orden importa por las foreign key
-        OrdenTrabajo.objects.all().delete()
-        Vehiculo.objects.all().delete()
-        Cliente.objects.all().delete()
-        Mecanico.objects.all().delete()
-
-        self.stdout.write(
-            'datos antiguos eliminados'
-        )
-
+        #(distribuir fechas en los ultimos 90 dias)
+        dias_historicos = 90
 
         #datos base de mecanicos
-        #cada tupla contiene:
-        #nombre
-        #rut
-        #especialidad
-        #activo
         mecanicos_data = [
-
             ('Carlos Muñoz', '11111111-1', 'Motor', True),
-
             ('Ana López', '22222222-2', 'Electricidad', True),
-
             ('Pedro Soto', '33333333-3', 'Frenos', True),
-
             ('María Torres', '44444444-4', 'Carrocería', True),
-
             ('Luis Rojas', '55555555-5', 'General', True),
-
             ('Fernanda Díaz', '66666666-6', 'Motor', True),
-
             ('Jorge Silva', '77777777-7', 'Electricidad', True),
-
             ('Raúl Vega', '88888888-8', 'General', False),
         ]
 
-
-        #creacion de mecanicos
+        #crea mecanicos sin duplicar
         for nombre, rut, especialidad, activo in mecanicos_data:
-
-            #create inserta un nuevo registro en la bd
-            Mecanico.objects.create(
-
-                nombre=nombre,
-
+            Mecanico.objects.get_or_create(
                 rut=rut,
-
-                especialidad=especialidad,
-
-                activo=activo
+                defaults={
+                    'nombre': nombre,
+                    'especialidad': especialidad,
+                    'activo': activo
+                }
             )
 
-        self.stdout.write(
-            'mecanicos creados'
-        )
-
-
-        #clientes de ejemplo
+        #datos base de clientes
         clientes_data = [
-
             ('Juan Pérez', '10111111-1'),
-
             ('María González', '10222222-2'),
-
             ('Carlos Díaz', '10333333-3'),
-
             ('Ana Torres', '10444444-4'),
-
             ('Pedro Silva', '10555555-5'),
-
             ('Fernanda Soto', '10666666-6'),
-
             ('Luis Morales', '10777777-7'),
-
             ('Camila Rojas', '10888888-8'),
-
             ('Diego Herrera', '10999999-9'),
-
             ('Valentina Muñoz', '11000000-0'),
-
             ('Javiera Castro', '11122222-3'),
-
             ('Matías Fuentes', '11233333-4'),
-
             ('Constanza Reyes', '11344444-5'),
-
             ('Sebastián Araya', '11455555-6'),
-
             ('Daniela Peña', '11566666-7'),
-
             ('Francisco Leiva', '11677777-8'),
-
             ('Antonia Salazar', '11788888-9'),
-
             ('Ignacio Bravo', '11899999-0'),
-
             ('Paula Medina', '11911111-1'),
-
             ('Rodrigo Carrasco', '12022222-2'),
         ]
 
-
-        #creacion de clientes
+        #crea clientes sin duplicar
         for nombre, rut in clientes_data:
-
-            Cliente.objects.create(
-
-                nombre=nombre,
-
+            Cliente.objects.get_or_create(
                 rut=rut,
-
-                telefono='912345678',
-
-                #crea email automaticamente
-                email=(
-                    f'{nombre.lower().replace(" ", ".")}@mail.com'
-                )
+                defaults={
+                    'nombre': nombre,
+                    'telefono': '912345678',
+                    'email': f'{nombre.lower().replace(" ", ".")}@mail.com'
+                }
             )
 
-        self.stdout.write(
-            'clientes creados'
-        )
-
-
-        #diccionario de marcas y modelos reales
+        #marcas y modelos coherentes
         vehiculos_data = {
-
-            'Toyota': [
-                'Corolla',
-                'Yaris',
-                'Hilux',
-                'RAV4'
-            ],
-
-            'Hyundai': [
-                'Accent',
-                'Elantra',
-                'Tucson',
-                'Santa Fe'
-            ],
-
-            'Chevrolet': [
-                'Sail',
-                'Spark',
-                'Tracker',
-                'Groove'
-            ],
-
-            'Kia': [
-                'Rio',
-                'Cerato',
-                'Sportage',
-                'Morning'
-            ],
-
-            'Mazda': [
-                'Mazda3',
-                'CX-5',
-                'BT-50',
-                'CX-30'
-            ]
+            'Toyota': ['Corolla', 'Yaris', 'Hilux', 'RAV4'],
+            'Hyundai': ['Accent', 'Elantra', 'Tucson', 'Santa Fe'],
+            'Chevrolet': ['Sail', 'Spark', 'Tracker', 'Groove'],
+            'Kia': ['Rio', 'Cerato', 'Sportage', 'Morning'],
+            'Mazda': ['Mazda3', 'CX-5', 'BT-50', 'CX-30']
         }
 
-
-        #lista de colores disponibles
         colores = [
-
             'Blanco',
-
             'Negro',
-
             'Rojo',
-
             'Azul',
-
             'Gris',
-
             'Plata'
         ]
 
+        clientes = list(Cliente.objects.all())
 
-        #obtiene clientes desde la bd
-        clientes = list(
-            Cliente.objects.all()
-        )
-
-
-        #crea 35 vehiculos
+        #crea 35 vehiculos sin duplicar
         for i in range(35):
+            marca = random.choice(list(vehiculos_data.keys()))
+            modelo = random.choice(vehiculos_data[marca])
+            cliente = clientes[i % len(clientes)]
 
-            #elige marca aleatoria
-            marca = random.choice(
-                list(vehiculos_data.keys())
-            )
-
-            #elige modelo perteneciente a esa marca
-            modelo = random.choice(
-                vehiculos_data[marca]
-            )
-
-            #distribuye vehiculos entre clientes
-            cliente = clientes[
-                i % len(clientes)
-            ]
-
-            Vehiculo.objects.create(
-
-                #patente unica
+            Vehiculo.objects.get_or_create(
                 patente=f'ABCD{i:02}',
-
-                marca=marca,
-
-                modelo=modelo,
-
-                #anio aleatorio
-                anio=random.randint(
-                    2014,
-                    2024
-                ),
-
-                color=random.choice(colores),
-
-                kilometraje=random.randint(
-                    10000,
-                    180000
-                ),
-
-                #foreign key hacia cliente
-                cliente=cliente
+                defaults={
+                    'marca': marca,
+                    'modelo': modelo,
+                    'anio': random.randint(2014, 2024),
+                    'color': random.choice(colores),
+                    'kilometraje': random.randint(10000, 180000),
+                    'cliente': cliente
+                }
             )
 
-        self.stdout.write(
-            'vehiculos creados'
-        )
+        vehiculos = list(Vehiculo.objects.all())
+        mecanicos = list(Mecanico.objects.all())
 
-
-        #distribucion de estados
         estados = (
-
             ['Pendiente'] * 15 +
-
             ['En progreso'] * 10 +
-
             ['Completada'] * 30 +
-
             ['Cancelada'] * 5
         )
 
+        #crea 60 ordenes sin duplicar
+        for i, estado in enumerate(estados):
+            vehiculo = vehiculos[i % len(vehiculos)]
+            mecanico = mecanicos[i % len(mecanicos)]
 
-        #obtiene vehiculos y mecanicos
-        vehiculos = list(
-            Vehiculo.objects.all()
-        )
+            #fecha de ingreso historica p
+            if estado in ['Pendiente', 'En progreso']:
 
-        mecanicos = list(
-            Mecanico.objects.all()
-        )
-
-
-        #fecha actual
-        hoy = timezone.now().date()
-
-
-        #crea 60 ordenes
-        for i in range(60):
-
-            estado = estados[i]
-
-            #fecha estimada aleatoria
-            fecha_estimada = (
-
-                hoy +
-
-                timedelta(
-                    days=random.randint(1, 20)
+                fecha_ingreso = hoy - timedelta(
+                    days=random.randint(20, dias_historicos)
                 )
+
+            else:
+
+                fecha_ingreso = hoy - timedelta(
+                    days=random.randint(0, dias_historicos)
+                )
+
+            #fecha estimada posterior al ingreso, para ordenes activas antiguas, esta fecha quedara en el pasado
+            fecha_estimada = fecha_ingreso + timedelta(
+                days=random.randint(3, 15)
             )
 
             fecha_real = None
-
             monto = None
 
-
-            #solo completadas tienen monto
+            #solo las ordenes completadas temdram fecha real y monto
             if estado == 'Completada':
-
-                fecha_real = (
-
-                    fecha_estimada +
-
-                    timedelta(
-                        days=random.randint(0, 5)
-                    )
+                fecha_real = fecha_estimada + timedelta(
+                    days=random.randint(0, 5)
                 )
 
-                monto = random.randint(
-                    50000,
-                    500000
-                )
+                monto = random.randint(30000, 500000)
 
-
-            OrdenTrabajo.objects.create(
-
-                #vehiculo aleatorio
-                vehiculo=random.choice(
-                    vehiculos
-                ),
-
-                #mecanico aleatorio
-                mecanico=random.choice(
-                    mecanicos
-                ),
-
-                descripcion=(
-                    f'reparacion numero {i + 1}'
-                ),
-
-                estado=estado,
-
-                fecha_entrega_estimada=fecha_estimada,
-
-                fecha_entrega_real=fecha_real,
-
-                monto=monto,
-
-                observaciones=(
-                    'orden generada automaticamente'
-                )
+            #si ya existe una orden con esta descripcion no crea otra
+            OrdenTrabajo.objects.get_or_create(
+                descripcion=f'reparacion numero {i + 1}',
+                defaults={
+                    'vehiculo': vehiculo,
+                    'mecanico': mecanico,
+                    'estado': estado,
+                    'fecha_ingreso': fecha_ingreso,
+                    'fecha_entrega_estimada': fecha_estimada,
+                    'fecha_entrega_real': fecha_real,
+                    'monto': monto,
+                    'observaciones': 'orden generada automaticamente'
+                }
             )
-
+        #print final
+        self.stdout.write('============================')
+        self.stdout.write('DATOS CREADOS')
+        self.stdout.write('============================')
+        self.stdout.write(f'Mecánicos:   {Mecanico.objects.count()}')
+        self.stdout.write(f'Clientes:   {Cliente.objects.count()}')
+        self.stdout.write(f'Vehículos:  {Vehiculo.objects.count()}')
+        self.stdout.write(f'Órdenes:    {OrdenTrabajo.objects.count()}')
         self.stdout.write(
-
-            self.style.SUCCESS(
-
-                'base de datos poblada correctamente'
-            )
+            f'  Pendientes:    '
+            f'{OrdenTrabajo.objects.filter(estado="Pendiente").count()}'
         )
+        self.stdout.write(
+            f'  En progreso:   '
+            f'{OrdenTrabajo.objects.filter(estado="En progreso").count()}'
+        )
+        self.stdout.write(
+            f'  Completadas:   '
+            f'{OrdenTrabajo.objects.filter(estado="Completada").count()}'
+        )
+        self.stdout.write(
+            f'  Canceladas:     '
+            f'{OrdenTrabajo.objects.filter(estado="Cancelada").count()}'
+        )
+        self.stdout.write('============================')
