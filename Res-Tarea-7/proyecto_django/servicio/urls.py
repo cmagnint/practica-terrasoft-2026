@@ -20,5 +20,4 @@ urlpatterns = [
 
     path('ordenes/<int:id>/', views.OrdenTrabajoDetailView.as_view()),
 
-    path('estadisticas/', views.EstadisticasView.as_view()),
 ]

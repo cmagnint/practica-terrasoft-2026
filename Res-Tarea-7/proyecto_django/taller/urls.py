@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.http import JsonResponse
 from django.contrib import admin
 from django.urls import path, include
 
@@ -25,3 +26,15 @@ urlpatterns = [
     #rutas api
     path('api/', include('servicio.urls')),
 ]
+
+#esto devuelve errores json en vez de html, cuando hayan rutas inexistentes
+def handler_404(request, exception):
+
+    return JsonResponse({
+
+        "error": f"Recurso no encontrado: {request.path}"
+
+    }, status=404)
+
+
+handler404 = "taller.urls.handler_404"
