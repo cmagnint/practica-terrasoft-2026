@@ -167,9 +167,11 @@ Content-Type: application/json
 }
 
 
-### PRUEBA POST Res-Tarea-/8 CANCELAR ORDEN
+###==============================================
+###PRUEBAS DE Res-Tarea-8
+###==============================================
 
-### Cancelar orden
+### PRUEBA POST Res-Tarea-/8 CANCELAR ORDEN
 POST http://127.0.0.1:8000/api/ordenes/141/cancelar/
 Content-Type: application/json
 
@@ -185,3 +187,39 @@ Content-Type: application/json
     "monto": 85000,
     "fecha_entrega_real": "2026-05-18"
 }
+
+
+###8.2
+
+### Login admin JWT
+# @name loginAdmin
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+###Obtener mecanicos autenticado
+GET http://127.0.0.1:8000/api/mecanicos/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+###Refresh token
+POST http://127.0.0.1:8000/api/token/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "{{loginAdmin.response.body.refresh}}"
+}
+
+###Token Verify
+POST http://127.0.0.1:8000/api/token/verify/
+Content-Type: application/json
+
+{
+    "token": "{{loginAdmin.response.body.access}}"
+}
+
+### Endpoint sin autenticacion
+GET http://127.0.0.1:8000/api/mecanicos/

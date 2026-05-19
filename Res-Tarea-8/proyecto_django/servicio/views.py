@@ -1,6 +1,7 @@
 # Create your views here.
 import logging
 
+from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
 from datetime import date
 from django.db.models import Sum, Avg, Count
@@ -33,6 +34,9 @@ logger = logging.getLogger('servicio')
 
 class MecanicoViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar los mecanicos """
+
+    #IsAuthenticated exige token válido JWT
+    permission_classes = [IsAuthenticated]
 
     serializer_class = MecanicoSerializer
     queryset = Mecanico.objects.all()
@@ -187,6 +191,8 @@ class MecanicoViewSet(viewsets.ModelViewSet):
 class ClienteViewSet(viewsets.ModelViewSet):
     """ViewSet actualizado par gestionar clientes"""
 
+    permission_classes = [IsAuthenticated]
+
     serializer_class = ClienteSerializer
     queryset = Cliente.objects.all()
     lookup_field = 'rut'
@@ -336,8 +342,9 @@ class ClienteViewSet(viewsets.ModelViewSet):
 class VehiculoViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar vehiculos"""
 
-    serializer_class = VehiculoSerializer
+    permission_classes = [IsAuthenticated]
 
+    serializer_class = VehiculoSerializer
     queryset = Vehiculo.objects.all()
 
     #lookup_field = campo usado en URL
@@ -527,8 +534,9 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 class OrdenViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar órdenes de trabajo"""
 
-    queryset = OrdenTrabajo.objects.all()
+    permission_classes = [IsAuthenticated]
 
+    queryset = OrdenTrabajo.objects.all()
     #lookup_field define qu campo usa DRF en URLs
     #aquI usamos el id normal de la orden
     lookup_field = 'pk'

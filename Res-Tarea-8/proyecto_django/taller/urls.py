@@ -17,6 +17,11 @@ Including another URLconf
 from django.http import JsonResponse
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+)
 
 urlpatterns = [
 
@@ -25,6 +30,24 @@ urlpatterns = [
 
     #rutas api
     path('api/', include('servicio.urls')),
+
+    path(
+        'api/token/',
+        TokenObtainPairView.as_view(),
+        name='token_obtain_pair'
+    ),
+    #ep para el token refresh
+    path(
+        'api/token/refresh/',
+        TokenRefreshView.as_view(),
+        name='token_refresh'
+    ),
+    #ep para el token verify
+    path(
+        'api/token/verify/',
+        TokenVerifyView.as_view(),
+        name='token_verify'
+    ),
 ]
 
 #esto devuelve errores json en vez de html, cuando hayan rutas inexistentes
