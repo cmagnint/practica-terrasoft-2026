@@ -1,3 +1,235 @@
+###==============================================
+###PRUEBAS DE Res-Tarea-8
+###==============================================
+
+### PRUEBA POST Res-Tarea-/8 CANCELAR ORDEN
+POST http://127.0.0.1:8000/api/ordenes/141/cancelar/
+Content-Type: application/json
+
+{
+    "motivo": "Cliente no se presento"
+}
+
+### PRUEBA POST Res-Tarea-/8 COMPLETAR ORDEN
+POST http://127.0.0.1:8000/api/ordenes/141/completar/
+Content-Type: application/json
+
+{
+    "monto": 85000,
+    "fecha_entrega_real": "2026-05-18"
+}
+
+###===================================================
+###PRUEBAS 8.2 autenticacion JWT
+###===================================================
+
+
+### Login admin JWT
+# @name loginAdmin
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+###
+
+@accessToken = {{login.response.body.access}}
+
+GET http://localhost:8000/api/mecanicos/
+Authorization: Bearer {{accessToken}}
+
+###
+
+### Sin token → 401
+GET http://localhost:8000/api/mecanicos/
+
+###
+
+### Refresh
+POST http://localhost:8000/api/auth/refresh/
+Content-Type: application/json
+
+{"refresh": "{{login.response.body.refresh}}"}
+
+
+
+###===================================================
+###PRUEBAS 8.3 - permisos por rol y audit log
+###===================================================
+
+
+### LOGIN ADMIN
+# @name loginAdmin
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+
+### LOGIN MECANICO
+# @name loginMecanico
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "mecanico1",
+    "password": "mecanico123"
+}
+
+
+### LOGIN CLIENTE
+# @name loginCliente
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "cliente1",
+    "password": "cliente123"
+}
+
+
+### 1 ADMIN / AUTH ME
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 1 MECANICO / AUTH ME
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+
+### 1 CLIENTE / AUTH ME
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 2 ADMIN VE CLIENTES
+GET http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 2 ADMIN VE VEHICULOS
+GET http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 2 ADMIN VE ORDENES
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 3 MECANICO VE SOLO SUS ORDENES
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+
+### 4 CLIENTE VE SUS VEHICULOS
+GET http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 4 CLIENTE VE SUS ORDENES
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 5 MECANICO INTENTA CREAR CLIENTE 403
+POST http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+Content-Type: application/json
+
+{
+    "nombre": "Cliente Test",
+    "rut": "99999999-9",
+    "telefono": "999999999",
+    "email": "test@test.cl"
+}
+
+
+### 6 CLIENTE INTENTA CREAR ORDEN 403
+POST http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginCliente.response.body.access}}
+Content-Type: application/json
+
+{
+    "vehiculo": 46,
+    "mecanico": 14,
+    "descripcion": "Prueba cliente no autorizado",
+    "fecha_entrega_estimada": "2026-05-25"
+}
+
+
+### 7 MECANICO INTENTA COMPLETAR ORDEN AJENA 403
+POST http://127.0.0.1:8000/api/ordenes/141/completar/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+Content-Type: application/json
+
+{
+    "monto": 85000,
+    "fecha_entrega_real": "2026-05-20"
+}
+
+
+### 8 COMPLETAR ORDEN GENERA AUDITLOG
+POST http://127.0.0.1:8000/api/ordenes/141/completar/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "monto": 95000,
+    "fecha_entrega_real": "2026-05-20"
+}
+
+
+### 8 CANCELAR ORDEN GENERA AUDITLOG
+POST http://127.0.0.1:8000/api/ordenes/142/cancelar/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "motivo": "Cancelada por falta de repuestos"
+}
+
+
+### 9 ADMIN VE AUDIT LOGS
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 9 MECANICO NO VE AUDIT LOGS 403
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+
+### 9 CLIENTE NO VE AUDIT LOGS 403
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 10 AUDIT LOG FILTRADO POR USUARIO
+GET http://127.0.0.1:8000/api/audit-logs/?usuario=mecanico1
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 11 AUDIT LOG FILTRADO POR ACCION
+GET http://127.0.0.1:8000/api/audit-logs/?accion=completar_orden
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+
+
+###===================================================
+### PRUEBAS ENTREGAS ANTERIORES
+###===================================================
+
+
+
 ### 1. Lista todos los mecánicos
 GET http://localhost:8000/api/mecanicos/
 
@@ -108,10 +340,6 @@ Content-Type: application/json
     "estado": "Completada"
 }
 
-
-
-
-
 ###PRUEBAS
 
 ### crear cliente nuevo - 201
@@ -167,59 +395,4 @@ Content-Type: application/json
 }
 
 
-###==============================================
-###PRUEBAS DE Res-Tarea-8
-###==============================================
 
-### PRUEBA POST Res-Tarea-/8 CANCELAR ORDEN
-POST http://127.0.0.1:8000/api/ordenes/141/cancelar/
-Content-Type: application/json
-
-{
-    "motivo": "Cliente no se presento"
-}
-
-### PRUEBA POST Res-Tarea-/8 COMPLETAR ORDEN
-POST http://127.0.0.1:8000/api/ordenes/141/completar/
-Content-Type: application/json
-
-{
-    "monto": 85000,
-    "fecha_entrega_real": "2026-05-18"
-}
-
-
-###8.2
-
-### Login admin JWT
-# @name loginAdmin
-POST http://127.0.0.1:8000/api/token/
-Content-Type: application/json
-
-{
-    "username": "admin",
-    "password": "admin123"
-}
-
-###Obtener mecanicos autenticado
-GET http://127.0.0.1:8000/api/mecanicos/
-Authorization: Bearer {{loginAdmin.response.body.access}}
-
-###Refresh token
-POST http://127.0.0.1:8000/api/token/refresh/
-Content-Type: application/json
-
-{
-    "refresh": "{{loginAdmin.response.body.refresh}}"
-}
-
-###Token Verify
-POST http://127.0.0.1:8000/api/token/verify/
-Content-Type: application/json
-
-{
-    "token": "{{loginAdmin.response.body.access}}"
-}
-
-### Endpoint sin autenticacion
-GET http://127.0.0.1:8000/api/mecanicos/

@@ -9,12 +9,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
+from .audit import registrar_auditoria
 
 from .models import (
     Mecanico,
     Cliente,
     Vehiculo,
-    OrdenTrabajo
+    OrdenTrabajo,
+    AuditLog
 )
 
 from .serializers import (
@@ -24,7 +26,15 @@ from .serializers import (
     VehiculoCreateSerializer,
     OrdenTrabajoSerializer,
     OrdenTrabajoCreateSerializer,
-    OrdenTrabajoUpdateSerializer
+    OrdenTrabajoUpdateSerializer,
+    AuditLogSerializer
+)
+
+from .permissions import (
+    EsAdministrador,
+    EsMecanico,
+    EsCliente,
+    EsAdministradorOMecanico
 )
 
 #logger propio de la app servicio
@@ -36,7 +46,7 @@ class MecanicoViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar los mecanicos """
 
     #IsAuthenticated exige token válido JWT
-    permission_classes = [IsAuthenticated]
+    permission_classes = [EsAdministrador]
 
     serializer_class = MecanicoSerializer
     queryset = Mecanico.objects.all()
@@ -352,9 +362,7 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 
 
     def get_queryset(self):
-        """
-        Obtiene vehículos aplicando filtros opcionales.
-        """
+        """Obtiene vehículos aplicando filtros opcionales"""
 
         logger.debug(
             f"{self.request.method} {self.request.path} "
@@ -534,7 +542,7 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 class OrdenViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar órdenes de trabajo"""
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [EsAdministradorOMecanico]
 
     queryset = OrdenTrabajo.objects.all()
     #lookup_field define qu campo usa DRF en URLs
@@ -575,6 +583,29 @@ class OrdenViewSet(viewsets.ModelViewSet):
             'vehiculo__cliente',
             'mecanico'
         )
+
+        #user es usuario autenticado actual en jwt
+        user = self.request.user
+
+        #admin puede ver todas las ordenes
+        if user.is_staff:
+            pass
+
+        #mecanico solo ve sus ordenes asignadas
+        elif hasattr(user, 'mecanico'):
+            ordenes = ordenes.filter(
+                mecanico=user.mecanico
+            )
+
+        #cliente solo ve ordenes sus vehiculos
+        elif hasattr(user, 'cliente'):
+            ordenes = ordenes.filter(
+                vehiculo__cliente=user.cliente
+            )
+
+        #usuarios sin rol no ven nada
+        else:
+            ordenes = ordenes.none()
 
         #filtro por estado
         estado = self.request.query_params.get(
@@ -698,6 +729,34 @@ class OrdenViewSet(viewsets.ModelViewSet):
 
         orden.save()
 
+        #registra auditoria en cada accion al completar orden
+        registrar_auditoria(
+
+            #usuario autenticado actual jwt
+            usuario=request.user,
+
+            #accion corta sistema
+            accion='completar_orden',
+
+            #modelo afectado
+            modelo='OrdenTrabajo',
+
+            #descripcion legible humana
+            descripcion=(
+                f'Orden {orden.id} completada'
+            ),
+
+            #id objeto afectado
+            objeto_id=orden.id,
+
+            #estado nuevo guardado json
+            datos_nuevos={
+                'estado': orden.estado,
+                'monto': str(orden.monto)
+            }
+        )
+
+
         serializer = OrdenTrabajoSerializer(
             orden
         )
@@ -714,13 +773,19 @@ class OrdenViewSet(viewsets.ModelViewSet):
     def cancelar(self, request, pk=None):
         """Cancela una orden de trabajo"""
 
+        #obtiene orden desde URL
+        orden = self.get_object()
+
+        #datos previos, guarda el estado antes de modificar orden
+        datos_previos = {
+            'estado': orden.estado,
+            'observaciones': orden.observaciones
+        }
+
         logger.debug(
             f"{request.method} {request.path} "
             f"body={request.data}"
         )
-
-        #obtiene orden desde URL
-        orden = self.get_object()
 
         #evita cancelar una orden ya cancelada
         if orden.estado == 'Cancelada':
@@ -741,6 +806,36 @@ class OrdenViewSet(viewsets.ModelViewSet):
         orden.observaciones = motivo
 
         orden.save()
+
+        #registra auditoria, guardara quien cancelo y que cambio
+        registrar_auditoria(
+
+            #usuario, usuario autenticado actual jwt
+            usuario=request.user,
+
+            #accion, nombre para filtrar logs despues
+            accion='cancelar_orden',
+
+            #modelo, tabla principal afectada por accion
+            modelo='OrdenTrabajo',
+
+            #descripcion, texto legible para revisar historial
+            descripcion=(
+                f'Orden {orden.id} cancelada'
+            ),
+
+            #objeto id, id real de la orden modificada
+            objeto_id=orden.id,
+
+            #datos previos, estado antes de cancelar
+            datos_previos=datos_previos,
+
+            #datos nuevos, estado despues de cancelar
+            datos_nuevos={
+                'estado': orden.estado,
+                'observaciones': orden.observaciones
+            }
+        )
 
         serializer = OrdenTrabajoSerializer(
             orden
@@ -825,3 +920,19 @@ class OrdenViewSet(viewsets.ModelViewSet):
 """BLOQUE ACTUALIZADO ARRIBA"""
 
 #BLOQUE ANTIGUO ELIMINADOS:OrdenTrabajoListCreateView y OrdenTrabajoDetailView
+
+"""BLOQUE NUEVO"""
+
+class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
+    """ViewSet solo lectura para auditoria sistema"""
+
+    #solo los administradores podran revisar logs
+    permission_classes = [EsAdministrador]
+
+    #serializer convierte logs a json
+    serializer_class = AuditLogSerializer
+
+    #queryset ordena logs recientes primero
+    queryset = AuditLog.objects.select_related(
+        'usuario'
+    ).all()

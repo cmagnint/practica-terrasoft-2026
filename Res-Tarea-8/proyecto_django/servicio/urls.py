@@ -6,6 +6,8 @@ from rest_framework.routers import DefaultRouter
 
 from . import views
 
+from .views import AuditLogViewSet
+
 
 #DefaultRouter crea automáticamente las rutas CRUD
 router = DefaultRouter()
@@ -38,5 +40,13 @@ router.register(
     views.OrdenViewSet,
     basename='orden'
 )
+
+#audit logs, historial de la auditoria del sistema
+router.register(
+    r'audit-logs',
+    AuditLogViewSet,
+    basename='audit-log'
+)
+
 #router.urls contiene todas las URLs generadas automáticamente
 urlpatterns = router.urls

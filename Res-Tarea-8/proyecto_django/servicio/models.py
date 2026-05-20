@@ -1,7 +1,6 @@
 # Create your models here.
-
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Mecanico(models.Model):
 #Representa a un mecanico del taller
@@ -31,6 +30,15 @@ class Mecanico(models.Model):
     def __str__(self):
         return f"{self.nombre} ({self.especialidad})"
 
+    #usuario conectaria a un mecanico con una cuenta Django
+    usuario = models.OneToOneField(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='mecanico'
+    )
+
 
 class Cliente(models.Model):
     """Representa a un cliente dueño de uno o más vehículos"""
@@ -48,6 +56,14 @@ class Cliente(models.Model):
     def __str__(self):
         return f"{self.nombre} ({self.rut})"
 
+    #igual que en mecanico, aca usuario conecta a un cliente con una cuenta Django
+    usuario = models.OneToOneField(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='cliente'
+    )
 
 class Vehiculo(models.Model):
     """Representa un vehículo perteneciente a un cliente."""
@@ -77,7 +93,7 @@ class Vehiculo(models.Model):
 
 
 class OrdenTrabajo(models.Model):
-    """Representa una orden de trabajo asociada a un vehículo y mecánico."""
+    """Representa una orden de trabajo asociada a un vehículo y mecanico."""
 
     #estados permitidos para una orden.
     ESTADOS = [
@@ -139,3 +155,63 @@ class OrdenTrabajo(models.Model):
     class Meta:
         #ordena por fecha de ingreso descendente, las ordenes más recientes aparecen primero
         ordering = ['-fecha_ingreso']
+
+class AuditLog(models.Model):
+    """Modelo para registrar acciones importantes realizadas en la API"""
+
+    #usuario que realizo la accion y S_N mantiene el log aunque el usuario sea eliminado
+    usuario = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='audit_logs'
+    )
+
+    #aca accion indica que paso, si completar_orden o cancelar_orden
+    accion = models.CharField(
+        max_length=50
+    )
+
+    #aca muestra el modelo afectado; Cliente, Vehiculo, OrdenTrabajo
+    modelo = models.CharField(
+        max_length=50
+    )
+
+    #id del objeto afectado
+    objeto_id = models.IntegerField(
+        null=True,
+        blank=True
+    )
+
+    #descripcion legible para usuarios
+    descripcion = models.TextField()
+
+    #JSONField guarda datos en formato JSON
+    datos_previos = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+    datos_nuevos = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+    #auto_now_add guarda la fecha/hora automaticamente al crear
+    timestamp = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+        #ordena los logs desde el mas reciente
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        #representacion simple en admin/consola
+        username = (
+            self.usuario.username
+            if self.usuario
+            else 'anonimo'
+        )
+
+        return f"{username} - {self.accion}"

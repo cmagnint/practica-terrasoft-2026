@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import (Mecanico, Cliente, Vehiculo, OrdenTrabajo)
+from .models import (Mecanico, Cliente, Vehiculo, OrdenTrabajo, AuditLog)
 
 
 class MecanicoSerializer(serializers.ModelSerializer):
@@ -189,3 +189,31 @@ class OrdenTrabajoUpdateSerializer(serializers.ModelSerializer):
             })
 
         return data
+
+
+class AuditLogSerializer(serializers.ModelSerializer):
+    """Serializer para mostrar registros de auditoria"""
+
+    #usuario username, muestra nombre usuario en vez de solo id
+    usuario_username = serializers.CharField(
+        source='usuario.username',
+        read_only=True
+    )
+
+    class Meta:
+
+        #model indica que tabla usa este serializer
+        model = AuditLog
+
+        #fields define datos visibles en respuesta json
+        fields = [
+            'id',
+            'usuario_username',
+            'accion',
+            'modelo',
+            'objeto_id',
+            'descripcion',
+            'datos_previos',
+            'datos_nuevos',
+            'timestamp'
+        ]
