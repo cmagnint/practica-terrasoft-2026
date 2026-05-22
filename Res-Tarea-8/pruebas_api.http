@@ -222,6 +222,19 @@ GET http://127.0.0.1:8000/api/audit-logs/?accion=completar_orden
 Authorization: Bearer {{loginAdmin.response.body.access}}
 
 
+###===================================================
+###PRUEBAS 8.4
+###===================================================
+
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### Ordenes pagina 2
+GET http://127.0.0.1:8000/api/ordenes/?page=2
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
 
 
 ###===================================================

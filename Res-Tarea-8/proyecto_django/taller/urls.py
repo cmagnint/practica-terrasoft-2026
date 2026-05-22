@@ -17,10 +17,15 @@ Including another URLconf
 from django.http import JsonResponse
 from django.contrib import admin
 from django.urls import path, include
+from servicio.views import MeView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
     TokenVerifyView,
+)
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularSwaggerView,
 )
 
 urlpatterns = [
@@ -48,6 +53,29 @@ urlpatterns = [
         TokenVerifyView.as_view(),
         name='token_verify'
     ),
+    #auth me devuelve usuario autenticado actual
+    path(
+        'api/auth/me/',
+        MeView.as_view(),
+        name='auth-me'
+    ),
+
+    #schema openapi formato json
+    path(
+        'api/schema/',
+        SpectacularAPIView.as_view(),
+        name='schema'
+    ),
+
+    #swagger ui documentacion interactiva api
+    path(
+        'api/docs/',
+        SpectacularSwaggerView.as_view(
+            url_name='schema'
+        ),
+        name='swagger-ui'
+    ),
+
 ]
 
 #esto devuelve errores json en vez de html, cuando hayan rutas inexistentes

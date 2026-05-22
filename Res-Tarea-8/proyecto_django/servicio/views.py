@@ -932,7 +932,56 @@ class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
     #serializer convierte logs a json
     serializer_class = AuditLogSerializer
 
-    #queryset ordena logs recientes primero
+    #queryset ordena logs recientes primeroa
     queryset = AuditLog.objects.select_related(
         'usuario'
     ).all()
+
+
+class MeView(APIView):
+    """Endpoint para obtener informacion usuario autenticado"""
+
+    #solo usuarios autenticados pueden acceder endpoint
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        #user, usuario autenticado actual en jwt
+        user = request.user
+
+        #rol por defecto si no tiene relaciones
+        rol = 'sin_rol'
+
+        #is staff identifica administradores django
+        if user.is_staff:
+
+            rol = 'admin'
+
+        #hasattr verifica relacion mecanico
+        elif hasattr(
+            user,
+            'mecanico'
+        ):
+
+            rol = 'mecanico'
+
+        #hasattr verifica relacion cliente
+        elif hasattr(
+            user,
+            'cliente'
+        ):
+
+            rol = 'cliente'
+
+        #data, respuesta json enviada al frontend
+        data = {
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'rol': rol
+        }
+
+        return Response(
+            data,
+            status=status.HTTP_200_OK
+        )
