@@ -41,16 +41,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'servicio',
+    'corsheaders', #permite conexiones frontend externas
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'taller.urls'
@@ -135,7 +139,20 @@ REST_FRAMEWORK = {
     #DAC definira como DRF autentica a los usuarios y JWTAuthentication para validar tokens
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    #permission classes define permisos globales api y IsAuthenticated exige token valido por defecto
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    #PageNumberPagination activa paginacion por numero de pagina
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+
+    #PAGE_SIZE define cantidad registros por pagina
+    'PAGE_SIZE': 10,
+
+    #DSC permite generar documentacion en openapi
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
 }
 
 #SIMPLE_JWT = configuracion tokens JWT
@@ -173,4 +190,34 @@ LOGGING = {
             'propagate': False,
         },
     },
+}
+
+#cors allowed origins, frontend autorizado consumir api
+CORS_ALLOWED_ORIGINS = [
+
+    #next js local desarrollo
+    'http://localhost:3000',
+
+    #opcional frontend usando ip local
+    'http://127.0.0.1:3000',
+]
+
+
+#cors allow credentials, permite jwt cookies en auth frontend
+CORS_ALLOW_CREDENTIALS = True
+
+#spectacular settings configura informacion de documentacion api
+SPECTACULAR_SETTINGS = {
+
+    #title nombre visible en documentacion swagger
+    'TITLE': 'API Taller AutoServicio',
+
+    #description explica el objetivo general de la api
+    'DESCRIPTION': 'API REST para gestion de taller mecanico',
+
+    #version actual documentacion
+    'VERSION': '1.0.0',
+
+    #serve include schema evita mostrar schema dentro de swagger ui
+    'SERVE_INCLUDE_SCHEMA': False,
 }
