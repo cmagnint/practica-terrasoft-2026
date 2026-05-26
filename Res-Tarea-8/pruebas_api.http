@@ -57,39 +57,42 @@ Content-Type: application/json
 
 
 ###===================================================
-###PRUEBAS 8.3 - permisos por rol y audit log
+### PRUEBAS 8.3 - permisos por rol y audit log
 ###===================================================
+
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc5NzQwMDMxLCJpYXQiOjE3Nzk3MzY0MzEsImp0aSI6IjBiNmQyMzRjZGE3OTQ5NDRhNDA0Nzk4ODAyZTBhYjEyIiwidXNlcl9pZCI6IjQifQ.KtxhSKpUnLy-OnmCOsh9b6oIGkH4lPVY04E3YjnEfLY
 
 
 ### LOGIN ADMIN
 # @name loginAdmin
-POST http://127.0.0.1:8000/api/token/
+POST http://127.0.0.1:8000/api/auth/login/
 Content-Type: application/json
 
 {
-    "username": "admin",
+    "username": "admin_taller",
     "password": "admin123"
 }
 
 
 ### LOGIN MECANICO
 # @name loginMecanico
-POST http://127.0.0.1:8000/api/token/
+POST http://127.0.0.1:8000/api/auth/login/
 Content-Type: application/json
 
 {
-    "username": "mecanico1",
+    "username": "carlos_munoz",
     "password": "mecanico123"
 }
 
 
 ### LOGIN CLIENTE
 # @name loginCliente
-POST http://127.0.0.1:8000/api/token/
+POST http://127.0.0.1:8000/api/auth/login/
 Content-Type: application/json
 
 {
-    "username": "cliente1",
+    "username": "juan_perez",
     "password": "cliente123"
 }
 
@@ -129,44 +132,39 @@ GET http://127.0.0.1:8000/api/ordenes/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 
 
-### 4 CLIENTE VE SUS VEHICULOS
-GET http://127.0.0.1:8000/api/vehiculos/
-Authorization: Bearer {{loginCliente.response.body.access}}
-
-
 ### 4 CLIENTE VE SUS ORDENES
 GET http://127.0.0.1:8000/api/ordenes/
 Authorization: Bearer {{loginCliente.response.body.access}}
 
 
-### 5 MECANICO INTENTA CREAR CLIENTE 403
+### 5 MECANICO INTENTA CREAR CLIENTE
 POST http://127.0.0.1:8000/api/clientes/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 Content-Type: application/json
 
 {
-    "nombre": "Cliente Test",
-    "rut": "99999999-9",
-    "telefono": "999999999",
-    "email": "test@test.cl"
+    "nombre": "Cliente Test 3",
+    "rut": "99999888-9",
+    "telefono": "999999988",
+    "email": "test3@test.cl"
 }
 
 
-### 6 CLIENTE INTENTA CREAR ORDEN 403
+### 6 CLIENTE INTENTA CREAR ORDEN
 POST http://127.0.0.1:8000/api/ordenes/
 Authorization: Bearer {{loginCliente.response.body.access}}
 Content-Type: application/json
 
 {
-    "vehiculo": 46,
-    "mecanico": 14,
+    "vehiculo": 1,
+    "mecanico": 1,
     "descripcion": "Prueba cliente no autorizado",
     "fecha_entrega_estimada": "2026-05-25"
 }
 
 
-### 7 MECANICO INTENTA COMPLETAR ORDEN AJENA 403
-POST http://127.0.0.1:8000/api/ordenes/141/completar/
+### 7 MECANICO INTENTA COMPLETAR ORDEN AJENA
+POST http://127.0.0.1:8000/api/ordenes/1/completar/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 Content-Type: application/json
 
@@ -176,7 +174,7 @@ Content-Type: application/json
 }
 
 
-### 8 COMPLETAR ORDEN GENERA AUDITLOG
+### 8 ADMIN COMPLETA ORDEN
 POST http://127.0.0.1:8000/api/ordenes/141/completar/
 Authorization: Bearer {{loginAdmin.response.body.access}}
 Content-Type: application/json
@@ -187,8 +185,8 @@ Content-Type: application/json
 }
 
 
-### 8 CANCELAR ORDEN GENERA AUDITLOG
-POST http://127.0.0.1:8000/api/ordenes/142/cancelar/
+### 8 ADMIN CANCELA ORDEN
+POST http://127.0.0.1:8000/api/ordenes/141/cancelar/
 Authorization: Bearer {{loginAdmin.response.body.access}}
 Content-Type: application/json
 
@@ -202,38 +200,29 @@ GET http://127.0.0.1:8000/api/audit-logs/
 Authorization: Bearer {{loginAdmin.response.body.access}}
 
 
-### 9 MECANICO NO VE AUDIT LOGS 403
+### 9 MECANICO NO VE AUDIT LOGS
 GET http://127.0.0.1:8000/api/audit-logs/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 
 
-### 9 CLIENTE NO VE AUDIT LOGS 403
+### 9 CLIENTE NO VE AUDIT LOGS
 GET http://127.0.0.1:8000/api/audit-logs/
 Authorization: Bearer {{loginCliente.response.body.access}}
 
 
-### 10 AUDIT LOG FILTRADO POR USUARIO
-GET http://127.0.0.1:8000/api/audit-logs/?usuario=mecanico1
-Authorization: Bearer {{loginAdmin.response.body.access}}
-
-
-### 11 AUDIT LOG FILTRADO POR ACCION
-GET http://127.0.0.1:8000/api/audit-logs/?accion=completar_orden
-Authorization: Bearer {{loginAdmin.response.body.access}}
-
-
 ###===================================================
-###PRUEBAS 8.4
+### PRUEBAS 8.4
 ###===================================================
 
+
+### ORDENES ADMIN
 GET http://127.0.0.1:8000/api/ordenes/
 Authorization: Bearer {{loginAdmin.response.body.access}}
 
 
-### Ordenes pagina 2
+### ORDENES PAGINA 2
 GET http://127.0.0.1:8000/api/ordenes/?page=2
 Authorization: Bearer {{loginAdmin.response.body.access}}
-
 
 
 

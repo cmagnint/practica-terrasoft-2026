@@ -204,39 +204,3 @@ class Command(BaseCommand):
         self.stdout.write('============================')
 
 
-"""ACTUALIZACION"""
-
-#el usuario mecanico prueba permisos custom
-mecanico_user, _ = User.objects.get_or_create(
-    username='mecanico1'
-)
-
-#set password encripta contraseña correctamenteen django
-mecanico_user.set_password('mecanico123')
-mecanico_user.save()
-
-
-#first obtiene el primer mecanico disponible en la bdd
-mecanico = Mecanico.objects.first()
-
-#conecta mecanico real con usuario django
-mecanico.usuario = mecanico_user
-mecanico.save()
-
-#el usuario cliente prueba permisos custom
-cliente_user, _ = User.objects.get_or_create(
-    username='cliente1'
-)
-
-cliente_user.set_password('cliente123')
-cliente_user.save()
-
-#first obtiene el primer cliente disponible en la bdd
-cliente = Cliente.objects.first()
-
-#conecta cliente real con usuario django
-cliente.usuario = cliente_user
-cliente.save()
-
-
-print("Usuarios permisos creados correctamente")

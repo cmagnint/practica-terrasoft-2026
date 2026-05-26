@@ -36,23 +36,27 @@ urlpatterns = [
     #rutas api
     path('api/', include('servicio.urls')),
 
+    #login jwt
     path(
-        'api/token/',
+        'api/auth/login/',
         TokenObtainPairView.as_view(),
         name='token_obtain_pair'
     ),
-    #ep para el token refresh
+
+    #refresh token jwt
     path(
-        'api/token/refresh/',
+        'api/auth/refresh/',
         TokenRefreshView.as_view(),
         name='token_refresh'
     ),
-    #ep para el token verify
+
+    #verify token jwt
     path(
-        'api/token/verify/',
+        'api/auth/verify/',
         TokenVerifyView.as_view(),
         name='token_verify'
     ),
+
     #auth me devuelve usuario autenticado actual
     path(
         'api/auth/me/',

@@ -1,25 +1,44 @@
 from rest_framework.permissions import BasePermission
 
 
+def es_admin(user):
+    """Verifica si el usuario pertenece al grupo admin"""
+
+    return user.groups.filter(
+        name='admin'
+    ).exists()
+
+
+def es_mecanico(user):
+    """Verifica si el usuario pertenece al grupo mecanico"""
+
+    return user.groups.filter(
+        name='mecanico'
+    ).exists()
+
+
+def es_cliente(user):
+    """Verifica si el usuario pertenece al grupo cliente"""
+
+    return user.groups.filter(
+        name='cliente'
+    ).exists()
+
+
 class EsAdministrador(BasePermission):
-    """Permitira el acceso solo a los admin"""
+    """Permite acceso solo administradores"""
 
     def has_permission(self, request, view):
 
-        #is staff indica administrador django y request user es usuario autenticado actual jwt
-        return request.user.is_staff
+        return es_admin(request.user)
 
 
 class EsMecanico(BasePermission):
-    """Permitira el acceso solo mecanicos"""
+    """Permite acceso solo mecanicos"""
 
     def has_permission(self, request, view):
 
-        #hasattr verifica si usuario tiene relacion mecanico
-        return hasattr(
-            request.user,
-            'mecanico'
-        )
+        return es_mecanico(request.user)
 
 
 class EsCliente(BasePermission):
@@ -27,25 +46,16 @@ class EsCliente(BasePermission):
 
     def has_permission(self, request, view):
 
-        #hasattr verifica si usuario tiene relacion cliente
-        return hasattr(
-            request.user,
-            'cliente'
-        )
+        return es_cliente(request.user)
+
 
 class EsAdministradorOMecanico(BasePermission):
     """Permite acceso administradores o mecanicos"""
 
     def has_permission(self, request, view):
 
-        #is staff identifica administradores django
-        es_admin = request.user.is_staff
-
-        #hasattr verifica relacion mecanico
-        es_mecanico = hasattr(
-            request.user,
-            'mecanico'
+        return (
+            es_admin(request.user)
+            or
+            es_mecanico(request.user)
         )
-
-        #or permite cualquiera de las dos condiciones
-        return es_admin or es_mecanico
