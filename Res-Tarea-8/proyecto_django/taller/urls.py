@@ -26,6 +26,7 @@ from rest_framework_simplejwt.views import (
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularSwaggerView,
+    SpectacularRedocView,
 )
 
 urlpatterns = [
@@ -78,6 +79,15 @@ urlpatterns = [
             url_name='schema'
         ),
         name='swagger-ui'
+    ),
+
+    #redoc documentacion alternativa
+    path(
+        'api/redoc/',
+        SpectacularRedocView.as_view(
+            url_name='schema'
+        ),
+        name='redoc'
     ),
 
 ]

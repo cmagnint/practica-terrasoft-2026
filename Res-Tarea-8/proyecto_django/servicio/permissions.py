@@ -4,25 +4,34 @@ from rest_framework.permissions import BasePermission
 def es_admin(user):
     """Verifica si el usuario pertenece al grupo admin"""
 
-    return user.groups.filter(
-        name='admin'
-    ).exists()
+    return (
+        user.is_authenticated
+        and (
+            user.is_superuser
+            or
+            user.groups.filter(name='admin').exists()
+        )
+    )
 
 
 def es_mecanico(user):
     """Verifica si el usuario pertenece al grupo mecanico"""
 
-    return user.groups.filter(
-        name='mecanico'
-    ).exists()
+    return (
+        user.is_authenticated
+        and
+        user.groups.filter(name='mecanico').exists()
+    )
 
 
 def es_cliente(user):
     """Verifica si el usuario pertenece al grupo cliente"""
 
-    return user.groups.filter(
-        name='cliente'
-    ).exists()
+    return (
+        user.is_authenticated
+        and
+        user.groups.filter(name='cliente').exists()
+    )
 
 
 class EsAdministrador(BasePermission):

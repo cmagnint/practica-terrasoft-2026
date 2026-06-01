@@ -1,8 +1,10 @@
 __pycache__/
-*.pyc
-*.log
+*.py[cod]
 venv/
 .env
-.vscode/
 db.sqlite3
-.DS_Store
+.coverage
+htmlcov/
+.vscode/
+.idea/
+*.log

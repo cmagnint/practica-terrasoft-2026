@@ -1,158 +1,314 @@
-###====================================================================================================
-###1- Como levantar el proyecto desde 0
-###====================================================================================================
-Primeramente clonamos el repositorio
-Con el siguiente comando se descarga el proyecto desde GitHub a tu dispositivo
+# Res-Tarea-8 - API Taller Mecanico
 
+# 1. Como levantar el proyecto desde cero
+
+A continuacion se explican todos los pasos necesarios para ejecutar el proyecto en un computador nuevo.
+
+## 1.1 Clonar el repositorio
+
+Primero debemos descargar el proyecto desde GitHub.
+
+```bash
 git clone <url-repositorio>
-cd Res-Tarea-8 >con este comando entramos a la carpeta donde se ubica el proyecto
+cd Res-Tarea-8
+```
 
-###1.2 Crear entorno virtual
-El entorno virtual permite instalar librerias Python sin afectar otros proyectos
+El primer comando descarga el repositorio.
 
+El segundo comando nos mueve a la carpeta principal del proyecto.
+
+
+## 1.2 Crear un entorno virtual
+
+Python permite crear entornos virtuales para instalar librerias sin afectar otros proyectos.
+
+Crear entorno virtual:
+
+```bash
 python -m venv venv
+```
+
+Activar entorno virtual:
+
+```bash
 source venv/bin/activate
+```
 
-Luego, con este comando instala todas las librerias necesarias del proyecto
+Una vez activado, instalamos todas las dependencias necesarias:
 
+```bash
 pip install -r requirements.txt
+```
 
-###1.3 Levantar PostgreSQL Docker
+El archivo `requirements.txt` contiene todas las librerias utilizadas por el proyecto.
 
-El proyecto utiliza PostgreSQL dentro de Docker para manejar la base de datos
 
+## 1.3 Preparar la base de datos PostgreSQL
+
+Este proyecto utiliza PostgreSQL como sistema de base de datos.
+
+Si PostgreSQL se encuentra dentro de Docker:
+
+```bash
 docker start postgres-taller
+```
 
-###Creamos un archivo .env
-El archivo .env guarda configuraciones sensibles del proyecto
+Este comando inicia el contenedor que contiene la base de datos.
 
-Crear archivo .env en la raiz del proyecto (Res-Tarea-8):
+
+## 1.4 Crear archivo .env
+
+El archivo `.env` permite guardar configuraciones sensibles fuera del codigo fuente.
+
+Crear un archivo llamado `.env` en la raiz del proyecto con el siguiente contenido:
+
+```env
 DB_NAME=taller_db
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_HOST=localhost
 DB_PORT=5432
+
 SECRET_KEY=django-secret-key
 DEBUG=True
+```
 
-###1.4 Ejecutar migraciones
-Las migraciones crean las tablas necesarias en PostgreSQL
+Estos datos son utilizados por Django para conectarse a PostgreSQL.
 
-Entrar carpeta proyecto:
+## 1.5 Ejecutar migraciones
 
+Las migraciones son archivos que crean las tablas necesarias dentro de la base de datos.
+
+Ingresar a la carpeta del proyecto Django:
+
+```bash
 cd proyecto_django
+```
 
-Ejecutamos:
+Ejecutar:
 
+```bash
 python manage.py makemigrations
 python manage.py migrate
-Poblar datos iniciales
+```
 
-Estos comandos crean:
+Con estos comandos se crean todas las tablas definidas en los modelos.
 
-mecanicos
-clientes
-vehiculos
-ordenes
-usuarios de prueba
+
+## 1.6 Poblar datos de prueba
+
+Para facilitar las pruebas del sistema existe un comando que genera informacion automaticamente.
+
+Ejecutar:
+
+```bash
 python manage.py poblar_datos
+```
 
-###1.5 Ejecutar servidor
-Este comando inicia el servidor Django local
+Este comando crea:
 
+Usuarios de prueba
+Clientes
+Mecanicos
+Vehiculos
+Ordenes de trabajo
+
+De esta manera no es necesario ingresar todos los datos manualmente.
+
+## 1.7 Ejecutar el servidor
+
+Una vez configurado todo lo anterior, se puede iniciar el servidor.
+
+```bash
 python manage.py runserver
+```
 
-Servidor disponible en un localhost:
+La API quedara disponible en:
+
+```text
 http://127.0.0.1:8000/
+```
+# 2. Usuarios de prueba
 
-###====================================================================================================
-###2- Credenciales de los 3 usuarios de prueba
-###====================================================================================================
+El sistema crea automaticamente tres tipos de usuarios para probar los distintos permisos.
 
-###2.1 El sistema tiene 3 tipos de usuarios:
+## Administrador
 
--administrador
--mecanico
--cliente
+El administrador tiene acceso completo al sistema.
 
-Administrador, el cual tiene acceso completo al sistema
-
-username: admin
+```text
+username: admin_taller
 password: admin123
+```
+Puede:
 
-Mecanico, el cual puede gestionar ordenes asignadas a el
+Ver todos los clientes
+Ver todos los vehiculos
+Ver todas las ordenes
+Revisar auditoria
+Crear y modificar registros
 
-username: mecanico1
+## Mecanico
+
+Representa a un trabajador del taller.
+
+```text
+username: carlos_munoz
 password: mecanico123
+```
 
-Cliente, el cual puede visualizar solo sus propios datos
+Puede:
 
-username: cliente1
+Ver ordenes asignadas a el
+Completar ordenes
+Cancelar ordenes
+Ver clientes relacionados a sus ordenes
+
+No puede acceder a la auditoria ni administrar usuarios.
+
+
+## Cliente
+
+Representa al dueño de uno o mas vehiculos.
+
+```text
+username: juan_perez
 password: cliente123
+```
 
-###====================================================================================================
-###3 Como loguearse y usar el token
-###====================================================================================================
-El sistema usa JWT Authentication
+Puede:
 
-JWT funciona funciona de la siguiente manera:
+Ver sus vehiculos
+Ver sus ordenes
+Consultar informacion propia
 
-el usuario envia username y password
-Django valida credenciales
-la API devuelve un token
-el token se envia en cada request protegida
+No puede crear ordenes ni modificar informacion administrativa.
 
-###3.1 Obtener token JWT
-curl -X POST http://127.0.0.1:8000/api/token/ \
--H "Content-Type: application/json" \
--d '{
-    "username": "admin",
-    "password": "admin123"
-}'
+# 3. Autenticacion JWT
 
-Respuesta ejemplo:
+La API utiliza JWT (JSON Web Token).
 
+Este mecanismo permite autenticar usuarios sin mantener sesiones en el servidor.
+
+1. El usuario envia username y password.
+2. Django valida las credenciales.
+3. El sistema genera un token.
+4. El token se utiliza en todas las peticiones protegidas.
+
+
+## Obtener token
+
+Enviar una peticion a:
+
+```http
+POST /api/auth/login/
+```
+
+Ejemplo:
+
+```json
 {
-    "refresh": "TOKEN_REFRESH",
-    "access": "TOKEN_ACCESS"
+  "username": "admin_taller",
+  "password": "admin123"
 }
+```
 
+Respuesta:
 
-###3.2 Usar token Bearer
+```json
+{
+  "refresh": "...",
+  "access": "..."
+}
+```
 
-El token access se envia usando Authorization Bearer
+## Utilizar token
 
-curl http://127.0.0.1:8000/api/ordenes/ \
--H "Authorization: Bearer TOKEN_ACCESS"
+Una vez obtenido el token access, este debe enviarse en el encabezado Authorization.
 
-###====================================================================================================
-###4 - Tabla de endpoints principales y roles
-###====================================================================================================
-Endpoint			Metodo	Rol permitido		Explicacion
-/api/token/			POST	Publico			Genera token JWT
-/api/auth/me/			GET	Usuarios autenticados	Devuelve informacion usuario logueado
-/api/mecanicos/			GET	Admin			Lista mecanicos
-/api/clientes/			GET	Admin			Lista clientes
-/api/vehiculos/			GET	Admin/Cliente		Lista vehiculos
-/api/ordenes/			GET	Admin/Mecanico		Lista ordenes
-/api/ordenes/{id}/completar/	POST	Admin/Mecanico		Completa orden
-/api/ordenes/{id}/cancelar/	POST	Admin			Cancela orden
-/api/audit-logs/		GET	Admin			Consulta auditoria sistema
+Ejemplo:
 
-###====================================================================================================
-###5-Link documentacion interactiva Swagger
-###====================================================================================================
+```http
+Authorization: Bearer TOKEN_ACCESS
+```
 
-Swagger genera documentacion automatica de la API
-Permite:
+## Consultar usuario autenticado
 
-ver endpoints
-probar requests
-revisar respuestas JSON
-revisar autenticacion JWT
+Endpoint:
 
-Swagger UI:
+```http
+GET /api/auth/me/
+```
+
+Este endpoint devuelve informacion del usuario autenticado y el rol que posee dentro del sistema.
+
+# 4. Endpoints principales
+
+| Endpoint                     | Metodo | Descripcion                  |
+| ---------------------------- | ------ | ---------------------------- |
+| /api/auth/login/             | POST   | Genera token JWT             |
+| /api/auth/refresh/           | POST   | Renueva token                |
+| /api/auth/verify/            | POST   | Verifica token               |
+| /api/auth/me/                | GET    | Devuelve usuario autenticado |
+| /api/mecanicos/              | GET    | Lista mecanicos              |
+| /api/clientes/               | GET    | Lista clientes               |
+| /api/vehiculos/              | GET    | Lista vehiculos              |
+| /api/ordenes/                | GET    | Lista ordenes                |
+| /api/ordenes/{id}/completar/ | POST   | Completa una orden           |
+| /api/ordenes/{id}/cancelar/  | POST   | Cancela una orden            |
+| /api/audit-logs/             | GET    | Consulta auditoria           |
+
+# 5. Auditoria
+
+El sistema registra automaticamente acciones importantes realizadas por los usuarios.
+
+Algunos ejemplos son:
+
+Crear clientes
+Actualizar clientes
+Crear vehiculos
+Crear ordenes
+Completar ordenes
+Cancelar ordenes
+Desactivar mecanicos
+
+Estos registros permiten mantener trazabilidad sobre las acciones realizadas dentro del sistema.
+
+La auditoria puede consultarse mediante:
+
+```text
+/api/audit-logs/
+```
+
+Solo los administradores tienen acceso a esta informacion.
+
+# 6. Documentacion de la API
+
+La API genera documentacion automaticamente mediante OpenAPI y drf-spectacular.
+
+Esto permite revisar todos los endpoints sin necesidad de leer el codigo fuente.
+
+## Swagger UI
+
+Interfaz interactiva para probar endpoints directamente desde el navegador.
+
+```text
 http://127.0.0.1:8000/api/docs/
+```
 
-Schema OpenAPI:
+## ReDoc
+
+Version alternativa de la documentacion con un formato mas orientado a lectura.
+
+```text
+http://127.0.0.1:8000/api/redoc/
+```
+
+## OpenAPI Schema
+
+Archivo JSON utilizado para describir formalmente toda la API.
+
+```text
 http://127.0.0.1:8000/api/schema/
+```
+

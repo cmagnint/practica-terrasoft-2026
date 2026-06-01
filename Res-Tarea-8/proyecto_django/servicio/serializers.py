@@ -1,6 +1,6 @@
 from rest_framework import serializers
+from drf_spectacular.utils import extend_schema_field
 from .models import (Mecanico, Cliente, Vehiculo, OrdenTrabajo, AuditLog)
-
 
 class MecanicoSerializer(serializers.ModelSerializer):
 
@@ -11,10 +11,14 @@ class MecanicoSerializer(serializers.ModelSerializer):
         model = Mecanico
         fields = '__all__'
 
+    @extend_schema_field(serializers.IntegerField())
     #retorna cantidad total de ordenes del mecanico
     def get_total_ordenes(self, obj):
-        return obj.ordenes.count()
-
+        return getattr(
+            obj,
+            'total_ordenes_anotado',
+            obj.ordenes.count()
+        )
 
 class ClienteResumenSerializer(serializers.ModelSerializer):
 

@@ -1,14 +1,16 @@
 # Create your views here.
 import logging
 
-from rest_framework.permissions import IsAuthenticated
+from django.db.models import Sum, Count, Q
 from django.utils import timezone
-from datetime import date
-from django.db.models import Sum, Avg, Count
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from drf_spectacular.utils import extend_schema
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
+from rest_framework.exceptions import MethodNotAllowed, PermissionDenied
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .audit import registrar_auditoria
 
 from .models import (
@@ -22,6 +24,7 @@ from .models import (
 from .serializers import (
     MecanicoSerializer,
     ClienteSerializer,
+    ClienteResumenSerializer,
     VehiculoSerializer,
     VehiculoCreateSerializer,
     OrdenTrabajoSerializer,
@@ -32,9 +35,10 @@ from .serializers import (
 
 from .permissions import (
     EsAdministrador,
-    EsMecanico,
-    EsCliente,
-    EsAdministradorOMecanico
+    EsAdministradorOMecanico,
+    es_admin,
+    es_mecanico,
+    es_cliente
 )
 
 #logger propio de la app servicio
@@ -45,12 +49,17 @@ logger = logging.getLogger('servicio')
 class MecanicoViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar los mecanicos """
 
-    #IsAuthenticated exige token valido JWT
-    permission_classes = [EsAdministrador]
-
     serializer_class = MecanicoSerializer
-    queryset = Mecanico.objects.all()
     lookup_field = 'rut'
+
+    def get_permissions(self):
+
+        #disponibles puede verlo cualquier usuario autenticado
+        if self.action == 'disponibles':
+
+            return [IsAuthenticated()]
+
+        return [EsAdministrador()]
 
     def get_queryset(self):
 
@@ -59,7 +68,10 @@ class MecanicoViewSet(viewsets.ModelViewSet):
             f"params={self.request.query_params}"
         )
 
-        mecanicos = Mecanico.objects.all()
+        #anota cantidad de ordenes para evitar consultas repetidas
+        mecanicos = Mecanico.objects.annotate(
+            total_ordenes_anotado=Count('ordenes')
+        )
 
         activo = self.request.query_params.get('activo')
 
@@ -105,7 +117,7 @@ class MecanicoViewSet(viewsets.ModelViewSet):
         ).count()
 
         ordenes_canceladas = mecanico.ordenes.filter(
-            estado='Cancelado'
+            estado='Cancelada'
         ).count()
 
         monto_total = mecanico.ordenes.filter(
@@ -120,7 +132,7 @@ class MecanicoViewSet(viewsets.ModelViewSet):
                 mecanico
             ).data,
 
-            "ordenes activas": OrdenTrabajoSerializer(
+            "ordenes_activas": OrdenTrabajoSerializer(
                 ordenes_activas,
                 many=True
             ).data,
@@ -133,21 +145,16 @@ class MecanicoViewSet(viewsets.ModelViewSet):
 
         }, status=status.HTTP_200_OK)
 
-    def list(self, request, *args, **kwargs):
-        """Lista de mecanicos con respuesta personalizada"""
+    def destroy(self, request, *args, **kwargs):
 
-        mecanicos = self.get_queryset()
+        #los mecanicos no se eliminan
+        raise MethodNotAllowed('DELETE')
 
-        serializer = self.get_serializer(
-            mecanicos,
-            many=True
-        )
-
-        return Response({
-            "total": mecanicos.count(),
-            "mecanicos": serializer.data
-        }, status=status.HTTP_200_OK)
-
+    @extend_schema(
+        summary="Desactivar mecanico",
+        description="Desactiva un mecanico sin eliminarlo de la base de datos.",
+        responses={200: MecanicoSerializer}
+    )
     @action(detail=True, methods=['post'], url_path='desactivar')
     def desactivar(self, request, rut=None):
         #action es como un endpoint personalizado dentro de un ViewSet
@@ -155,45 +162,64 @@ class MecanicoViewSet(viewsets.ModelViewSet):
 
         mecanico = self.get_object()
 
+        datos_previos = {
+            'activo': mecanico.activo
+        }
+
         mecanico.activo = False
         mecanico.save()
+
+        registrar_auditoria(
+            usuario=request.user,
+            accion='desactivar_mecanico',
+            modelo='Mecanico',
+            descripcion=f'Mecanico {mecanico.rut} desactivado',
+            objeto_id=mecanico.id,
+            datos_previos=datos_previos,
+            datos_nuevos={
+                'activo': mecanico.activo
+            }
+        )
 
         return Response({
             "mensaje": "Mecánico desactivado correctamente",
             "mecanico": MecanicoSerializer(mecanico).data
         }, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        summary="Mecanicos disponibles",
+        description="Devuelve solo mecanicos activos con menos de 3 ordenes activas.",
+        responses={200: MecanicoSerializer(many=True)}
+    )
     @action(detail=False, methods=['get'], url_path='disponibles')
     def disponibles(self, request):
         #detail=False significa que no usa un rut especifico
 
+        #calcula ordenes activas desde la base de datos
         mecanicos = Mecanico.objects.filter(
             activo=True
+        ).annotate(
+            ordenes_activas_count=Count(
+                'ordenes',
+                filter=Q(
+                    ordenes__estado__in=[
+                        'Pendiente',
+                        'En progreso'
+                    ]
+                )
+            ),
+            total_ordenes_anotado=Count('ordenes')
+        ).filter(
+            ordenes_activas_count__lt=3
         )
 
-        disponibles = []
-
-        for mecanico in mecanicos:
-
-            #count() cuenta cuantas ordenes activas tiene este mecanico
-            ordenes_activas = mecanico.ordenes.filter(
-                estado__in=[
-                    'Pendiente',
-                    'En progreso'
-                ]
-            ).count()
-
-            if ordenes_activas < 3:
-
-                disponibles.append(mecanico)
-
         serializer = MecanicoSerializer(
-            disponibles,
+            mecanicos,
             many=True
         )
 
         return Response({
-            "total": len(disponibles),
+            "total": mecanicos.count(),
             "mecanicos": serializer.data
         }, status=status.HTTP_200_OK)
 
@@ -207,11 +233,24 @@ class MecanicoViewSet(viewsets.ModelViewSet):
 class ClienteViewSet(viewsets.ModelViewSet):
     """ViewSet actualizado par gestionar clientes"""
 
-    permission_classes = [EsAdministrador]
+    permission_classes = [IsAuthenticated]
 
     serializer_class = ClienteSerializer
-    queryset = Cliente.objects.all()
     lookup_field = 'rut'
+
+    def get_permissions(self):
+
+        #solo admin puede modificar clientes
+        if self.action in [
+            'create',
+            'update',
+            'partial_update',
+            'destroy'
+        ]:
+
+            return [EsAdministrador()]
+
+        return [IsAuthenticated()]
 
     def get_queryset(self):
 
@@ -224,11 +263,28 @@ class ClienteViewSet(viewsets.ModelViewSet):
             'vehiculos'
         )
 
+        user = self.request.user
+
+        #cliente solo ve su propio registro
+        if es_cliente(user):
+
+            clientes = clientes.filter(
+                usuario=user
+            )
+
+        #mecanico solo ve clientes con ordenes asignadas a el
+        elif es_mecanico(user):
+
+            clientes = clientes.filter(
+                vehiculos__ordenes__mecanico__usuario=user
+            ).distinct()
+
         buscar = self.request.query_params.get('buscar')
 
         if buscar:
+
             clientes = clientes.filter(
-                nombre_icontains=buscar
+                nombre__icontains=buscar
             )
 
 #filtro clientes con vehículos
@@ -243,19 +299,64 @@ class ClienteViewSet(viewsets.ModelViewSet):
 
         return clientes
 
-    def list(self, request, *args, **kwargs):
+    def create(self, request, *args, **kwargs):
 
-        clientes = self.get_queryset()
+        response = super().create(request, *args, **kwargs)
 
-        serializer = self.get_serializer(
-            clientes,
-            many=True
+        registrar_auditoria(
+            usuario=request.user,
+            accion='crear_cliente',
+            modelo='Cliente',
+            descripcion='Cliente creado',
+            objeto_id=response.data.get('id'),
+            datos_nuevos=response.data
         )
 
-        return Response({
-            "total": clientes.count(),
-            "clientes": serializer.data
-        }, status=status.HTTP_200_OK)
+        return response
+
+    def update(self, request, *args, **kwargs):
+
+        cliente = self.get_object()
+
+        datos_previos = ClienteSerializer(
+            cliente
+        ).data
+
+        response = super().update(request, *args, **kwargs)
+
+        registrar_auditoria(
+            usuario=request.user,
+            accion='actualizar_cliente',
+            modelo='Cliente',
+            descripcion=f'Cliente {cliente.rut} actualizado',
+            objeto_id=cliente.id,
+            datos_previos=datos_previos,
+            datos_nuevos=response.data
+        )
+
+        return response
+
+    def partial_update(self, request, *args, **kwargs):
+
+        cliente = self.get_object()
+
+        datos_previos = ClienteSerializer(
+            cliente
+        ).data
+
+        response = super().partial_update(request, *args, **kwargs)
+
+        registrar_auditoria(
+            usuario=request.user,
+            accion='actualizar_cliente',
+            modelo='Cliente',
+            descripcion=f'Cliente {cliente.rut} actualizado',
+            objeto_id=cliente.id,
+            datos_previos=datos_previos,
+            datos_nuevos=response.data
+        )
+
+        return response
 
     def retrieve(self, request, *args, **kwargs):
         """Devuelve detalle de un cliente junto con estadisticas"""
@@ -271,12 +372,13 @@ class ClienteViewSet(viewsets.ModelViewSet):
         vehiculos = cliente.vehiculos.all()
 
         #count() cuenta registros
-        total_ordenes = OrdenTrabajo.objects.filter(
+        ordenes = OrdenTrabajo.objects.filter(
             vehiculo__cliente=cliente
-        ).count()
+        )
 
-        ordenes_activas = OrdenTrabajo.objects.filter(
-            vehiculo__cliente=cliente,
+        total_ordenes = ordenes.count()
+
+        ordenes_activas = ordenes.filter(
             estado__in=[
                 'Pendiente',
                 'En progreso'
@@ -284,8 +386,7 @@ class ClienteViewSet(viewsets.ModelViewSet):
         ).count()
 
         #aggregate + Sum calcula dinero total gastado
-        monto_total = OrdenTrabajo.objects.filter(
-            vehiculo__cliente=cliente,
+        monto_total = ordenes.filter(
             estado='Completada'
         ).aggregate(
             total=Sum('monto')
@@ -295,6 +396,11 @@ class ClienteViewSet(viewsets.ModelViewSet):
 
             "cliente": ClienteSerializer(
                 cliente
+            ).data,
+
+            "vehiculos": VehiculoSerializer(
+                vehiculos,
+                many=True
             ).data,
 
             "stats": {
@@ -307,6 +413,11 @@ class ClienteViewSet(viewsets.ModelViewSet):
 
         }, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        summary="Ordenes de un cliente",
+        description="Devuelve todas las ordenes de los vehiculos de un cliente.",
+        responses={200: OrdenTrabajoSerializer(many=True)}
+    )
     @action(detail=True, methods=['get'], url_path='ordenes')
     def ordenes(self, request, rut=None):
         """devolvera todas las ordenes asciadas a un vehiculo"""
@@ -328,12 +439,12 @@ class ClienteViewSet(viewsets.ModelViewSet):
         )
 
         #filtro opcional por estado
-        estado = request.query_params.get('estado')
+        estado_param = request.query_params.get('estado')
 
-        if estado:
+        if estado_param:
 
             ordenes = ordenes.filter(
-                estado=estado
+                estado=estado_param
             )
 
         serializer = OrdenTrabajoSerializer(
@@ -360,12 +471,30 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 
     permission_classes = [IsAuthenticated]
 
-    serializer_class = VehiculoSerializer
-    queryset = Vehiculo.objects.all()
-
     #lookup_field = campo usado en URL
     lookup_field = 'patente'
 
+    def get_serializer_class(self):
+
+        #usa serializer especial para creacion
+        if self.action == 'create':
+
+            return VehiculoCreateSerializer
+
+        return VehiculoSerializer
+
+    def get_permissions(self):
+
+        #solo admin puede modificar o eliminar vehiculos
+        if self.action in [
+            'update',
+            'partial_update',
+            'destroy'
+        ]:
+
+            return [EsAdministrador()]
+
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         """Obtiene vehículos aplicando filtros opcionales"""
@@ -381,6 +510,22 @@ class VehiculoViewSet(viewsets.ModelViewSet):
         ).prefetch_related(
             'ordenes'
         )
+
+        user = self.request.user
+
+        #cliente solo ve sus vehiculos
+        if es_cliente(user):
+
+            vehiculos = vehiculos.filter(
+                cliente__usuario=user
+            )
+
+        #mecanico solo ve vehiculos de sus ordenes
+        elif es_mecanico(user):
+
+            vehiculos = vehiculos.filter(
+                ordenes__mecanico__usuario=user
+            ).distinct()
 
         #filtro por marca
         marca = self.request.query_params.get('marca')
@@ -426,23 +571,42 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 
         return vehiculos
 
+    def create(self, request, *args, **kwargs):
 
-    def list(self, request, *args, **kwargs):
-        """Lista vehículos con formato personalizado."""
+        #cliente solo puede crear vehiculos propios
+        if es_cliente(request.user):
 
-        vehiculos = self.get_queryset()
+            cliente_id = request.data.get('cliente')
+
+            if str(cliente_id) != str(request.user.cliente.id):
+
+                return Response({
+                    'error': 'Solo puedes crear vehículos a tu nombre'
+                }, status=status.HTTP_403_FORBIDDEN)
 
         serializer = self.get_serializer(
-            vehiculos,
-            many=True
+            data=request.data
         )
 
-        return Response({
+        serializer.is_valid(
+            raise_exception=True
+        )
 
-            "total": vehiculos.count(),
-            "vehiculos": serializer.data
+        vehiculo = serializer.save()
 
-        }, status=status.HTTP_200_OK)
+        registrar_auditoria(
+            usuario=request.user,
+            accion='crear_vehiculo',
+            modelo='Vehiculo',
+            descripcion='Vehiculo creado',
+            objeto_id=vehiculo.id,
+            datos_nuevos=VehiculoSerializer(vehiculo).data
+        )
+
+        return Response(
+            VehiculoSerializer(vehiculo).data,
+            status=status.HTTP_201_CREATED
+        )
 
     def retrieve(self, request, *args, **kwargs):
         """Devuelve el detalle de un vehiculojunto con estadísticas de sus órdenes"""
@@ -481,6 +645,11 @@ class VehiculoViewSet(viewsets.ModelViewSet):
                 vehiculo
             ).data,
 
+            "ordenes": OrdenTrabajoSerializer(
+                ordenes,
+                many=True
+            ).data,
+
             "stats": {
                 "total_ordenes": ordenes.count(),
                 "ultima_visita": ultima_visita,
@@ -489,6 +658,11 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 
         }, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        summary="Historial de vehiculo",
+        description="Devuelve historial completo del vehiculo.",
+        responses={200: OrdenTrabajoSerializer(many=True)}
+    )
     @action(detail=True, methods=['get'], url_path='historial')
     def historial(self, request, patente=None):
         """Devuelve historial completo del vehículo."""
@@ -548,8 +722,7 @@ class VehiculoViewSet(viewsets.ModelViewSet):
 class OrdenViewSet(viewsets.ModelViewSet):
     """ViewSet para gestionar ordenes de trabajo"""
 
-    permission_classes = [EsAdministradorOMecanico]
-    queryset = OrdenTrabajo.objects.all()
+    permission_classes = [IsAuthenticated]
     lookup_field = 'pk'
 
     def get_serializer_class(self):
@@ -562,6 +735,30 @@ class OrdenViewSet(viewsets.ModelViewSet):
             return OrdenTrabajoUpdateSerializer
 
         return OrdenTrabajoSerializer
+
+    def get_permissions(self):
+
+        #solo admin o mecanico puede crear ordenes
+        if self.action == 'create':
+
+            return [EsAdministradorOMecanico()]
+
+        #solo admin o mecanico puede modificar estado
+        if self.action in [
+            'update',
+            'partial_update',
+            'completar',
+            'cancelar'
+        ]:
+
+            return [EsAdministradorOMecanico()]
+
+        #solo admin puede eliminar ordenes
+        if self.action == 'destroy':
+
+            return [EsAdministrador()]
+
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         """Filtrado por rol + filtros opcionales"""
@@ -579,60 +776,153 @@ class OrdenViewSet(viewsets.ModelViewSet):
 #filtros por rol
         user = self.request.user
 
-        if user.is_staff:
-            pass  #admin ve todo
+        #acciones de modificacion no filtran para poder devolver 403
+        if self.action not in [
+            'update',
+            'partial_update',
+            'completar',
+            'cancelar'
+        ]:
 
-#crei que el error de que a al admin no le imprima las ordenes estaba por aqui, lo cambie pero sigue sin funcionar
-        elif Mecanico.objects.filter(usuario=user).exists():
-            ordenes = ordenes.filter(mecanico__usuario=user)
+            if es_cliente(user):
 
-        elif Cliente.objects.filter(usuario=user).exists():
-            ordenes = ordenes.filter(vehiculo__cliente__usuario=user)
+                ordenes = ordenes.filter(
+                    vehiculo__cliente__usuario=user
+                )
 
-        else:
-            return ordenes.none()
+            elif es_mecanico(user):
 
-        estado = self.request.query_params.get('estado')
-        if estado:
-            ordenes = ordenes.filter(estado=estado)
+                ordenes = ordenes.filter(
+                    mecanico__usuario=user
+                )
+
+        estado_param = self.request.query_params.get('estado')
+
+        if estado_param:
+
+            ordenes = ordenes.filter(
+                estado=estado_param
+            )
 
         mecanico_rut = self.request.query_params.get('mecanico_rut')
-        if mecanico_rut:
-            ordenes = ordenes.filter(mecanico__rut=mecanico_rut)
 
-        vehiculo_patente = self.request.query_params.get('vehiculo_patente')
+        if mecanico_rut:
+
+            ordenes = ordenes.filter(
+                mecanico__rut=mecanico_rut
+            )
+
+        vehiculo_patente = self.request.query_params.get(
+            'vehiculo_patente'
+        )
+
         if vehiculo_patente:
-            ordenes = ordenes.filter(vehiculo__patente__iexact=vehiculo_patente)
+
+            ordenes = ordenes.filter(
+                vehiculo__patente__iexact=vehiculo_patente
+            )
 
         vencidas = self.request.query_params.get('vencidas')
+
         if vencidas == 'true':
+
             ordenes = ordenes.filter(
                 fecha_entrega_estimada__lt=timezone.now().date()
             ).exclude(
-                estado__in=['Completada', 'Cancelada']
+                estado__in=[
+                    'Completada',
+                    'Cancelada'
+                ]
             )
 
         return ordenes
 
-    def list(self, request, *args, **kwargs):
-        ordenes = self.get_queryset()
+    def get_object(self):
 
-        serializer = self.get_serializer(ordenes, many=True)
+        orden = super().get_object()
 
-        return Response({
-            "total": ordenes.count(),
-            "ordenes": serializer.data
-        }, status=status.HTTP_200_OK)
+        user = self.request.user
+
+        #valida que mecanico solo modifique sus ordenes
+        if self.action in [
+            'update',
+            'partial_update',
+            'completar',
+            'cancelar'
+        ]:
+
+            if (
+                es_mecanico(user)
+                and
+                orden.mecanico.usuario != user
+            ):
+
+                raise PermissionDenied(
+                    'Solo puedes modificar tus propias órdenes'
+                )
+
+        return orden
+
+    def create(self, request, *args, **kwargs):
+
+        serializer = self.get_serializer(
+            data=request.data
+        )
+
+        serializer.is_valid(
+            raise_exception=True
+        )
+
+        orden = serializer.save()
+
+        registrar_auditoria(
+            usuario=request.user,
+            accion='crear_orden',
+            modelo='OrdenTrabajo',
+            descripcion='Orden de trabajo creada',
+            objeto_id=orden.id,
+            datos_nuevos=OrdenTrabajoSerializer(orden).data
+        )
+
+        return Response(
+            OrdenTrabajoSerializer(orden).data,
+            status=status.HTTP_201_CREATED
+        )
 
     def retrieve(self, request, *args, **kwargs):
+
         orden = self.get_object()
 
-        serializer = self.get_serializer(orden)
+        serializer = self.get_serializer(
+            orden
+        )
 
         return Response({
             "orden": serializer.data
         }, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        summary="Completar una orden de trabajo",
+        description="Marca la orden como Completada y registra el monto final.",
+        request={
+            'application/json': {
+                'type': 'object',
+                'properties': {
+                    'monto': {
+                        'type': 'number'
+                    },
+                    'fecha_entrega_real': {
+                        'type': 'string',
+                        'format': 'date'
+                    }
+                },
+                'required': [
+                    'monto'
+                ]
+            }
+        },
+        responses={200: OrdenTrabajoSerializer}
+    )
     @action(detail=True, methods=['post'], url_path='completar')
     def completar(self, request, pk=None):
 
@@ -643,9 +933,21 @@ class OrdenViewSet(viewsets.ModelViewSet):
                 "error": "La orden ya estaba completada"
             }, status=status.HTTP_400_BAD_REQUEST)
 
+        datos_previos = {
+            'estado': orden.estado,
+            'monto': str(orden.monto) if orden.monto else None,
+            'fecha_entrega_real': (
+                str(orden.fecha_entrega_real)
+                if orden.fecha_entrega_real
+                else None
+            )
+        }
+
         orden.estado = 'Completada'
         orden.monto = request.data.get('monto')
-        orden.fecha_entrega_real = request.data.get('fecha_entrega_real')
+        orden.fecha_entrega_real = request.data.get(
+            'fecha_entrega_real'
+        )
         orden.save()
 
         registrar_auditoria(
@@ -654,9 +956,15 @@ class OrdenViewSet(viewsets.ModelViewSet):
             modelo='OrdenTrabajo',
             descripcion=f'Orden {orden.id} completada',
             objeto_id=orden.id,
+            datos_previos=datos_previos,
             datos_nuevos={
                 'estado': orden.estado,
-                'monto': str(orden.monto)
+                'monto': str(orden.monto),
+                'fecha_entrega_real': (
+                    str(orden.fecha_entrega_real)
+                    if orden.fecha_entrega_real
+                    else None
+                )
             }
         )
 
@@ -665,6 +973,21 @@ class OrdenViewSet(viewsets.ModelViewSet):
             "orden": OrdenTrabajoSerializer(orden).data
         }, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        summary="Cancelar una orden de trabajo",
+        description="Marca la orden como Cancelada y guarda el motivo en observaciones.",
+        request={
+            'application/json': {
+                'type': 'object',
+                'properties': {
+                    'motivo': {
+                        'type': 'string'
+                    }
+                }
+            }
+        },
+        responses={200: OrdenTrabajoSerializer}
+    )
     @action(detail=True, methods=['post'], url_path='cancelar')
     def cancelar(self, request, pk=None):
 
@@ -681,7 +1004,10 @@ class OrdenViewSet(viewsets.ModelViewSet):
             }, status=status.HTTP_400_BAD_REQUEST)
 
         orden.estado = 'Cancelada'
-        orden.observaciones = request.data.get('motivo', 'Sin motivo')
+        orden.observaciones = request.data.get(
+            'motivo',
+            'Sin motivo'
+        )
         orden.save()
 
         registrar_auditoria(
@@ -702,6 +1028,11 @@ class OrdenViewSet(viewsets.ModelViewSet):
             "orden": OrdenTrabajoSerializer(orden).data
         }, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        summary="Resumen de ordenes",
+        description="Devuelve metricas generales de ordenes y top 3 mecanicos.",
+        responses={200: dict}
+    )
     @action(detail=False, methods=['get'], url_path='resumen')
     def resumen(self, request):
 
@@ -751,10 +1082,54 @@ class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
     #serializer convierte logs a json
     serializer_class = AuditLogSerializer
 
-    #queryset ordena logs recientes primeroa
-    queryset = AuditLog.objects.select_related(
-        'usuario'
-    ).all()
+    def get_queryset(self):
+
+        #queryset ordena logs recientes primeroa
+        logs = AuditLog.objects.select_related(
+            'usuario'
+        ).all()
+
+        usuario = self.request.query_params.get('usuario')
+
+        if usuario:
+
+            logs = logs.filter(
+                usuario__username=usuario
+            )
+
+        accion = self.request.query_params.get('accion')
+
+        if accion:
+
+            logs = logs.filter(
+                accion=accion
+            )
+
+        modelo = self.request.query_params.get('modelo')
+
+        if modelo:
+
+            logs = logs.filter(
+                modelo=modelo
+            )
+
+        desde = self.request.query_params.get('desde')
+
+        if desde:
+
+            logs = logs.filter(
+                timestamp__gte=desde
+            )
+
+        hasta = self.request.query_params.get('hasta')
+
+        if hasta:
+
+            logs = logs.filter(
+                timestamp__lte=hasta
+            )
+
+        return logs
 
 
 class MeView(APIView):
@@ -763,34 +1138,21 @@ class MeView(APIView):
     #solo usuarios autenticados pueden acceder endpoint
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(
+        summary="Usuario autenticado",
+        description="Devuelve datos basicos del usuario autenticado y su rol.",
+        responses={200: dict}
+    )
     def get(self, request):
 
         #user, usuario autenticado actual en jwt
         user = request.user
 
-        #rol por defecto si no tiene relaciones
-        rol = 'sin_rol'
-
-        #is staff identifica administradores django
-        if user.is_staff:
-
-            rol = 'admin'
-
-        #hasattr verifica relacion mecanico
-        elif hasattr(
-            user,
-            'mecanico'
-        ):
-
-            rol = 'mecanico'
-
-        #hasattr verifica relacion cliente
-        elif hasattr(
-            user,
-            'cliente'
-        ):
-
-            rol = 'cliente'
+        rol = 'admin' if es_admin(user) else (
+            'mecanico' if es_mecanico(user) else (
+                'cliente' if es_cliente(user) else 'sin_rol'
+            )
+        )
 
         #data, respuesta json enviada al frontend
         data = {
@@ -799,6 +1161,18 @@ class MeView(APIView):
             'email': user.email,
             'rol': rol
         }
+
+        if rol == 'mecanico' and hasattr(user, 'mecanico'):
+
+            data['mecanico'] = MecanicoSerializer(
+                user.mecanico
+            ).data
+
+        elif rol == 'cliente' and hasattr(user, 'cliente'):
+
+            data['cliente'] = ClienteResumenSerializer(
+                user.cliente
+            ).data
 
         return Response(
             data,

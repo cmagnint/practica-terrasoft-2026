@@ -39,16 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'servicio',
     'corsheaders', #permite conexiones frontend externas
+    'rest_framework',
     'drf_spectacular',
+    'servicio',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -145,10 +145,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     #PageNumberPagination activa paginacion por numero de pagina
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'servicio.pagination.StandardPagination',
 
     #PAGE_SIZE define cantidad registros por pagina
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 20,
 
     #DSC permite generar documentacion en openapi
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
@@ -160,7 +160,7 @@ SIMPLE_JWT = {
 
     #ATL para la duracion del token de acceso
     'ACCESS_TOKEN_LIFETIME': timedelta(
-        minutes=60
+        minutes=30
     ),
 
     #RTL la duracion del token refresh

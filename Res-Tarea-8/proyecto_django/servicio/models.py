@@ -77,11 +77,11 @@ class Vehiculo(models.Model):
     #si no se encuentra algun valor, el kilometraje del
     kilometraje = models.IntegerField(default=0)
 
-    # Relación: un cliente puede tener muchos vehículos.
+    #Relacion: un cliente puede tener muchos vehículos.
     cliente = models.ForeignKey(
         Cliente,
 
-        # PROTECT evita borrar un cliente si tiene vehículos asociados.
+        #PROTECT evita borrar un cliente si tiene vehículos asociados.
         on_delete=models.PROTECT,
 
         #aca permite acceder desde cliente hacia sus vehiculos=cliente.vehiculos.all()
@@ -95,7 +95,7 @@ class Vehiculo(models.Model):
 class OrdenTrabajo(models.Model):
     """Representa una orden de trabajo asociada a un vehículo y mecanico."""
 
-    #estados permitidos para una orden.
+    #estados permitidos para una orden
     ESTADOS = [
         ('Pendiente', 'Pendiente'),
         ('En progreso', 'En progreso'),
@@ -131,7 +131,9 @@ class OrdenTrabajo(models.Model):
     )
 
     #cambio: ahora la fecha em que ingresa un vehiculo se puede ingresar manualmente para tener historial
-    fecha_ingreso = models.DateField()
+    fecha_ingreso = models.DateField(
+        auto_now_add=True
+    )
 
     fecha_entrega_estimada = models.DateField()
 
