@@ -26,6 +26,7 @@ cliente_group, _ = Group.objects.get_or_create(name='cliente')
 admin_user, _ = User.objects.get_or_create(username='admin_taller')
 admin_user.set_password('admin123')
 admin_user.is_staff = True
+admin_user.is_superuser = True
 admin_user.save()
 admin_user.groups.add(admin_group)
 

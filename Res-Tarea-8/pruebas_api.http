@@ -323,7 +323,7 @@ Content-Type: application/json
 {
     "patente": "ZZ9988",
     "marca": "Toyota",
-    "modelo": "Yaris",
+    "modelo": "Yaris GR",
     "anio": 2021,
     "color": "Blanco",
     "kilometraje": 30000,
@@ -346,13 +346,13 @@ GET http://127.0.0.1:8000/api/clientes/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 
 
-### 13. CARLOS VE MECANICOS DISPONIBLES -> debe dar 200
+### 13. CARLOS VE MECANICOS DISPONIBLES debe dar 200
 GET http://127.0.0.1:8000/api/mecanicos/disponibles/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 
 
 ### 14. CARLOS COMPLETA ORDEN AJENA -> debe dar 403, no 404
-POST http://127.0.0.1:8000/api/ordenes/1/completar/
+POST http://127.0.0.1:8000/api/ordenes/2/completar/
 Authorization: Bearer {{loginMecanico.response.body.access}}
 Content-Type: application/json
 
@@ -388,10 +388,10 @@ Authorization: Bearer {{loginAdmin.response.body.access}}
 Content-Type: application/json
 
 {
-    "nombre": "Cliente Checklist",
+    "nombre": "Cliente Prueba",
     "rut": "66666666-6",
     "telefono": "666666666",
-    "email": "checklist@test.cl"
+    "email": "clientePrueba@gmail.com"
 }
 
 
