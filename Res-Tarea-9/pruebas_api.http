@@ -1,0 +1,580 @@
+###==============================================
+###PRUEBAS DE Res-Tarea-8
+###==============================================
+
+
+###===================================================
+###PRUEBAS 8.2 autenticacion JWT
+###===================================================
+
+### LOGIN ADMIN
+# @name loginAdmin
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "admin_taller",
+    "password": "admin123"
+}
+
+###
+
+@accessToken = {{loginAdmin.response.body.access}}
+@refreshToken = {{loginAdmin.response.body.refresh}}
+
+### ADMIN VE MECANICOS
+GET http://127.0.0.1:8000/api/mecanicos/
+Authorization: Bearer {{accessToken}}
+
+### SIN TOKEN DEBE DAR 401
+GET http://127.0.0.1:8000/api/mecanicos/
+
+### REFRESH TOKEN
+POST http://127.0.0.1:8000/api/auth/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "{{refreshToken}}"
+}
+
+### VERIFY TOKEN
+POST http://127.0.0.1:8000/api/auth/verify/
+Content-Type: application/json
+
+{
+    "token": "{{accessToken}}"
+}
+
+
+###===================================================
+### PRUEBAS 8.3 - permisos por rol y audit log
+###===================================================
+
+### LOGIN MECANICO
+# @name loginMecanico
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "carlos_munoz",
+    "password": "mecanico123"
+}
+
+### LOGIN CLIENTE
+# @name loginCliente
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "juan_perez",
+    "password": "cliente123"
+}
+
+### ADMIN / AUTH ME
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### MECANICO / AUTH ME
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### CLIENTE / AUTH ME
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+### ADMIN VE CLIENTES
+GET http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### ADMIN VE VEHICULOS
+GET http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### ADMIN VE ORDENES
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### MECANICO VE SOLO SUS ORDENES
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### MECANICO VE SUS CLIENTES
+GET http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### MECANICO VE SUS VEHICULOS
+GET http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### CLIENTE VE SUS ORDENES
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+### CLIENTE VE SUS VEHICULOS
+GET http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+### MECANICO VE MECANICOS DISPONIBLES
+GET http://127.0.0.1:8000/api/mecanicos/disponibles/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### CLIENTE VE MECANICOS DISPONIBLES
+GET http://127.0.0.1:8000/api/mecanicos/disponibles/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+### MECANICO INTENTA CREAR CLIENTE DEBE DAR 403
+POST http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+Content-Type: application/json
+
+{
+    "nombre": "Cliente Test 3",
+    "rut": "99999888-9",
+    "telefono": "999999988",
+    "email": "test3@test.cl"
+}
+
+### CLIENTE INTENTA CREAR ORDEN DEBE DAR 403
+POST http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginCliente.response.body.access}}
+Content-Type: application/json
+
+{
+    "vehiculo": 1,
+    "mecanico": 1,
+    "descripcion": "Prueba cliente no autorizado",
+    "fecha_entrega_estimada": "2026-05-25"
+}
+
+### MECANICO INTENTA COMPLETAR ORDEN AJENA DEBE DAR 403
+POST http://127.0.0.1:8000/api/ordenes/1/completar/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+Content-Type: application/json
+
+{
+    "monto": 85000,
+    "fecha_entrega_real": "2026-05-20"
+}
+
+### ADMIN CREA CLIENTE GENERA AUDIT LOG
+POST http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "nombre": "Cliente Auditoria",
+    "rut": "77777777-7",
+    "telefono": "777777777",
+    "email": "auditoria@test.cl"
+}
+
+### ADMIN CREA VEHICULO
+POST http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "patente": "AA1122",
+    "marca": "Toyota",
+    "modelo": "Yaris",
+    "anio": 2020,
+    "color": "Blanco",
+    "kilometraje": 45000,
+    "cliente": 1
+}
+
+### ADMIN CREA ORDEN
+POST http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "vehiculo": 1,
+    "mecanico": 1,
+    "descripcion": "Revision general",
+    "fecha_entrega_estimada": "2026-05-25",
+    "observaciones": "Sin observaciones"
+}
+
+### ADMIN COMPLETA ORDEN
+POST http://127.0.0.1:8000/api/ordenes/1/completar/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "monto": 95000,
+    "fecha_entrega_real": "2026-05-20"
+}
+
+### ADMIN CANCELA ORDEN
+POST http://127.0.0.1:8000/api/ordenes/2/cancelar/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "motivo": "Cancelada por falta de repuestos"
+}
+
+### ADMIN VE AUDIT LOGS
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### ADMIN FILTRA AUDIT LOGS POR ACCION CREAR CLIENTE
+GET http://127.0.0.1:8000/api/audit-logs/?accion=crear_cliente
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### ADMIN FILTRA AUDIT LOGS POR ACCION COMPLETAR ORDEN
+GET http://127.0.0.1:8000/api/audit-logs/?accion=completar_orden
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### MECANICO NO VE AUDIT LOGS DEBE DAR 403
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### CLIENTE NO VE AUDIT LOGS DEBE DAR 403
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+### DELETE MECANICO DEBE DAR 405
+DELETE http://127.0.0.1:8000/api/mecanicos/11111111-1/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### BUSCAR CLIENTE DEBE DAR 200
+GET http://127.0.0.1:8000/api/clientes/?buscar=Juan
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+###===================================================
+### PRUEBAS 8.4 - cors paginacion y documentacion
+###===================================================
+
+###===================================================
+### CHECKLIST FINAL TAREA 8
+###===================================================
+
+### 1. LOGIN ADMIN
+# @name loginAdmin
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "admin_taller",
+    "password": "admin123"
+}
+
+### 2. LOGIN MECANICO
+# @name loginMecanico
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "carlos_munoz",
+    "password": "mecanico123"
+}
+
+### 3. LOGIN CLIENTE
+# @name loginCliente
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "juan_perez",
+    "password": "cliente123"
+}
+
+
+### 4. AUTH ME ADMIN rol admin
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+### 5. AUTH ME MECANICO rol mecanico
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+### 6. AUTH ME CLIENTE -> rol cliente
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 7. MECANICO DETALLE debe tener ordenes_activas
+GET http://127.0.0.1:8000/api/mecanicos/11111111-1/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 8. ADMIN CREA ORDEN debe dar 201
+POST http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "vehiculo": 1,
+    "mecanico": 1,
+    "descripcion": "Revision checklist final",
+    "fecha_entrega_estimada": "2026-06-20",
+    "observaciones": "Prueba checklist"
+}
+
+
+### 9. ADMIN CREA VEHICULO debe dar 201
+POST http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "patente": "ZZ9988",
+    "marca": "Toyota",
+    "modelo": "Yaris GR",
+    "anio": 2021,
+    "color": "Blanco",
+    "kilometraje": 30000,
+    "cliente": 1
+}
+
+
+### 10. JUAN VE SOLO SUS VEHICULOS no deben salir los 35
+GET http://127.0.0.1:8000/api/vehiculos/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 11. JUAN VE SUS ORDENES debe dar 200, no 403
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginCliente.response.body.access}}
+
+
+### 12. CARLOS VE SUS CLIENTES debe dar 200, no 403
+GET http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+
+### 13. CARLOS VE MECANICOS DISPONIBLES debe dar 200
+GET http://127.0.0.1:8000/api/mecanicos/disponibles/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+
+
+### 14. CARLOS COMPLETA ORDEN AJENA -> debe dar 403, no 404
+POST http://127.0.0.1:8000/api/ordenes/2/completar/
+Authorization: Bearer {{loginMecanico.response.body.access}}
+Content-Type: application/json
+
+{
+    "monto": 85000,
+    "fecha_entrega_real": "2026-06-20"
+}
+
+
+### 15. DELETE MECANICO debe dar 405
+DELETE http://127.0.0.1:8000/api/mecanicos/11111111-1/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 16. BUSCAR CLIENTE JUAN debe dar 200, no 500
+GET http://127.0.0.1:8000/api/clientes/?buscar=Juan
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 17. ORDENES PAGINADAS debe tener count, next, previous, results
+GET http://127.0.0.1:8000/api/ordenes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 18. ORDENES PAGINA 2 PAGE SIZE 10 results debe tener 10 items si hay suficientes datos
+GET http://127.0.0.1:8000/api/ordenes/?page=2&page_size=10
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 19. ADMIN CREA CLIENTE PARA AUDITORIA debe dar 201
+POST http://127.0.0.1:8000/api/clientes/
+Authorization: Bearer {{loginAdmin.response.body.access}}
+Content-Type: application/json
+
+{
+    "nombre": "Cliente Prueba",
+    "rut": "66666666-6",
+    "telefono": "666666666",
+    "email": "clientePrueba@gmail.com"
+}
+
+
+### 20. AUDIT LOG CREAR CLIENTE debe contener crear_cliente
+GET http://127.0.0.1:8000/api/audit-logs/?accion=crear_cliente
+Authorization: Bearer {{loginAdmin.response.body.access}}
+
+
+### 21. REDOC -> debe dar 200
+GET http://127.0.0.1:8000/api/redoc/
+```
+
+
+
+###===================================================
+### PRUEBAS ENTREGAS ANTERIORES
+###===================================================
+
+
+
+### 1. Lista todos los mecánicos
+GET http://localhost:8000/api/mecanicos/
+
+###
+
+### 2. Solo mecánicos de Motor
+GET http://localhost:8000/api/mecanicos/?especialidad=Motor
+
+###
+
+### 3. Detalle de mecánico con stats
+GET http://localhost:8000/api/mecanicos/11111111-1/
+
+###
+
+### 4. Crear mecánico válido → 201
+POST http://localhost:8000/api/mecanicos/
+Content-Type: application/json
+
+{
+    "nombre": "Mecánico Nuevo",
+    "rut": "21111111-1",
+    "especialidad": "Electricidad",
+    "activo": true
+}
+
+###
+
+### 5. Crear mecánico con RUT duplicado → 400
+POST http://localhost:8000/api/mecanicos/
+Content-Type: application/json
+
+{
+    "nombre": "Otro",
+    "rut": "11111111-1",
+    "especialidad": "General",
+    "activo": true
+}
+
+###
+
+### 6. Lista clientes con vehículos anidados
+GET http://localhost:8000/api/clientes/
+
+###
+
+### 7. Solo clientes con vehículos
+GET http://localhost:8000/api/clientes/?con_vehiculos=true
+
+###
+
+### 8. Detalle de cliente con stats
+GET http://localhost:8000/api/clientes/10111111-1/
+
+###
+
+### 9. Vehículos marca Toyota
+GET http://localhost:8000/api/vehiculos/?marca=Toyota
+
+###
+
+### 10. Detalle de vehículo con cliente y órdenes anidados
+GET http://localhost:8000/api/vehiculos/ABCD00/
+
+###
+
+### 11. Órdenes pendientes
+GET http://localhost:8000/api/ordenes/?estado=Pendiente
+
+###
+
+### 12. Órdenes vencidas
+GET http://localhost:8000/api/ordenes/?vencidas=true
+
+###
+
+### 13. Crear orden válida → 201
+POST http://localhost:8000/api/ordenes/
+Content-Type: application/json
+
+{
+    "vehiculo": 46,
+    "mecanico": 14,
+    "descripcion": "Cambio aceite",
+    "fecha_entrega_estimada": "2026-05-15",
+    "observaciones": "Vehiculo entra para cambio de aceite"
+}
+
+###
+
+### 14. Completar orden con monto → 200
+PATCH http://localhost:8000/api/ordenes/81/
+Content-Type: application/json
+
+{
+    "estado": "Completada",
+    "fecha_entrega_real": "2026-05-09",
+    "monto": 85000
+}
+
+###
+
+### 15. Completar orden sin monto → 400
+PATCH http://localhost:8000/api/ordenes/85/
+Content-Type: application/json
+
+{
+    "estado": "Completada"
+}
+
+###PRUEBAS
+
+### crear cliente nuevo - 201
+POST http://127.0.0.1:8000/api/clientes/
+Content-Type: application/json
+
+{
+    "nombre": "Cliente Prueba 2",
+    "rut": "19999988-9",
+    "telefono": "912345699",
+    "email": "cliente.prueba2@mail.com"
+}
+### 
+### cliente duplicado - 400
+
+POST http://127.0.0.1:8000/api/clientes/
+Content-Type: application/json
+
+{
+    "nombre": "Duplicado",
+    "rut": "10111111-1",
+    "telefono": "999999999",
+    "email": "duplicado@mail.com"
+}
+
+### crear vehiculo - 201
+
+POST http://127.0.0.1:8000/api/vehiculos/
+Content-Type: application/json
+
+{
+    "patente": "TEST10",
+    "marca": "Kia",
+    "modelo": "Stinger",
+    "anio": 2025,
+    "color": "Negro",
+    "kilometraje": 10000,
+    "cliente": 32
+}
+
+### crear orden - 201
+
+POST http://127.0.0.1:8000/api/ordenes/
+Content-Type: application/json
+
+{
+    "vehiculo": 46,
+    "mecanico": 14,
+    "descripcion": "Cambio de aceite",
+    "estado": "Pendiente",
+    "fecha_entrega_estimada": "2026-05-20",
+    "observaciones": "Se hizo el cambio de aceite"
+}
+
+
+
