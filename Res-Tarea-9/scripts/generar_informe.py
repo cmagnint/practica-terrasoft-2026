@@ -218,9 +218,9 @@ def preparar_excel_resumen(resumen):
 
     #renombra columnas para mostrarlas en el excel final
     df = df.rename(columns={
-        'mecanico_nombre': 'Mecanico',
+        'mecanico_nombre': 'Mecánico',
         'mecanico_especialidad': 'Especialidad',
-        'ordenes_completadas': 'Ordenes',
+        'ordenes_completadas': 'Órdenes',
         'monto_facturado': 'Monto Facturado',
         'costo_repuestos': 'Costo Repuestos',
         'margen_bruto': 'Margen Bruto',
@@ -518,19 +518,19 @@ def generar_excel(
 
         df_resumen.to_excel(
             writer,
-            sheet_name='Resumen por Mecanico',
+            sheet_name='Resumen por Mecánico',
             index=False
         )
 
         df_detalle.to_excel(
             writer,
-            sheet_name='Detalle de Ordenes',
+            sheet_name='Detalle de Órdenes',
             index=False
         )
 
         df_sin_repuestos.to_excel(
             writer,
-            sheet_name='Ordenes sin repuestos',
+            sheet_name='Órdenes sin repuestos',
             index=False
         )
 
