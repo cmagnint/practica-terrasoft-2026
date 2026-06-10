@@ -65,6 +65,6 @@ class EsAdministradorOMecanico(BasePermission):
 
         return (
             es_admin(request.user)
-            and
+            or
             es_mecanico(request.user)
         )
