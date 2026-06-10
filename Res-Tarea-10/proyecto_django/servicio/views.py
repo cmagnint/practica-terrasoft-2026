@@ -212,7 +212,7 @@ class MecanicoViewSet(viewsets.ModelViewSet):
             ),
             total_ordenes_anotado=Count('ordenes')
         ).filter(
-            ordenes_activas_count__gte=3
+            ordenes_activas_count__lt=3
         )
 
         serializer = MecanicoSerializer(
@@ -837,7 +837,7 @@ class OrdenViewSet(viewsets.ModelViewSet):
             if (
                 es_mecanico(user)
                 and
-                orden.mecanico.usuario == user
+                orden.mecanico.usuario != user
             ):
 
                 raise PermissionDenied(
@@ -939,7 +939,8 @@ class OrdenViewSet(viewsets.ModelViewSet):
             modelo='OrdenTrabajo',
             descripcion=f'Orden {orden.id} completada',
             objeto_id=orden.id,
-            datos_previos={
+            datos_previos=datos_previos,
+            datos_nuevos={
                 'estado': orden.estado,
                 'monto': str(orden.monto),
                 'fecha_entrega_real': (
@@ -948,7 +949,6 @@ class OrdenViewSet(viewsets.ModelViewSet):
                     else None
                 )
             },
-            datos_nuevos=datos_previos,
         )
 
         return Response({
