@@ -319,7 +319,9 @@ def main():
         total_filas += resultado['filas_leidas']
         total_importadas += resultado['importadas_ok']
 
-        todos_errores = resultado['errores']
+        todos_errores.extend(
+            resultado['errores']
+        )
 
     #genera archivo excel con todos los errores encontrados
     output_path = guardar_log_errores(
