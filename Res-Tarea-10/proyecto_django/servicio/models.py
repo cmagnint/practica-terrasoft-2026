@@ -249,7 +249,7 @@ class RepuestoOrden(models.Model):
         ]
 
     def save(self, *args, **kwargs):
-        self.costo_total = self.costo_unitario + self.cantidad
+        self.costo_total = self.costo_unitario * self.cantidad
         super().save(*args, **kwargs)
 
     def __str__(self):
