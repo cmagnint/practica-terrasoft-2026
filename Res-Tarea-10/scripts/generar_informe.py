@@ -188,7 +188,7 @@ def construir_resumen_mecanicos(detalle):
     #ordena por mayor rentabilidad
     resumen = resumen.sort_values(
         by='margen_pct',
-        ascending=True
+        ascending=False
     )
 
     return resumen
