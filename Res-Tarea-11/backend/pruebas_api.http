@@ -1,0 +1,255 @@
+###==========================================
+### HEALTH CHECK SIN TOKEN
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+
+GET http://127.0.0.1:8000/api/health/
+
+
+###==========================================
+### LOGIN ADMIN
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "admin_huerto",
+    "password": "admin123"
+}
+
+
+###==========================================
+### LOGIN SUPERVISOR
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "supervisor_norte",
+    "password": "supervisor123"
+}
+
+
+###==========================================
+### LOGIN TRABAJADOR
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+
+POST http://127.0.0.1:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "username": "trabajador_juan",
+    "password": "trabajador123"
+}
+
+
+###==========================================
+### AUTH ME ADMIN
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+### Agregar token admin
+
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer "Agregar token admin"
+
+
+###==========================================
+### AUTH ME SUPERVISOR
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token supervisor
+
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzEwMTQzLCJpYXQiOjE3ODE3MDgzNDMsImp0aSI6IjEyOTQwYThiODA5NzQyY2FiY2RjZjRhZjY5MGEwMzM0IiwidXNlcl9pZCI6IjIifQ.FE4N_hm-ASOGCHeedK9TCVwxb93PsA1bPoljpZ5xhP8
+
+
+###==========================================
+### AUTH ME TRABAJADOR
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token trabajador
+
+GET http://127.0.0.1:8000/api/auth/me/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzEwMjA5LCJpYXQiOjE3ODE3MDg0MDksImp0aSI6ImY0Mjk5MmVjNjVmNzRmOGNhZmRhOTFjM2RiNDFlMTU1IiwidXNlcl9pZCI6IjQifQ.-1QkHUO0LIL7nNlyvA5k0QQGN8W0oQrQZiG1ZfyiwSk
+
+
+###==========================================
+### ADMIN VE TODOS LOS TRABAJADORES
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token admin
+
+GET http://127.0.0.1:8000/api/trabajadores/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzExMTA4LCJpYXQiOjE3ODE3MDkzMDgsImp0aSI6IjJjOTJlOTZmNGY4NzQxZDViODYxMTcyMTcwYzc2MDQyIiwidXNlcl9pZCI6IjEifQ.hesU9PYacNry0NIfQfZP-fv2ReZ1REOfAlkB12uprAo
+
+
+###==========================================
+### SUPERVISOR VE SOLO SU CUADRILLA
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token supervisor
+
+GET http://127.0.0.1:8000/api/trabajadores/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzEwMTQzLCJpYXQiOjE3ODE3MDgzNDMsImp0aSI6IjEyOTQwYThiODA5NzQyY2FiY2RjZjRhZjY5MGEwMzM0IiwidXNlcl9pZCI6IjIifQ.FE4N_hm-ASOGCHeedK9TCVwxb93PsA1bPoljpZ5xhP8
+
+
+###==========================================
+### TRABAJADOR VE SOLO SU PERFIL
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token trabajajador
+
+GET http://127.0.0.1:8000/api/trabajadores/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzEwMjA5LCJpYXQiOjE3ODE3MDg0MDksImp0aSI6ImY0Mjk5MmVjNjVmNzRmOGNhZmRhOTFjM2RiNDFlMTU1IiwidXNlcl9pZCI6IjQifQ.-1QkHUO0LIL7nNlyvA5k0QQGN8W0oQrQZiG1ZfyiwSk
+
+
+###==========================================
+### SUPERVISOR VE SOLO SUS CUARTELES
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token trabajador
+
+GET http://127.0.0.1:8000/api/cuarteles/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzEwMTQzLCJpYXQiOjE3ODE3MDgzNDMsImp0aSI6IjEyOTQwYThiODA5NzQyY2FiY2RjZjRhZjY5MGEwMzM0IiwidXNlcl9pZCI6IjIifQ.FE4N_hm-ASOGCHeedK9TCVwxb93PsA1bPoljpZ5xhP8
+
+
+###==========================================
+### TRABAJADOR VE SOLO SUS REGISTROS
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token trabajadr
+
+GET http://127.0.0.1:8000/api/registros/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzEwMjA5LCJpYXQiOjE3ODE3MDg0MDksImp0aSI6ImY0Mjk5MmVjNjVmNzRmOGNhZmRhOTFjM2RiNDFlMTU1IiwidXNlcl9pZCI6IjQifQ.-1QkHUO0LIL7nNlyvA5k0QQGN8W0oQrQZiG1ZfyiwSk
+
+
+###==========================================
+### RESUMEN GENERAL DE REGISTROS
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token admin
+
+GET http://127.0.0.1:8000/api/registros/resumen/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE1MTI0LCJpYXQiOjE3ODE3MTMzMjQsImp0aSI6IjBkMjYwM2Q3NzE1NzRkM2U4YWY0OGVjNzA3NWZhMGI5IiwidXNlcl9pZCI6IjEifQ.azBnVW7l8I54ZWRVPVjKD4j_buJS7LmcreeC4GYHBYg
+
+
+###==========================================
+### RENDIMIENTO DE TRABAJADOR
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token admin
+
+GET http://127.0.0.1:8000/api/trabajadores/1/rendimiento/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE1MTI0LCJpYXQiOjE3ODE3MTMzMjQsImp0aSI6IjBkMjYwM2Q3NzE1NzRkM2U4YWY0OGVjNzA3NWZhMGI5IiwidXNlcl9pZCI6IjEifQ.azBnVW7l8I54ZWRVPVjKD4j_buJS7LmcreeC4GYHBYg
+
+
+###==========================================
+### PRODUCTIVIDAD DE CUARTEL
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token admin
+
+GET http://127.0.0.1:8000/api/cuarteles/1/productividad/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE1MTI0LCJpYXQiOjE3ODE3MTMzMjQsImp0aSI6IjBkMjYwM2Q3NzE1NzRkM2U4YWY0OGVjNzA3NWZhMGI5IiwidXNlcl9pZCI6IjEifQ.azBnVW7l8I54ZWRVPVjKD4j_buJS7LmcreeC4GYHBYg
+
+
+###==========================================
+### AUDITORIA COMO ADMIN
+### Obtenido: HTTP/1.1 200 OK
+###==========================================
+###Agregar token admin
+
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE2MTE4LCJpYXQiOjE3ODE3MTQzMTgsImp0aSI6ImU4ZTM3ZDA0ZWQ1YzRjNWI4ZGJlZjgxYzA4YjNkOTUzIiwidXNlcl9pZCI6IjEifQ.YqGzG0AZlT-VjE7o35dFrY--UJCxPyrAGKIxIM2Gjvo
+
+
+
+###==========================================
+### AUDITORIA COMO SUPERVISOR
+### Obtenido: HTTP/1.1 403 Forbidden
+###==========================================
+###Agregar token supervisor
+
+GET http://127.0.0.1:8000/api/audit-logs/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE2MTM4LCJpYXQiOjE3ODE3MTQzMzgsImp0aSI6ImExZjYzZGUxZjhkZjRiNTM4YWNhMTEwYjlhMGFiMmE0IiwidXNlcl9pZCI6IjIifQ.NgVxtXCHECAbvw2BP_anQR97hXceTOh55J42JuD8ppI
+
+
+###==========================================
+### TRABAJADOR INTENTA CREAR REGISTRO
+### Obtenido: HTTP/1.1 403 Forbidden
+###==========================================
+###Agregar token trabajador
+
+POST http://127.0.0.1:8000/api/registros/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE2MTg4LCJpYXQiOjE3ODE3MTQzODgsImp0aSI6ImYyOTUyZjM0YTljMjQ4YzJiMTEzOTA1OGRkYWFlMzQzIiwidXNlcl9pZCI6IjQifQ.n78--6pqT4ecWeSjamPX2rsu_FGmz1wwWqEdWCJMyQg
+Content-Type: application/json
+
+{}
+
+
+###==========================================
+### SUPERVISOR CREA REGISTRO VALIDO
+### Obtenido: HTTP/1.1 201 Created
+###==========================================
+###Agregar token supervisor
+
+POST http://127.0.0.1:8000/api/registros/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE2MTM4LCJpYXQiOjE3ODE3MTQzMzgsImp0aSI6ImExZjYzZGUxZjhkZjRiNTM4YWNhMTEwYjlhMGFiMmE0IiwidXNlcl9pZCI6IjIifQ.NgVxtXCHECAbvw2BP_anQR97hXceTOh55J42JuD8ppI
+Content-Type: application/json
+
+{
+    "trabajador": 1,
+    "cuartel": 2,
+    "fecha": "2026-06-20",
+    "kilos": 80,
+    "horas": 6,
+    "calidad": "Nacional",
+    "observaciones": "registro desde pruebas api"
+}
+
+
+###==========================================
+### REGISTRO INVALIDO POR REGLA CRUZADA
+### Obtenido: HTTP/1.1 400 Bad Request
+###==========================================
+###Agregar token supervisor
+
+POST http://127.0.0.1:8000/api/registros/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE2MTM4LCJpYXQiOjE3ODE3MTQzMzgsImp0aSI6ImExZjYzZGUxZjhkZjRiNTM4YWNhMTEwYjlhMGFiMmE0IiwidXNlcl9pZCI6IjIifQ.NgVxtXCHECAbvw2BP_anQR97hXceTOh55J42JuD8ppI
+Content-Type: application/json
+
+{
+    "trabajador": 1,
+    "cuartel": 3,
+    "fecha": "2026-06-21",
+    "kilos": 80,
+    "horas": 6,
+    "calidad": "Nacional",
+    "observaciones": "cuartel de otra cuadrilla"
+}
+
+
+###==========================================
+### REGISTRO DUPLICADO
+### Obtenido: HTTP/1.1 400 Bad Request
+###==========================================
+###Agregar token supervisor
+
+POST http://127.0.0.1:8000/api/registros/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgxNzE2MTM4LCJpYXQiOjE3ODE3MTQzMzgsImp0aSI6ImExZjYzZGUxZjhkZjRiNTM4YWNhMTEwYjlhMGFiMmE0IiwidXNlcl9pZCI6IjIifQ.NgVxtXCHECAbvw2BP_anQR97hXceTOh55J42JuD8ppI
+Content-Type: application/json
+
+{
+    "trabajador": 1,
+    "cuartel": 2,
+    "fecha": "2026-06-20",
+    "kilos": 90,
+    "horas": 7,
+    "calidad": "Nacional",
+    "observaciones": "registro duplicado"
+}
