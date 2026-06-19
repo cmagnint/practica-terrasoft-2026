@@ -1,16 +1,21 @@
-#Res-Tarea-11
+# Res-Tarea-11
 
-##Levantar Backend
+## Levantar Backend
 
-###1- Crear entorno virtual
+### 1. Crear entorno virtual
 
-```python -m venv venvsource venv/bin/activate```
+```bash
+python -m venv venv
+source venv/bin/activate
+```
 
-###2- Instalar dependencias
+### 2. Instalar dependencias
 
-```pip install -r requirements.txt```
+```bash
+pip install -r backend/requirements.txt
+```
 
-###3- Configurar archivo .env
+### 3. Configurar archivo .env
 
 Crear un archivo `.env` tomando como referencia `.env.example`.
 
@@ -27,65 +32,93 @@ DB_HOST=localhost
 DB_PORT=5432
 ```
 
-###4- Ejecutar migraciones
+### 4. Ejecutar migraciones
 
-```python manage.py migrate```
+```bash
+python manage.py migrate
+```
 
-###5- Cargar datos de prueba
+### 5. Cargar datos de prueba
 
-```python manage.py poblar_datos```
+```bash
+python manage.py poblar_datos
+```
 
-###6- Iniciar servidor
+### 6. Iniciar servidor
 
-```python manage.py runserver```
+```bash
+python manage.py runserver
+```
 
 Backend disponible en:
 
-```http://localhost:8000```
+```text
+http://localhost:8000
+```
 
-##LEVANTAR EL FRONTEND
 
-###1- Instalar dependencias
+## Levantar Frontend
 
-```npm install```
+### 1. Instalar dependencias
 
-###2- Crear archivo .env.local
+```bash
+npm install
+```
+
+### 2. Crear archivo .env.local
 
 ```env
 NEXT_PUBLIC_API_BASE=http://localhost:8000/api
 ```
 
-###3- Iniciar aplicación
+### 3. Iniciar aplicación
 
-```npm run dev```
+```bash
+npm run dev
+```
 
 Frontend disponible en:
 
-```http://localhost:3000```
-
-##Credenciales de prueba
-
-###Administrador
-
+```text
+http://localhost:3000
 ```
+
+
+## Credenciales de prueba
+
+### Administrador
+
+```text
 usuario: admin_huerto
 password: admin123
 ```
 
-###Supervisor
+### Supervisor
 
-```
+```text
 usuario: supervisor_norte
 password: supervisor123
 ```
 
-###Trabajador
+### Trabajador
 
-```
+```text
 usuario: trabajador_juan
 password: trabajador123
 ```
 
-##Ejecutar pruebas
 
-```python manage.py test```
+## Ejecutar pruebas
+
+```bash
+python manage.py test
+```
+
+## Criterio sobre campos decimales
+
+En esta API se mantiene el comportamiento por defecto de Django REST Framework para los campos `DecimalField`.
+Por eso campos como `kilos`, `horas` y `hectareas` pueden aparecer como texto en las respuestas JSON, por ejemplo:
+
+```json
+"kilos": "120.50"
+```

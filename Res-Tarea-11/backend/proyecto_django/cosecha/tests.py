@@ -1,4 +1,5 @@
 from datetime import date
+from urllib.parse import quote
 
 from django.contrib.auth.models import Group, User
 from rest_framework.test import APITestCase
@@ -155,12 +156,17 @@ class CosechaAPITestCase(APITestCase):
         self.assertEqual(response.status_code, 200)
 
     #verifica productividad de un cuartel
+    #verifica productividad de un cuartel
     def test_productividad_cuartel(self):
 
         self.client.force_authenticate(self.admin)
+
+        nombre_cuartel = quote(self.cuartel_a.nombre)
+
         response = self.client.get(
-            f'/api/cuarteles/{self.cuartel_a.id}/productividad/'
+            f'/api/cuarteles/{nombre_cuartel}/productividad/'
         )
+
         self.assertEqual(response.status_code, 200)
 
     #verifica rendimiento de un trabajador
@@ -168,8 +174,7 @@ class CosechaAPITestCase(APITestCase):
 
         self.client.force_authenticate(self.admin)
         response = self.client.get(
-            f'/api/trabajadores/{self.trabajador_a.id}/rendimiento/'
-        )
+            f'/api/trabajadores/{self.trabajador_a.rut}/rendimiento/'        )
         self.assertEqual(response.status_code, 200)
 
     #verifica que se cree un registro correctamente
@@ -225,3 +230,117 @@ class CosechaAPITestCase(APITestCase):
             AuditLog.objects.count(),
             1
         )
+
+    #verifica que un request sin token sea rechazado
+    def test_request_sin_token_da_401(self):
+
+        response = self.client.get('/api/trabajadores/')
+        self.assertEqual(response.status_code, 401)
+
+    #verifica que supervisor a no vea trabajadores de supervisor b
+    def test_supervisor_no_ve_trabajadores_de_otra_cuadrilla(self):
+
+        self.client.force_authenticate(self.user_supervisor_a)
+
+        response = self.client.get('/api/trabajadores/')
+
+        self.assertEqual(response.status_code, 200)
+
+        ids = [
+            trabajador['id']
+            for trabajador in response.data['results']
+        ]
+
+        self.assertIn(self.trabajador_a.id, ids)
+        self.assertNotIn(self.trabajador_b.id, ids)
+
+    #verifica que supervisor a no vea registros de supervisor b
+    def test_supervisor_no_ve_registros_de_otra_cuadrilla(self):
+
+        self.client.force_authenticate(self.user_supervisor_a)
+
+        response = self.client.get('/api/registros/')
+
+        self.assertEqual(response.status_code, 200)
+
+        ids = [
+            registro['id']
+            for registro in response.data['results']
+        ]
+
+        self.assertIn(self.registro_a.id, ids)
+        self.assertNotIn(self.registro_b.id, ids)
+
+    #verifica que trabajador no pueda crear registros
+    def test_trabajador_no_puede_crear_registro(self):
+
+        self.client.force_authenticate(self.user_trabajador)
+
+        response = self.client.post(
+            '/api/registros/',
+            {
+                'trabajador': self.trabajador_a.id,
+                'cuartel': self.cuartel_a.id,
+                'fecha': '2026-06-04',
+                'kilos': 50,
+                'horas': 5,
+                'calidad': 'Nacional',
+            },
+            format='json'
+        )
+
+        self.assertEqual(response.status_code, 403)
+
+    #verifica que registro duplicado sea rechazado
+    def test_registro_duplicado_da_400(self):
+
+        self.client.force_authenticate(self.admin)
+
+        response = self.client.post(
+            '/api/registros/',
+            {
+                'trabajador': self.trabajador_a.id,
+                'cuartel': self.cuartel_a.id,
+                'fecha': '2026-06-01',
+                'kilos': 110,
+                'horas': 8,
+                'calidad': 'Exportacion',
+            },
+            format='json'
+        )
+
+        self.assertIn(response.status_code, [400, 409])
+
+    #verifica que audit logs sea solo para admin
+    def test_audit_logs_solo_admin(self):
+
+        self.client.force_authenticate(self.user_supervisor_a)
+
+        response = self.client.get('/api/audit-logs/')
+
+        self.assertEqual(response.status_code, 403)
+
+    #verifica auditoria real al editar registro
+    def test_editar_registro_crea_auditoria_real(self):
+
+        self.client.force_authenticate(self.admin)
+
+        response = self.client.patch(
+            f'/api/registros/{self.registro_a.id}/',
+            {
+                'kilos': 130,
+            },
+            format='json'
+        )
+
+        self.assertEqual(response.status_code, 200)
+
+        auditoria = AuditLog.objects.filter(
+            accion='editar_registro',
+            modelo='RegistroCosecha',
+            objeto_id=str(self.registro_a.id)
+        ).first()
+
+        self.assertIsNotNone(auditoria)
+        self.assertIsNotNone(auditoria.datos_previos)
+        self.assertIsNotNone(auditoria.datos_nuevos)

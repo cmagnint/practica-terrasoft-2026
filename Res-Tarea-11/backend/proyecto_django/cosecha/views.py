@@ -17,9 +17,6 @@ from .serializers import (
 )
 from .audit import registrar_auditoria
 
-
-
-
 #viewset para supervisores
 class SupervisorViewSet(viewsets.ModelViewSet):
     serializer_class = SupervisorSerializer
@@ -36,33 +33,152 @@ class SupervisorViewSet(viewsets.ModelViewSet):
 
         raise PermissionDenied('No tienes permiso para ver supervisores')
 
+    #define permisos segun la accion solicitada
+    def get_permissions(self):
+
+        #solo admin puede crear editar o eliminar supervisores
+        if self.action in [
+            'create',
+            'update',
+            'partial_update',
+            'destroy'
+            'desactivar'
+        ]:
+            return [EsAdmin()]
+
+        return super().get_permissions()
 
 #viewset para trabajadores
 class TrabajadorViewSet(viewsets.ModelViewSet):
     serializer_class = TrabajadorSerializer
 
+    #usa el rut como identificador en la url
+    lookup_field = 'rut'
+
+    #define permisos segun la accion solicitada
+    def get_permissions(self):
+
+        #solo admin puede crear editar eliminar o desactivar trabajadores
+        if self.action in [
+            'create',
+            'update',
+            'partial_update',
+            'destroy',
+            'desactivar'
+        ]:
+            return [EsAdmin()]
+
+        return super().get_permissions()
+
     #filtra trabajadores segun el rol del usuario
     def get_queryset(self):
         user = self.request.user
 
-        if es_admin(user):
-            return Trabajador.objects.select_related('supervisor', 'usuario')
+        queryset = Trabajador.objects.select_related(
+            'supervisor',
+            'usuario'
+        )
 
-        if es_supervisor(user):
-            return Trabajador.objects.select_related('supervisor', 'usuario').filter(
+        if es_admin(user):
+            pass
+
+        elif es_supervisor(user):
+            queryset = queryset.filter(
                 supervisor__usuario=user
             )
 
-        if es_trabajador(user):
-            return Trabajador.objects.select_related('supervisor', 'usuario').filter(
+        elif es_trabajador(user):
+            queryset = queryset.filter(
                 usuario=user
             )
 
-        return Trabajador.objects.none()
+        else:
+            return Trabajador.objects.none()
+
+        #filtra por rut del supervisor
+        supervisor_rut = self.request.query_params.get('supervisor_rut')
+
+        if supervisor_rut:
+            queryset = queryset.filter(
+                supervisor__rut=supervisor_rut
+            )
+
+        #filtra por estado activo
+        activo = self.request.query_params.get('activo')
+
+        if activo is not None:
+            queryset = queryset.filter(
+                activo=activo.lower() == 'true'
+            )
+
+        #filtra por busqueda de nombre o rut
+        buscar = self.request.query_params.get('buscar')
+
+        if buscar:
+            queryset = queryset.filter(
+                nombre__icontains=buscar
+            ) | queryset.filter(
+                rut__icontains=buscar
+            )
+
+        return queryset
+
+    #registra auditoria al crear un trabajador
+    def perform_create(self, serializer):
+        trabajador = serializer.save()
+
+        registrar_auditoria(
+            usuario=self.request.user,
+            accion='crear_trabajador',
+            modelo='Trabajador',
+            objeto_id=trabajador.id,
+            descripcion='se creo un trabajador',
+            datos_previos=None,
+            datos_nuevos={
+                'nombre': trabajador.nombre,
+                'rut': trabajador.rut,
+                'activo': trabajador.activo,
+                'supervisor': trabajador.supervisor_id,
+            }
+        )
+
+    #desactiva un trabajador sin eliminarlo
+    @action(detail=True, methods=['post'])
+    def desactivar(self, request, pk=None):
+        trabajador = self.get_object()
+
+        datos_previos = {
+            'nombre': trabajador.nombre,
+            'rut': trabajador.rut,
+            'activo': trabajador.activo,
+            'supervisor': trabajador.supervisor_id,
+        }
+
+        trabajador.activo = False
+        trabajador.save()
+
+        registrar_auditoria(
+            usuario=request.user,
+            accion='desactivar_trabajador',
+            modelo='Trabajador',
+            objeto_id=trabajador.id,
+            descripcion='se desactivo un trabajador',
+            datos_previos=datos_previos,
+            datos_nuevos={
+                'nombre': trabajador.nombre,
+                'rut': trabajador.rut,
+                'activo': trabajador.activo,
+                'supervisor': trabajador.supervisor_id,
+            }
+        )
+
+        return Response({
+            'mensaje': 'Trabajador desactivado correctamente'
+        })
 
     #devuelve metricas de rendimiento del trabajador
     @action(detail=True, methods=['get'])
-    def rendimiento(self, request, pk=None):
+    def rendimiento(self, request, rut=None):
 
         trabajador = self.get_object()
 
@@ -110,6 +226,23 @@ class TrabajadorViewSet(viewsets.ModelViewSet):
 class CuartelViewSet(viewsets.ModelViewSet):
     serializer_class = CuartelSerializer
 
+    #usa el nombre como identificador en la url
+    lookup_field = 'nombre'
+
+        #define permisos segun la accion solicitada
+    def get_permissions(self):
+
+        #solo admin puede crear editar o eliminar cuarteles
+        if self.action in [
+            'create',
+            'update',
+            'partial_update',
+            'destroy'
+        ]:
+            return [EsAdmin()]
+
+        return super().get_permissions()
+
     #filtra cuarteles segun el rol del usuario
     def get_queryset(self):
         user = self.request.user
@@ -131,7 +264,7 @@ class CuartelViewSet(viewsets.ModelViewSet):
 
     #devuelve metricas de productividad del cuartel
     @action(detail=True, methods=['get'])
-    def productividad(self, request, pk=None):
+    def productividad(self, request, nombre=None):
 
         cuartel = self.get_object()
 
@@ -176,6 +309,24 @@ class RegistroCosechaViewSet(viewsets.ModelViewSet):
 
         return RegistroCosechaSerializer
 
+    #define permisos segun la accion solicitada
+    def get_permissions(self):
+
+        #solo admin puede eliminar
+        if self.action == 'destroy':
+            return [EsAdmin()]
+
+        #admin y supervisor pueden crear editar o ver resumen
+        if self.action in [
+            'create',
+            'update',
+            'partial_update',
+            'resumen'
+        ]:
+            return [EsAdminOSupervisor()]
+
+        return super().get_permissions()
+
     #filtra registros segun el rol del usuario
     def get_queryset(self):
         user = self.request.user
@@ -188,24 +339,76 @@ class RegistroCosechaViewSet(viewsets.ModelViewSet):
         )
 
         if es_admin(user):
-            return queryset
+            pass
 
-        if es_supervisor(user):
-            return queryset.filter(
+        elif es_supervisor(user):
+            queryset = queryset.filter(
                 trabajador__supervisor__usuario=user
             )
 
-        if es_trabajador(user):
-            return queryset.filter(
+        elif es_trabajador(user):
+            queryset = queryset.filter(
                 trabajador__usuario=user
             )
 
-        return RegistroCosecha.objects.none()
+        else:
+            return RegistroCosecha.objects.none()
+
+        #filtra por rut del trabajador
+        trabajador_rut = self.request.query_params.get('trabajador_rut')
+
+        if trabajador_rut:
+            queryset = queryset.filter(
+                trabajador__rut=trabajador_rut
+            )
+
+        #filtra por nombre del cuartel
+        cuartel = self.request.query_params.get('cuartel')
+
+        if cuartel:
+            queryset = queryset.filter(
+                cuartel__nombre__icontains=cuartel
+            )
+
+        #filtra por calidad de cosecha
+        calidad = self.request.query_params.get('calidad')
+
+        if calidad:
+            queryset = queryset.filter(
+                calidad=calidad
+            )
+
+        #filtra desde una fecha inicial
+        desde = self.request.query_params.get('desde')
+
+        if desde:
+            queryset = queryset.filter(
+                fecha__gte=desde
+            )
+
+        #filtra hasta una fecha final
+        hasta = self.request.query_params.get('hasta')
+
+        if hasta:
+            queryset = queryset.filter(
+                fecha__lte=hasta
+            )
+
+        return queryset
 
     #valida acceso a un registro individual
     def get_object(self):
 
-        obj = super().get_object()
+        lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
+        objeto_id = self.kwargs.get(lookup_url_kwarg)
+
+        obj = RegistroCosecha.objects.select_related(
+            'trabajador',
+            'trabajador__supervisor',
+            'cuartel',
+            'cuartel__supervisor'
+        ).get(pk=objeto_id)
+
         user = self.request.user
 
         #admin puede acceder a cualquier registro
@@ -255,8 +458,8 @@ class RegistroCosechaViewSet(viewsets.ModelViewSet):
             }
         )
 
-    #registramos la auditoria al editar un registro
-    def perfom_update(self, serializer):
+    #registra auditoria al editar un registro
+    def perform_update(self, serializer):
         registro_anterior = self.get_object()
 
         datos_previos = {
@@ -311,7 +514,7 @@ class RegistroCosechaViewSet(viewsets.ModelViewSet):
             datos_nuevos=None
         )
 
-            #devuelve resumen general de registros visibles
+    #devuelve resumen general de registros visibles
     @action(detail=False, methods=['get'])
     def resumen(self, request):
 
@@ -359,39 +562,64 @@ class RegistroCosechaViewSet(viewsets.ModelViewSet):
             'top_trabajadores': list(top_trabajadores),
         })
 
-        #define permisos segun la accion solicitada
-    def get_permissions(self):
-
-        #solo admin puede eliminar
-        if self.action == 'destroy':
-            return [EsAdmin()]
-
-        #admin y supervisor pueden crear o editar
-        if self.action in [
-            'create',
-            'update',
-            'partial_update'
-        ]:
-            return [EsAdminOSupervisor()]
-
-        return super().get_permissions()
-
 #viewset para consultar las auditorias
 class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
 
     serializer_class = AuditLogSerializer
 
-    #aca solo los administradores podran consultar auditorias
+        #filtra auditorias segun parametros de busqueda
     def get_queryset(self):
 
         if not es_admin(self.request.user):
             raise PermissionDenied(
-                'solo los administradores pueden acceder a las auditorias'
+                'Solo los administradores pueden acceder a auditorias'
             )
 
-        return AuditLog.objects.select_related(
+        queryset = AuditLog.objects.select_related(
             'usuario'
         ).order_by('-timestamp')
+
+        #filtra por nombre de usuario
+        usuario = self.request.query_params.get('usuario')
+
+        if usuario:
+            queryset = queryset.filter(
+                usuario__username__icontains=usuario
+            )
+
+        #filtra por accion realizada
+        accion = self.request.query_params.get('accion')
+
+        if accion:
+            queryset = queryset.filter(
+                accion__icontains=accion
+            )
+
+        #filtra por modelo afectado
+        modelo = self.request.query_params.get('modelo')
+
+        if modelo:
+            queryset = queryset.filter(
+                modelo__icontains=modelo
+            )
+
+        #filtra desde una fecha inicial
+        desde = self.request.query_params.get('desde')
+
+        if desde:
+            queryset = queryset.filter(
+                timestamp__date__gte=desde
+            )
+
+        #filtra hasta una fecha final
+        hasta = self.request.query_params.get('hasta')
+
+        if hasta:
+            queryset = queryset.filter(
+                timestamp__date__lte=hasta
+            )
+
+        return queryset
 
 #vista publica para comprobar que la api funciona
 class HealthView(APIView):

@@ -146,12 +146,12 @@ class RegistroCosechaCreateSerializer(serializers.ModelSerializer):
     #validaciones de negocio
     def validate(self, data):
 
-        trabajador = data['trabajador']
-        cuartel = data['cuartel']
+        trabajador = data.get('trabajador') or self.instance.trabajador
+        cuartel = data.get('cuartel') or self.instance.cuartel
 
-        kilos = data['kilos']
-        horas = data['horas']
-        calidad = data['calidad']
+        kilos = data.get('kilos') or self.instance.kilos
+        horas = data.get('horas') or self.instance.horas
+        calidad = data.get('calidad') or self.instance.calidad
 
         #valida kilos positivos
         if kilos < 0:
